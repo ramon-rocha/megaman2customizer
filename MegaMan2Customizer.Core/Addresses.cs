@@ -102,8 +102,8 @@
         public const int TimeStopperDelayBeforeDrain = 0x03D49D; // higher value is more time before drain starts, default 0F
                                                                  // search ROM value for 2038 is megaman's eyes and face
 
-        public const int FlashManColor1 = 0x0174B6;
-        public const int FlashManColor2 = 0x0174B7;
+        public const int FlashManColor1 = 0x0174B6; // bright white
+        public const int FlashManColor2 = 0x0174B7; // indigo
         public const int FlashManRunSpeedWhole = 0x02C982; // default 1
         public const int FlashManRunSpeedFraction = 0x02C97D; // default 6
         public const int FlashManTimeStopperDelay = 0x02C98B; // default BB
@@ -112,17 +112,23 @@
         public const int FlashManProjectileSpeed = 0x02CA81; // default 8
         public const int FlashManProjectileCount = 0x02CA09; // default 6
 
-        public const int AirManColor1 = 0x0074B6;
-        public const int AirManColor2 = 0x0074B7;
+        public const int AirManColor1 = 0x0074B7; // blue
+        public const int AirManColor2 = 0x0074B6; // bright yellow
         public const int AirManProjectileColor1 = 0x0074B3;
         public const int AirManProjectileColor2 = 0x0074B4;
         public const int AirManShotsBeforeJumping = 0x02C30C; // default 3
-        public const int AirManJump1Height = 0x02C4E0; // default 4
-        public const int AirManJump2Height = 0x02C4E1; // default 7
-        public const int AirManJump1Distance = 0x02C4E6; // default 1
-        public const int AirManJump2Distance = 0x02C4E7; // default 1
-        public const int AirManTornadoVertSpeed0 = 0x02C3B1; // number of entries = 30
-        public const int AirManTornadoHorzSpeed0 = 0x02C3ED; // number of entries = 30
+        public const int AirManJump1HeightWhole = 0x02C4E0; // default 4
+        public const int AirManJump1HeightFraction = 0x02C4DD; // default 0xE6
+        public const int AirManJump1DistanceWhole = 0x02C4E6; // default 1
+        public const int AirManJump1DistanceFraction = 0x02C4E3; // default 0x39
+        public const int AirManJump2HeightWhole = 0x02C4E1; // default 7
+        public const int AirManJump2HeightFraction = 0x02C4DE; // default 76
+        public const int AirManJump2DistanceWhole = 0x02C4E7; // default 1
+        public const int AirManJump2DistanceFraction = 0x02C4E4; // default 0x9A
+        public const int AirManTornadoVertSpeedWhole0 = 0x02C3B1; // number of entries = 30
+        public const int AirManTornadoVertSpeedFraction0 = 0x02C393; // number of entries = 30
+        public const int AirManTornadoHorzSpeedWhole0 = 0x02C3ED; // number of entries = 30
+        public const int AirManTornadoHorzSpeedFraction0 = 0x02C3CF; // number of entries = 30
         public const int AirManTornadoFlightTime0 = 0x02C40B; // number of entries = 30
 
         public const int QuickManColor1 = 0x0134C8;
