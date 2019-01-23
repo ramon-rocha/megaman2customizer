@@ -1,0 +1,414 @@
+﻿@using MegaMan2Customizer.Core
+@using MegaMan2Customizer.WebApp.Models
+
+@model RomFormModel
+
+@{
+    MegaManRom rom = this.Model.Rom;
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Mega Man Options</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="startingHealth">Starting Health</label>
+        <input class="form-control" type="number" min="0" max="255" name="startingHealth" id="startingHealth" value="@rom.MegaManOptions.StartingHealth" placeholder="Default: 28" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="maxHealth">Max Health</label>
+        <input class="form-control" type="number" min="0" max="255" name="maxHealth" id="maxHealth" value="@rom.MegaManOptions.MaxHealth" placeholder="Default: 28" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="speed">Running Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="speed" id="speed" value="@rom.MegaManOptions.Speed" placeholder="Default: 1" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="jumpHeight">Jump Height</label>
+        <input class="form-control" type="number" min="0" max="255" name="jumpHeight" id="jumpHeight" value="@rom.MegaManOptions.JumpHeight" placeholder="Default: 4" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Weapon Options</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Mega Buster</h4>
+    </div>
+</div>
+
+<div class="row">
+    <partial name="_ColorFormGroup" model="@("Primary Color", "busterPrimaryColor", rom.MegaManOptions.BusterPrimaryColor.Name)" />
+    <partial name="_ColorFormGroup" model="@("Secondary Color", "busterSecondaryColor", rom.MegaManOptions.BusterSecondaryColor.Name)" />
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="busterSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="busterSpeed" id="busterSpeed" value="@rom.MegaManOptions.BusterSpeed" placeholder="Default: 4" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="busterShots">Max Projectiles on Screen</label>
+        <input class="form-control" type="number" min="0" max="255" name="busterShots" id="busterShots" value="@rom.MegaManOptions.MaxBusterShots" placeholder="Default: 3" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Atomic Fire</h4>
+    </div>
+</div>
+<div class="row">
+    <partial name="_ColorFormGroup" model="@("Primary Color", "atomicFirePrimaryColor", rom.WeaponOptions.AtomicFire.PrimaryColor.Name)" />
+    <partial name="_ColorFormGroup" model="@("Secondary Color", "atomicFireSecondaryColor", rom.WeaponOptions.AtomicFire.SecondaryColor.Name)" />
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireLevel1Ammo">Level 1 Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel1Ammo" id="atomicFireLevel1Ammo" value="@rom.WeaponOptions.AtomicFire.Level1AmmoUsed" placeholder="Default: 1" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireLevel2ChargeTime">Level 2 Charge Time</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel2ChargeTime" id="atomicFireLevel2ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level2ChargeTime" placeholder="Default: 125" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireLevel2Ammo">Level 2 Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel2Ammo" id="atomicFireLevel2Ammo" value="@rom.WeaponOptions.AtomicFire.Level2AmmoUsed" placeholder="Default: 6" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireLevel3ChargeTime">Level 3 Charge Time</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel3ChargeTime" id="atomicFireLevel3ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level3ChargeTime" placeholder="Default: 125" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireLevel3Ammo">Level 3 Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel3Ammo" id="atomicFireLevel3Ammo" value="@rom.WeaponOptions.AtomicFire.Level3AmmoUsed" placeholder="Default: 10" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="atomicFireSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="atomicFireSpeed" id="atomicFireSpeed" value="@rom.WeaponOptions.AtomicFire.ProjectileSpeed" placeholder="Default: 4" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Air Shooter</h4>
+    </div>
+</div>
+<div class="row">
+    <partial name="_ColorFormGroup" model="@("Primary Color", "airShooterPrimaryColor", rom.WeaponOptions.AirShooter.PrimaryColor.Name)" />
+    <partial name="_ColorFormGroup" model="@("Secondary Color", "airShooterSecondaryColor", rom.WeaponOptions.AirShooter.SecondaryColor.Name)" />
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airShooterAmmo">Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="airShooterAmmo" id="airShooterAmmo" value="@rom.WeaponOptions.AirShooter.AmmoUsed" placeholder="Default: 2" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airShooterShots">Number of Projectiles</label>
+        <input class="form-control" type="number" min="0" max="255" name="airShooterShots" id="airShooterShots" value="@rom.WeaponOptions.AirShooter.ProjectileCount" placeholder="Default: 4" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Leaf Shield</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="leafShieldPrimaryColor">Primary Color</label>
+        <select class="form-control" name="leafShieldPrimaryColor" id="leafShieldPrimaryColor">
+            <option>Bright White</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="leafShieldSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="leafShieldSecondaryColor" id="leafShieldSecondaryColor">
+            <option>Bright Green</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="leafShieldAmmo">Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="leafShieldAmmo" id="leafShieldAmmo" value="3" placeholder="Default: 3" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="leafShieldSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="leafShieldSpeed" id="leafShieldSpeed" value="4" placeholder="Default: 4" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Bubble Lead</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadPrimaryColor">Primary Color</label>
+        <select class="form-control" name="bubbleLeadPrimaryColor" id="bubbleLeadPrimaryColor">
+            <option>Bright White</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="bubbleLeadSecondaryColor" id="bubbleLeadSecondaryColor">
+            <option>White</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadAmmo">Shots per Ammo Tick</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadAmmo" id="bubbleLeadAmmo" value="2" placeholder="Default: 2" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadShots">Max Projectiles on Screen</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadShots" id="bubbleLeadShots" value="3" placeholder="Default: 3" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadHorizontalSpeed">Projectile Horizontal Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadHorizontalSpeed" id="bubbleLeadHorizontalSpeed" value="1" placeholder="Default: 1" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadVerticalSpeed">Projectile Vertical Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadVerticalSpeed" id="bubbleLeadVerticalSpeed" value="2" placeholder="Default: 2" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadSurfaceSpeed">Projectile Surface Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadSurfaceSpeed" id="bubbleLeadSurfaceSpeed" value="2" placeholder="Default: 2" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="bubbleLeadFallingSpeed">Projectile Falling Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="bubbleLeadFallingSpeed" id="bubbleLeadFallingSpeed" value="254" placeholder="Default: 254" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Quick Boomerang</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangPrimaryColor">Primary Color</label>
+        <select class="form-control" name="quickBoomerangPrimaryColor" id="quickBoomerangPrimaryColor">
+            <option>Bright Pink</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="quickBoomerangSecondaryColor" id="quickBoomerangSecondaryColor">
+            <option>Pink</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangAmmo">Shots per Ammo Tick</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangAmmo" id="quickBoomerangAmmo" value="8" placeholder="Default: 8" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangShots">Max Projectiles on Screen</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangShots" id="quickBoomerangShots" value="5" placeholder="Default: 5" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangDelay">Auto-fire Delay</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangDelay" id="quickBoomerangDelay" value="11" placeholder="Default: 11" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangDistance">Travel Distance</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangDistance" id="quickBoomerangDistance" value="82" placeholder="Default: 82" />
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangLaunchAngle">Launch Angle</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangLaunchAngle" id="quickBoomerangLaunchAngle" value="75" placeholder="Default: 75" />
+    </div>
+
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="quickBoomerangReturnAngle">Return Angle</label>
+        <input class="form-control" type="number" min="0" max="255" name="quickBoomerangReturnAngle" id="quickBoomerangReturnAngle" value="75" placeholder="Default: 75" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Time Stopper</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="timeStopperPrimaryColor">Primary Color</label>
+        <select class="form-control" name="timeStopperPrimaryColor" id="timeStopperPrimaryColor">
+            <option>Bright Pink</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="timeStopperSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="timeStopperSecondaryColor" id="timeStopperSecondaryColor">
+            <option>Pink</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="timeStopperDrainRateDelay">Drain Rate Delay</label>
+        <input class="form-control" type="number" min="0" max="255" name="timeStopperDrainRateDelay" id="timeStopperDrainRateDelay" value="15" placeholder="Default: 15" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="timeStopperDelayBeforeDrain">Delay Before Drain</label>
+        <input class="form-control" type="number" min="0" max="255" name="timeStopperDelayBeforeDrain" id="timeStopperDelayBeforeDrain" value="15" placeholder="Default: 15" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Metal Blade</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="metalBladePrimaryColor">Primary Color</label>
+        <select class="form-control" name="metalBladePrimaryColor" id="metalBladePrimaryColor">
+            <option>Yellow</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="metalBladeSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="metalBladeSecondaryColor" id="metalBladeSecondaryColor">
+            <option>Dark Yellow</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="metalBladeAmmo">Shots per Ammo Tick</label>
+        <input class="form-control" type="number" min="0" max="255" name="metalBladeAmmo" id="metalBladeAmmo" value="4" placeholder="Default: 4" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="metalBladeShots">Max Projectiles on Screen</label>
+        <input class="form-control" type="number" min="0" max="255" name="metalBladeShots" id="metalBladeShots" value="4" placeholder="Default: 4" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="metalBladeSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="metalBladeSpeed" id="metalBladeSpeed" value="4" placeholder="Default: 4" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h4>Crash Bomber</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="crashBomberPrimaryColor">Primary Color</label>
+        <select class="form-control" name="crashBomberPrimaryColor" id="crashBomberPrimaryColor">
+            <option>Bright White</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="crashBomberSecondaryColor">Secondary Color</label>
+        <select class="form-control" name="crashBomberSecondaryColor" id="crashBomberSecondaryColor">
+            <option>Red</option>
+        </select>
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="crashBomberAmmo">Ammo Used</label>
+        <input class="form-control" type="number" min="0" max="255" name="crashBomberAmmo" id="crashBomberAmmo" value="4" placeholder="Default: 4" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="crashBomberSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="crashBomberSpeed" id="crashBomberSpeed" value="4" placeholder="Default: 4" />
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Robot Master Options</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Flash Man</h3>
+    </div>
+</div>
+<div class="row">
+    <partial name="_ColorFormGroup" model="@("Primary Color", "flashManPrimaryColor", rom.RobotMasterOptions.FlashMan.PrimaryColor.Name)" />
+    <partial name="_ColorFormGroup" model="@("Secondary Color", "flashManSecondaryColor", rom.RobotMasterOptions.FlashMan.SecondaryColor.Name)" />
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManSpeed">Running Speed</label>
+        <input class="form-control" type="number" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="@rom.RobotMasterOptions.FlashMan.RunSpeed" placeholder="Default: 1.0234375" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManTimeStopperDelay">Time Stopper Delay</label>
+        <input class="form-control" type="number" min="0" max="255" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="@rom.RobotMasterOptions.FlashMan.TimeStopperDelay" placeholder="Default: 187" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManJumpDistance">Jump Distance</label>
+        <input class="form-control" type="number" min="0" max="255" name="flashManJumpDistance" id="flashManJumpDistance" value="@rom.RobotMasterOptions.FlashMan.JumpDistance" placeholder="Default: 0" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManJumpHeight">Jump Height</label>
+        <input class="form-control" type="number" min="0" max="255" name="flashManJumpHeight" id="flashManJumpHeight" value="@rom.RobotMasterOptions.FlashMan.JumpHeight" placeholder="Default: 4" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManProjectileCount">Number of Projectiles</label>
+        <input class="form-control" type="number" min="0" max="255" name="flashManProjectileCount" id="flashManProjectileCount" value="@rom.RobotMasterOptions.FlashMan.ProjectileCount" placeholder="Default: 6" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="flashManProjectileSpeed">Projectile Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="@rom.RobotMasterOptions.FlashMan.ProjectileSpeed" placeholder="Default: 8" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <h3>Air Man</h3>
+    </div>
+</div>
+<div class="row">
+    <partial name="_ColorFormGroup" model="@("Primary Color", "airManPrimaryColor", rom.RobotMasterOptions.AirMan.PrimaryColor.Name)" />
+    <partial name="_ColorFormGroup" model="@("Secondary Color", "airManSecondaryColor", rom.RobotMasterOptions.AirMan.SecondaryColor.Name)" />
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManShotsBeforeJumping">Shots Before Jumping</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="@rom.RobotMasterOptions.AirMan.ShotsBeforeJumping" placeholder="Default: 3" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManJump1Distance">First Jump Distance</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManJump1Distance" id="airManJump1Distance" value="@rom.RobotMasterOptions.AirMan.Jump1Distance" placeholder="Default: 1" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManJump1Height">First Jump Height</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManJump1Height" id="airManJump1Height" value="@rom.RobotMasterOptions.AirMan.Jump1Height" placeholder="Default: 4" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManJump2Distance">Second Jump Distance</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManJump2Distance" id="airManJump2Distance" value="@rom.RobotMasterOptions.AirMan.Jump2Distance" placeholder="Default: 1" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManJump2Height">Second Jump Height</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManJump2Height" id="airManJump2Height" value="@rom.RobotMasterOptions.AirMan.Jump2Height" placeholder="Default: 7" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManTornadoVertSpeed0">Tornado Vertical Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManTornadoVertSpeed0" id="airManTornadoVertSpeed0" value="@rom.RobotMasterOptions.AirMan.GetTornadoVerticalSpeed(0)" placeholder="Default: 3" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManTornadoHorzSpeed0">Tornado Horizontal Speed</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManTornadoHorzSpeed0" id="airManTornadoHorzSpeed0" value="@rom.RobotMasterOptions.AirMan.GetTornadoHorizontalSpeed(0)" placeholder="Default: 3" />
+    </div>
+    <div class="col-md-3 form-group">
+        <label class="control-label" for="airManTornadoFlightTime0">Tornado Flight Time</label>
+        <input class="form-control" type="number" min="0" max="255" name="airManTornadoFlightTime0" id="airManTornadoFlightTime0" value="@rom.RobotMasterOptions.AirMan.GetTornadoFlightTime(0)" placeholder="Default: 3" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button type="submit" class="btn btn-primary" name="romButton" value="download">Download</button>
+    </div>
+</div>

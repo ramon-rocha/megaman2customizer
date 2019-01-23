@@ -1,0 +1,28 @@
+﻿@using MegaMan2Customizer.Core
+
+@model (string labelText, string attributeName, string selectedColorName)
+
+@{
+    IReadOnlyList<string> colorNames =
+        Color.GetAllColors()
+        .Select(c => c.Name)
+        .ToList();
+}
+
+<div class="col-md-3 form-group">
+    <label class="control-label" for="@this.Model.attributeName">@this.Model.labelText</label>
+    <select class="form-control" name="@this.Model.attributeName" id="@this.Model.attributeName">
+        @foreach (string name in colorNames)
+        {
+            if (name == this.Model.selectedColorName)
+            {
+                <option selected="selected">@name</option>
+            }
+            else
+            {
+                <option>@name</option>
+            }
+        }
+
+    </select>
+</div>
