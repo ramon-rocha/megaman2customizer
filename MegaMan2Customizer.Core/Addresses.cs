@@ -114,8 +114,8 @@
 
         public const int AirManColor1 = 0x0074B7; // blue
         public const int AirManColor2 = 0x0074B6; // bright yellow
-        public const int AirManProjectileColor1 = 0x0074B3;
-        public const int AirManProjectileColor2 = 0x0074B4;
+        public const int AirManProjectileColor1 = 0x0074B4; // blue
+        public const int AirManProjectileColor2 = 0x0074B3; // white
         public const int AirManShotsBeforeJumping = 0x02C30C; // default 3
         public const int AirManJump1HeightWhole = 0x02C4E0; // default 4
         public const int AirManJump1HeightFraction = 0x02C4DD; // default 0xE6

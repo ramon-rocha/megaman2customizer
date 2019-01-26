@@ -3,22 +3,16 @@
 @model RomFormModel
 
 <form method="post" action="rom" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-xs-12">
-            <h2>ROM Info</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 form-group">
-            <label class="btn btn-primary btn-browse">
-                Select ROM File... <input type="file" class="hidden" name="romFile" onchange="romFileOnChange()">
-            </label>
-            <input readonly type="text" name="romFileName" class="hidden" value="@this.Model?.RomFileName" />
-            <span id="displayed-name">@this.Model?.RomFileName</span>
-        </div>
+    <h2>ROM Info</h2>
+    <div class="form-group">
+        <label class="btn btn-primary btn-browse">
+            Select ROM File... <input type="file" hidden name="romFile" onchange="romFileOnChange()">
+        </label>
+        <input hidden type="text" name="romFileName" value="@this.Model?.RomFileName" />
+        <span id="displayed-name">@this.Model?.RomFileName</span>
     </div>
 
-    <hr />
+    <hr>
 
     <div id="rom-data-container">
         @if (this.Model?.Rom != null)
@@ -26,6 +20,7 @@
             <partial name="_RomData" />
         }
     </div>
+
 </form>
 
 @section scripts {

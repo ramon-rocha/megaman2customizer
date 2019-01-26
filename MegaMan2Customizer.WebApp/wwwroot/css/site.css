@@ -1,24 +1,13 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
+﻿body {
     padding-bottom: 20px;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
+.container {
+    margin-top: 10px;
 }
 
 .logo {
-    font-size: large;
+    font-size: 17px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background: linear-gradient(#ff0000, #ffff00);
     -webkit-background-clip: text;
@@ -43,9 +32,8 @@ body {
     border: 1px solid #ccc;
     display: block;
     vertical-align: middle;
-    min-height: 34px;
-
-    margin-top: 8px;
+    min-height: 38px;
+    margin-bottom: .5rem;
     width: 100%;
 }
 
@@ -61,8 +49,15 @@ body {
         margin-left: -4px;
         border-radius: 0 4px 4px 0;
         min-width: 200px;
-
         width: unset;
         margin-top: unset;
     }
+}
+
+.card-header, .card-body {
+    padding: .625rem;
+}
+
+button[type=submit] {
+    margin-top: 15px;
 }

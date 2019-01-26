@@ -59,9 +59,15 @@ namespace MegaMan2Customizer.WebApp.Controllers
             string atomicFirePrimaryColor, string atomicFireSecondaryColor, byte atomicFireLevel1Ammo, byte atomicFireLevel2ChargeTime, byte atomicFireLevel2Ammo, byte atomicFireLevel3ChargeTime, byte atomicFireLevel3Ammo, byte atomicFireSpeed,
             string airShooterPrimaryColor, string airShooterSecondaryColor, byte airShooterAmmo, byte airShooterShots,
             string flashManPrimaryColor, string flashManSecondaryColor, byte flashManSpeed, byte flashManTimeStopperDelay, byte flashManJumpDistance, byte flashManJumpHeight, byte flashManProjectileCount, byte flashManProjectileSpeed,
-            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, byte airManJump1Distance, byte airManJump2Distance, byte airManJump1Height, byte airManJump2Height, byte[] airManTornadoVertSpeed, byte[] airManTornadoHorzSpeed, byte[] airManTornadoFlightTime
+            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, byte airManJump1Distance, byte airManJump2Distance, byte airManJump1Height, byte airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, byte[] airManTornadoFlightTime
             )
         {
+            if (airManTornadoVertSpeed.Length != airManTornadoHorzSpeed.Length
+                || airManTornadoVertSpeed.Length != airManTornadoFlightTime.Length)
+            {
+                return BadRequest($"Mismatch in number of elements for {nameof(airManTornadoVertSpeed)}, {nameof(airManTornadoHorzSpeed)}, and {nameof(airManTornadoFlightTime)}");
+            }
+
             string path = Path.GetTempFileName();
             try
             {
@@ -115,11 +121,17 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 airMan.Jump1Height = airManJump1Height;
                 airMan.Jump2Distance = airManJump2Distance;
                 airMan.Jump2Height = airManJump2Height;
-                for (int i = 0; i < AirManOptions.MaxNumberOfTornadoes; i++)
+                int tornadoCount = airManTornadoVertSpeed.Length;
+                for (int i = 0; i < tornadoCount; i++)
                 {
-                    airMan.SetTornadoVerticalSpeed(i, airManTornadoVertSpeed[i]);
-                    airMan.SetTornadoHorizontalSpeed(i, airManTornadoHorzSpeed[i]);
-                    airMan.SetTornadoFlightTime(i, airManTornadoFlightTime[i]);
+                    int patternIndex = i % 6;
+                    TornadoPattern pattern = airMan.Patterns[patternIndex];
+                    int tornadoIndex = i - patternIndex * 6;
+                    Tornado tornado = pattern.Tornados[tornadoIndex];
+
+                    tornado.VerticalVelocity = airManTornadoVertSpeed[i];
+                    tornado.HorizontalVelocity = airManTornadoHorzSpeed[i];
+                    tornado.FlightTime = airManTornadoFlightTime[i];
                 }
 
                 return File(rom.Bytes.ToArray(), "application/octet-stream", $"Custom {romFileName}");
