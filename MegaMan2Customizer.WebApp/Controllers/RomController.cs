@@ -59,7 +59,8 @@ namespace MegaMan2Customizer.WebApp.Controllers
             string atomicFirePrimaryColor, string atomicFireSecondaryColor, byte atomicFireLevel1Ammo, byte atomicFireLevel2ChargeTime, byte atomicFireLevel2Ammo, byte atomicFireLevel3ChargeTime, byte atomicFireLevel3Ammo, byte atomicFireSpeed,
             string airShooterPrimaryColor, string airShooterSecondaryColor, byte airShooterAmmo, byte airShooterShots,
             string flashManPrimaryColor, string flashManSecondaryColor, byte flashManSpeed, byte flashManTimeStopperDelay, byte flashManJumpDistance, byte flashManJumpHeight, byte flashManProjectileCount, byte flashManProjectileSpeed,
-            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, byte airManJump1Distance, byte airManJump2Distance, byte airManJump1Height, byte airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, byte[] airManTornadoFlightTime
+            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, byte airManJump1Distance, byte airManJump2Distance, byte airManJump1Height, byte airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, int[] airManTornadoFlightTime,
+            string quickManPrimaryColor, string quickManSecondaryColor, byte quickManRunSpeed, byte quickManRunDuration, byte quickManProjectileCount, byte quickManProjectileLaunchSpeed, byte quickManProjectileReturnDelay, byte quickManProjectileReturnSpeed
             )
         {
             if (airManTornadoVertSpeed.Length != airManTornadoHorzSpeed.Length
@@ -124,15 +125,25 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 int tornadoCount = airManTornadoVertSpeed.Length;
                 for (int i = 0; i < tornadoCount; i++)
                 {
-                    int patternIndex = i % 6;
+                    int patternIndex = i / 6;
                     TornadoPattern pattern = airMan.Patterns[patternIndex];
-                    int tornadoIndex = i - patternIndex * 6;
+                    int tornadoIndex = i % 6;
                     Tornado tornado = pattern.Tornados[tornadoIndex];
 
                     tornado.VerticalVelocity = airManTornadoVertSpeed[i];
                     tornado.HorizontalVelocity = airManTornadoHorzSpeed[i];
-                    tornado.FlightTime = airManTornadoFlightTime[i];
+                    tornado.FlightTime = (byte)airManTornadoFlightTime[i];
                 }
+
+                QuickManOptions quickMan = rom.RobotMasterOptions.QuickMan;
+                quickMan.PrimaryColor = Color.Parse(quickManPrimaryColor);
+                quickMan.SecondaryColor = Color.Parse(quickManSecondaryColor);
+                quickMan.RunSpeed = quickManRunSpeed;
+                quickMan.RunDuration = quickManRunDuration;
+                quickMan.ProjectileCount = quickManProjectileCount;
+                quickMan.ProjectileLaunchSpeed = quickManProjectileLaunchSpeed;
+                quickMan.ProjectileReturnDelay = quickManProjectileReturnDelay;
+                quickMan.ProjectileReturnSpeed = quickManProjectileReturnSpeed;
 
                 return File(rom.Bytes.ToArray(), "application/octet-stream", $"Custom {romFileName}");
             }

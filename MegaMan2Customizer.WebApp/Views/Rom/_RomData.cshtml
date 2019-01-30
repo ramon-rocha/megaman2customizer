@@ -15,19 +15,19 @@
         <div class="row">
             <div class="col-md-3 form-group">
                 <label for="startingHealth">Starting Health</label>
-                <input class="form-control" type="number" min="0" max="255" name="startingHealth" id="startingHealth" value="@rom.MegaManOptions.StartingHealth" placeholder="Default: 28" />
+                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="startingHealth" id="startingHealth" value="@rom.MegaManOptions.StartingHealth" placeholder="Default: 28" />
             </div>
             <div class="col-md-3 form-group">
                 <label for="maxHealth">Max Health</label>
-                <input class="form-control" type="number" min="0" max="255" name="maxHealth" id="maxHealth" value="@rom.MegaManOptions.MaxHealth" placeholder="Default: 28" />
+                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="maxHealth" id="maxHealth" value="@rom.MegaManOptions.MaxHealth" placeholder="Default: 28" />
             </div>
             <div class="col-md-3 form-group">
                 <label for="speed">Running Speed</label>
-                <input class="form-control" type="number" min="0" max="255" name="speed" id="speed" value="@rom.MegaManOptions.Speed" placeholder="Default: 1" />
+                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="speed" id="speed" value="@rom.MegaManOptions.Speed" placeholder="Default: 1" />
             </div>
             <div class="col-md-3 form-group">
                 <label for="jumpHeight">Jump Height</label>
-                <input class="form-control" type="number" min="0" max="255" name="jumpHeight" id="jumpHeight" value="@rom.MegaManOptions.JumpHeight" placeholder="Default: 4" />
+                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="jumpHeight" id="jumpHeight" value="@rom.MegaManOptions.JumpHeight" placeholder="Default: 4" />
             </div>
         </div>
 
@@ -47,11 +47,11 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "busterSecondaryColor", rom.MegaManOptions.BusterSecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="busterSpeed">Projectile Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="busterSpeed" id="busterSpeed" value="@rom.MegaManOptions.BusterSpeed" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="busterSpeed" id="busterSpeed" value="@rom.MegaManOptions.BusterSpeed" placeholder="Default: 4" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="busterShots">Max Projectiles on Screen</label>
-                                <input class="form-control" type="number" min="0" max="255" name="busterShots" id="busterShots" value="@rom.MegaManOptions.MaxBusterShots" placeholder="Default: 3" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="busterShots" id="busterShots" value="@rom.MegaManOptions.MaxBusterShots" placeholder="Default: 3" />
                             </div>
                         </div>
                     </div>
@@ -67,29 +67,29 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "atomicFireSecondaryColor", rom.WeaponOptions.AtomicFire.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireLevel1Ammo">Level 1 Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel1Ammo" id="atomicFireLevel1Ammo" value="@rom.WeaponOptions.AtomicFire.Level1AmmoUsed" placeholder="Default: 1" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireLevel1Ammo" id="atomicFireLevel1Ammo" value="@rom.WeaponOptions.AtomicFire.Level1AmmoUsed" placeholder="Default: 1" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireLevel2ChargeTime">Level 2 Charge Time</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel2ChargeTime" id="atomicFireLevel2ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level2ChargeTime" placeholder="Default: 125" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireLevel2ChargeTime" id="atomicFireLevel2ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level2ChargeTime" placeholder="Default: 125" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireLevel2Ammo">Level 2 Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel2Ammo" id="atomicFireLevel2Ammo" value="@rom.WeaponOptions.AtomicFire.Level2AmmoUsed" placeholder="Default: 6" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireLevel2Ammo" id="atomicFireLevel2Ammo" value="@rom.WeaponOptions.AtomicFire.Level2AmmoUsed" placeholder="Default: 6" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireLevel3ChargeTime">Level 3 Charge Time</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel3ChargeTime" id="atomicFireLevel3ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level3ChargeTime" placeholder="Default: 125" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireLevel3ChargeTime" id="atomicFireLevel3ChargeTime" value="@rom.WeaponOptions.AtomicFire.Level3ChargeTime" placeholder="Default: 125" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireLevel3Ammo">Level 3 Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireLevel3Ammo" id="atomicFireLevel3Ammo" value="@rom.WeaponOptions.AtomicFire.Level3AmmoUsed" placeholder="Default: 10" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireLevel3Ammo" id="atomicFireLevel3Ammo" value="@rom.WeaponOptions.AtomicFire.Level3AmmoUsed" placeholder="Default: 10" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="atomicFireSpeed">Projectile Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="atomicFireSpeed" id="atomicFireSpeed" value="@rom.WeaponOptions.AtomicFire.ProjectileSpeed" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="atomicFireSpeed" id="atomicFireSpeed" value="@rom.WeaponOptions.AtomicFire.ProjectileSpeed" placeholder="Default: 4" />
                             </div>
                         </div>
                     </div>
@@ -105,11 +105,11 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "airShooterSecondaryColor", rom.WeaponOptions.AirShooter.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="airShooterAmmo">Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="airShooterAmmo" id="airShooterAmmo" value="@rom.WeaponOptions.AirShooter.AmmoUsed" placeholder="Default: 2" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airShooterAmmo" id="airShooterAmmo" value="@rom.WeaponOptions.AirShooter.AmmoUsed" placeholder="Default: 2" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="airShooterShots">Number of Projectiles</label>
-                                <input class="form-control" type="number" min="0" max="255" name="airShooterShots" id="airShooterShots" value="@rom.WeaponOptions.AirShooter.ProjectileCount" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airShooterShots" id="airShooterShots" value="@rom.WeaponOptions.AirShooter.ProjectileCount" placeholder="Default: 4" />
                             </div>
                         </div>
                     </div>
@@ -125,15 +125,16 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "leafShieldSecondaryColor", rom.WeaponOptions.LeafShield.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="leafShieldAmmo">Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="leafShieldAmmo" id="leafShieldAmmo" value="3" placeholder="Default: 3" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="leafShieldAmmo" id="leafShieldAmmo" value="3" placeholder="Default: 3" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="leafShieldSpeed">Projectile Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="leafShieldSpeed" id="leafShieldSpeed" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="leafShieldSpeed" id="leafShieldSpeed" value="4" placeholder="Default: 4" />
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h4><a data-toggle="collapse" href="#collapseBubbleLead">Bubble Lead</a></h4>
@@ -144,29 +145,29 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "bubbleLeadSecondaryColor", rom.WeaponOptions.BubbleLead.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadAmmo">Shots per Ammo Tick</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadAmmo" id="bubbleLeadAmmo" value="2" placeholder="Default: 2" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadAmmo" id="bubbleLeadAmmo" value="2" placeholder="Default: 2" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadShots">Max Projectiles on Screen</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadShots" id="bubbleLeadShots" value="3" placeholder="Default: 3" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadShots" id="bubbleLeadShots" value="3" placeholder="Default: 3" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadHorizontalSpeed">Projectile Horizontal Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadHorizontalSpeed" id="bubbleLeadHorizontalSpeed" value="1" placeholder="Default: 1" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadHorizontalSpeed" id="bubbleLeadHorizontalSpeed" value="1" placeholder="Default: 1" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadVerticalSpeed">Projectile Vertical Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadVerticalSpeed" id="bubbleLeadVerticalSpeed" value="2" placeholder="Default: 2" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadVerticalSpeed" id="bubbleLeadVerticalSpeed" value="2" placeholder="Default: 2" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadSurfaceSpeed">Projectile Surface Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadSurfaceSpeed" id="bubbleLeadSurfaceSpeed" value="2" placeholder="Default: 2" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadSurfaceSpeed" id="bubbleLeadSurfaceSpeed" value="2" placeholder="Default: 2" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="bubbleLeadFallingSpeed">Projectile Falling Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="bubbleLeadFallingSpeed" id="bubbleLeadFallingSpeed" value="254" placeholder="Default: 254" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleLeadFallingSpeed" id="bubbleLeadFallingSpeed" value="254" placeholder="Default: 254" />
                             </div>
                         </div>
                     </div>
@@ -182,31 +183,31 @@
                             <partial name="_ColorFormGroup" model="@("Secondary Color", "quickBoomerangSecondaryColor", rom.WeaponOptions.QuickBoomerang.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangAmmo">Shots per Ammo Tick</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangAmmo" id="quickBoomerangAmmo" value="8" placeholder="Default: 8" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangAmmo" id="quickBoomerangAmmo" value="8" placeholder="Default: 8" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangShots">Max Projectiles on Screen</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangShots" id="quickBoomerangShots" value="5" placeholder="Default: 5" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangShots" id="quickBoomerangShots" value="5" placeholder="Default: 5" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangDelay">Auto-fire Delay</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangDelay" id="quickBoomerangDelay" value="11" placeholder="Default: 11" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangDelay" id="quickBoomerangDelay" value="11" placeholder="Default: 11" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangDistance">Travel Distance</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangDistance" id="quickBoomerangDistance" value="82" placeholder="Default: 82" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangDistance" id="quickBoomerangDistance" value="82" placeholder="Default: 82" />
                             </div>
 
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangLaunchAngle">Launch Angle</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangLaunchAngle" id="quickBoomerangLaunchAngle" value="75" placeholder="Default: 75" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangLaunchAngle" id="quickBoomerangLaunchAngle" value="75" placeholder="Default: 75" />
                             </div>
 
                             <div class="col-md-3 form-group">
                                 <label for="quickBoomerangReturnAngle">Return Angle</label>
-                                <input class="form-control" type="number" min="0" max="255" name="quickBoomerangReturnAngle" id="quickBoomerangReturnAngle" value="75" placeholder="Default: 75" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickBoomerangReturnAngle" id="quickBoomerangReturnAngle" value="75" placeholder="Default: 75" />
                             </div>
                         </div>
                     </div>
@@ -232,11 +233,11 @@
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="timeStopperDrainRateDelay">Drain Rate Delay</label>
-                                <input class="form-control" type="number" min="0" max="255" name="timeStopperDrainRateDelay" id="timeStopperDrainRateDelay" value="15" placeholder="Default: 15" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="timeStopperDrainRateDelay" id="timeStopperDrainRateDelay" value="15" placeholder="Default: 15" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="timeStopperDelayBeforeDrain">Delay Before Drain</label>
-                                <input class="form-control" type="number" min="0" max="255" name="timeStopperDelayBeforeDrain" id="timeStopperDelayBeforeDrain" value="15" placeholder="Default: 15" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="timeStopperDelayBeforeDrain" id="timeStopperDelayBeforeDrain" value="15" placeholder="Default: 15" />
                             </div>
                         </div>
                     </div>
@@ -262,17 +263,17 @@
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="metalBladeAmmo">Shots per Ammo Tick</label>
-                                <input class="form-control" type="number" min="0" max="255" name="metalBladeAmmo" id="metalBladeAmmo" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="metalBladeAmmo" id="metalBladeAmmo" value="4" placeholder="Default: 4" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="metalBladeShots">Max Projectiles on Screen</label>
-                                <input class="form-control" type="number" min="0" max="255" name="metalBladeShots" id="metalBladeShots" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="metalBladeShots" id="metalBladeShots" value="4" placeholder="Default: 4" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3 form-group">
                                 <label for="metalBladeSpeed">Projectile Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="metalBladeSpeed" id="metalBladeSpeed" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="metalBladeSpeed" id="metalBladeSpeed" value="4" placeholder="Default: 4" />
                             </div>
                         </div>
                     </div>
@@ -298,11 +299,11 @@
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="crashBomberAmmo">Ammo Used</label>
-                                <input class="form-control" type="number" min="0" max="255" name="crashBomberAmmo" id="crashBomberAmmo" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="crashBomberAmmo" id="crashBomberAmmo" value="4" placeholder="Default: 4" />
                             </div>
                             <div class="col-md-3 form-group">
                                 <label for="crashBomberSpeed">Projectile Speed</label>
-                                <input class="form-control" type="number" min="0" max="255" name="crashBomberSpeed" id="crashBomberSpeed" value="4" placeholder="Default: 4" />
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="crashBomberSpeed" id="crashBomberSpeed" value="4" placeholder="Default: 4" />
                             </div>
                         </div>
                     </div>
@@ -328,29 +329,29 @@
                     <partial name="_ColorFormGroup" model="@("Secondary Color", "flashManSecondaryColor", rom.RobotMasterOptions.FlashMan.SecondaryColor.Name)" />
                     <div class="col-md-3 form-group">
                         <label for="flashManSpeed">Running Speed</label>
-                        <input class="form-control" type="number" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="@rom.RobotMasterOptions.FlashMan.RunSpeed" placeholder="Default: 1.0234375" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="@rom.RobotMasterOptions.FlashMan.RunSpeed" placeholder="Default: 1.0234375" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManTimeStopperDelay">Time Stopper Delay</label>
-                        <input class="form-control" type="number" min="0" max="255" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="@rom.RobotMasterOptions.FlashMan.TimeStopperDelay" placeholder="Default: 187" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="@rom.RobotMasterOptions.FlashMan.TimeStopperDelay" placeholder="Default: 187" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
                         <label for="flashManJumpDistance">Jump Distance</label>
-                        <input class="form-control" type="number" min="0" max="255" name="flashManJumpDistance" id="flashManJumpDistance" value="@rom.RobotMasterOptions.FlashMan.JumpDistance" placeholder="Default: 0" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpDistance" id="flashManJumpDistance" value="@rom.RobotMasterOptions.FlashMan.JumpDistance" placeholder="Default: 0" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManJumpHeight">Jump Height</label>
-                        <input class="form-control" type="number" min="0" max="255" name="flashManJumpHeight" id="flashManJumpHeight" value="@rom.RobotMasterOptions.FlashMan.JumpHeight" placeholder="Default: 4" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpHeight" id="flashManJumpHeight" value="@rom.RobotMasterOptions.FlashMan.JumpHeight" placeholder="Default: 4" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManProjectileCount">Number of Projectiles</label>
-                        <input class="form-control" type="number" min="0" max="255" name="flashManProjectileCount" id="flashManProjectileCount" value="@rom.RobotMasterOptions.FlashMan.ProjectileCount" placeholder="Default: 6" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileCount" id="flashManProjectileCount" value="@rom.RobotMasterOptions.FlashMan.ProjectileCount" placeholder="Default: 6" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManProjectileSpeed">Projectile Speed</label>
-                        <input class="form-control" type="number" min="0" max="255" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="@rom.RobotMasterOptions.FlashMan.ProjectileSpeed" placeholder="Default: 8" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="@rom.RobotMasterOptions.FlashMan.ProjectileSpeed" placeholder="Default: 8" />
                     </div>
                 </div>
             </div>
@@ -367,30 +368,30 @@
                     <partial name="_ColorFormGroup" model="@("Secondary Color", "airManSecondaryColor", rom.RobotMasterOptions.AirMan.SecondaryColor.Name)" />
                     <div class="col-md-3 form-group">
                         <label for="airManShotsBeforeJumping">Shots Before Jumping</label>
-                        <input class="form-control" type="number" min="0" max="255" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="@rom.RobotMasterOptions.AirMan.ShotsBeforeJumping" placeholder="Default: 3" />
-                    </div>
-                    <div class="col-md-3 form-group">
-                        <label for="airManJump1Distance">First Jump Distance</label>
-                        <input class="form-control" type="number" min="0" max="255" name="airManJump1Distance" id="airManJump1Distance" value="@rom.RobotMasterOptions.AirMan.Jump1Distance" placeholder="Default: 1" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="@rom.RobotMasterOptions.AirMan.ShotsBeforeJumping" placeholder="Default: 3" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
+                        <label for="airManJump1Distance">First Jump Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Distance" id="airManJump1Distance" value="@rom.RobotMasterOptions.AirMan.Jump1Distance" placeholder="Default: 1" />
+                    </div>
+                    <div class="col-md-3 form-group">
                         <label for="airManJump1Height">First Jump Height</label>
-                        <input class="form-control" type="number" min="0" max="255" name="airManJump1Height" id="airManJump1Height" value="@rom.RobotMasterOptions.AirMan.Jump1Height" placeholder="Default: 4" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Height" id="airManJump1Height" value="@rom.RobotMasterOptions.AirMan.Jump1Height" placeholder="Default: 4" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="airManJump2Distance">Second Jump Distance</label>
-                        <input class="form-control" type="number" min="0" max="255" name="airManJump2Distance" id="airManJump2Distance" value="@rom.RobotMasterOptions.AirMan.Jump2Distance" placeholder="Default: 1" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Distance" id="airManJump2Distance" value="@rom.RobotMasterOptions.AirMan.Jump2Distance" placeholder="Default: 1" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="airManJump2Height">Second Jump Height</label>
-                        <input class="form-control" type="number" min="0" max="255" name="airManJump2Height" id="airManJump2Height" value="@rom.RobotMasterOptions.AirMan.Jump2Height" placeholder="Default: 7" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Height" id="airManJump2Height" value="@rom.RobotMasterOptions.AirMan.Jump2Height" placeholder="Default: 7" />
                     </div>
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "airManTornadoPrimaryColor", rom.RobotMasterOptions.AirMan.TornadoPrimaryColor.Name)" />
                 </div>
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "airManTornadoSecondaryColor", rom.RobotMasterOptions.AirMan.TornadoSecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Tornado Primary Color", "airManTornadoPrimaryColor", rom.RobotMasterOptions.AirMan.TornadoPrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Tornado Secondary Color", "airManTornadoSecondaryColor", rom.RobotMasterOptions.AirMan.TornadoSecondaryColor.Name)" />
                 </div>
 
                 @for (int i = 0; i < rom.RobotMasterOptions.AirMan.Patterns.Count; i++)
@@ -406,29 +407,29 @@
                                 @for (int j = 0; j < pattern.Tornados.Count; j += 2)
                                 {
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoVertSpeed">Tornado @(j + 1) Vert. Speed</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j].VerticalVelocity" />
+                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 1) Vert. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j].VerticalVelocity" />
                                     </div>
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoHorzSpeed">Tornado @(j + 1) Horz. Speed</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j].HorizontalVelocity" />
+                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 1) Horz. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j].HorizontalVelocity" />
                                     </div>
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoFlightTime">Tornado @(j + 1) Flight Time</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j].FlightTime" />
+                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 1) Flight Time</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j].FlightTime" />
                                     </div>
 
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoVertSpeed">Tornado @(j + 2) Vert. Speed</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j + 1].VerticalVelocity" />
+                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 2) Vert. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j + 1].VerticalVelocity" />
                                     </div>
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoHorzSpeed">Tornado @(j + 2) Horz. Speed</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j + 1].HorizontalVelocity" />
+                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 2) Horz. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j + 1].HorizontalVelocity" />
                                     </div>
                                     <div class="col-md-2 form-group">
-                                        <label for="airManTornadoFlightTime">Tornado @(j + 2) Flight Time</label>
-                                        <input class="form-control" type="number" min="0" max="255" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j + 1].FlightTime" />
+                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 2) Flight Time</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j + 1].FlightTime" />
                                     </div>
                                 }
                             </div>
@@ -437,6 +438,45 @@
                 }
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseQuickMan">Quick Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseQuickMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "quickManPrimaryColor", rom.RobotMasterOptions.QuickMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "quickManSecondaryColor", rom.RobotMasterOptions.QuickMan.SecondaryColor.Name)" />
+                    <div class="col-md-3 form-group">
+                        <label for="quickManRunSpeed">Running Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="quickManRunSpeed" id="quickManRunSpeed" value="@rom.RobotMasterOptions.QuickMan.RunSpeed" />
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="quickManRunDuration">Run Duration</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManRunDuration" id="quickManRunDuration" value="@rom.RobotMasterOptions.QuickMan.RunDuration" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-group">
+                        <label for="quickManProjectileCount">Number of Projectiles</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileCount" id="quickManProjectileCount" value="@rom.RobotMasterOptions.QuickMan.ProjectileCount" />
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="quickManProjectileLaunchSpeed">Projectile Launch Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileLaunchSpeed" id="quickManProjectileLaunchSpeed" value="@rom.RobotMasterOptions.QuickMan.ProjectileLaunchSpeed" />
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="quickManProjectileReturnDelay">Delay Before Returning</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnDelay" id="quickManProjectileReturnDelay" value="@rom.RobotMasterOptions.QuickMan.ProjectileReturnDelay" />
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <label for="quickManProjectileReturnSpeed">Projectile Return Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnSpeed" id="quickManProjectileReturnSpeed" value="@rom.RobotMasterOptions.QuickMan.ProjectileReturnSpeed" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>

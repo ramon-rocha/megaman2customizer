@@ -46,6 +46,7 @@
 
         public const int BusterColor1 = 0x03D314; // 0x0368 in RAM is MegaMan's current color
         public const int BusterColor2 = 0x03D315;
+        // search ROM value for 2038 is megaman's eyes and face
 
         public const int AtomicFireColor1 = 0x03D318;
         public const int AtomicFireColor2 = 0x03D319; // also apply to 0x03DE4A and 0x03DE4C for charging shots
@@ -57,6 +58,10 @@
         public const int AtomicFireLevel2ChargeTime = 0x03DD61; // default 0x7D
         public const int AtomicFireLevel3ChargeTime = 0x03DD67; // default 0xBB
         public const int AtomicFireProjectileSpeed = 0x03DDF1; // default 4
+        public const int AtomicFireSound = 0x03DDEC;
+        public const int AtomicFireChargeLevel2Sound = 0x03DE46;
+        public const int AtomicFireChargeLevel3Sound = 0x03DE47;
+        public const int AtomicFireFullyChargedSound = 0x03DE48;
 
         public const int AirShooterColor1 = 0x03D31C;
         public const int AirShooterColor2 = 0x03D31D;
@@ -70,37 +75,87 @@
         public const int AirShooterHorizSpeedWhole1 = 0x03DE81; // default 1
         public const int AirShooterHorizSpeedWhole2 = 0x03DE82; // default 1
         public const int AirShooterHorizSpeedWhole3 = 0x03DE83; // default 2
+        public const int AirShooterSound = 0x03DAE6;
 
         public const int LeafShieldColor1 = 0x03D320;
         public const int LeafShieldColor2 = 0x03D321;
+        public const int LeafShieldDeployDelay = 0x03DEDA; // 12, use even numbers only
+        public const int LeafShieldSoundDelay = 0x03DF1B; // 7
+        public const int LeafShieldHorizSpeed = 0x03DF59; // 4
+        public const int LeafShieldVertSpeed = 0x03DF7D; // 4
+        public const int LeafShieldAmmoUsed = 0x03DF72; // 3
+        public const int LeafShieldSound = 0x03DF1F;
 
         public const int BubbleLeadColor1 = 0x03D324;
         public const int BubbleLeadColor2 = 0x03D325;
+        public const int BubbleLeadHorizSpeed = 0x03D4AB; // 1
+        public const int BubbleLeadSurfaceSpeed = 0x03DFA9; // 2
+        public const int BubbleLeadHorizFallSpeed = 0x03DFC0; // 0
+        public const int BubbleLeadVertFallSpeed = 0x03DFC8; // 0xFE
+        public const int BubbleLeadVertSpeed = 0x03D4CF; // 2
+        public const int BubbleLeadMaxShots = 0x03DB21; // 3
+        public const int BubbleLeadSound = 0x03DB34;
+        public const int BubbleLeadShotsPerAmmo = 0x03DB3D; // 2
 
         public const int QuickBoomerangColor1 = 0x03D328;
         public const int QuickBoomerangColor2 = 0x03D329;
+        public const int QuickBoomerangFireDelay = 0x03DB54; // 11
+        public const int QuickBoomerangMaxShots = 0x03DB5C; // 5
+        public const int QuickBoomerangSound = 0x03DB6F;
+        public const int QuickBoomerangShotsPerAmmo = 0x03DB78; // 8
+        public const int QuickBoomerangTravelDistance = 0x03DFE2; // 0x12
+        public const int QuickBoomerangLaunchAngle = 0x03DFEA; // 0x4B
+        public const int QuickBoomerangReturnAngle = 0x03E013; // 0x4B
+        public const int QuickBoomerangBehavior = 0x03DFFF; // 0x40
+        public const int QuickBoomerangFlightTime = 0x03E007; // 0x23
 
         public const int TimeStopperColor1 = 0x03D32C;
         public const int TimeStopperColor2 = 0x03D32D;
+        public const int TimeStopperSound = 0x03DC59;
+        public const int TimeStopperDrainRateDelay = 0x03E16E; // lower value drains ammo faster, default 0F
+        public const int TimeStopperDelayBeforeDrain = 0x03D49D; // higher value is more time before drain starts, default 0F
 
         public const int MetalBladeColor1 = 0x03D330;
         public const int MetalBladeColor2 = 0x03D331;
+        public const int MetalBladeMaxshots = 0x03DBB6; // 4
+        public const int MetalBladeSound = 0x03DBC9;
+        public const int MetalBladeShotsPerAmmo = 0x03DBD2; // 4
+        public const int MetalBladeVertSpeedUp = 0x03DC12; // 4
+        public const int MetalBladeVertSpeedDown = 0x03DC13; // 0xFC
+        public const int MetalBladeVertSpeedUpLeft = 0x03DC16; // 2
+        public const int MetalBladeVertSpeedDownLeft = 0x03DC17; // 0xFD
+        public const int MetalBladeVertSpeedUpRight = 0x03DC1A; // 2
+        public const int MetalBladeVertSpeedDownRight = 0x03DC1B; // 0xFD
+        public const int MetalBladeHorizSpeed = 0x03DC31; // 4
+        public const int MetalBladeHorizSpeedLeft = 0x03DC35; // 4
+        public const int MetalBladeHorizSpeedUpLeft = 0x03DC36; // 2
+        public const int MetalBladeHorizSpeedDownLeft = 0x03DC37; // 2
+        public const int MetalBladeHorizSpeedRight = 0x03DC39; // 4
+        public const int MetalBladeHorizSpeedUpRight = 0x03DC3A; // 2
+        public const int MetalBladeHorizSpeedDownRight = 0x03DC3B; // 2
 
         public const int CrashBombColor1 = 0x03D334;
         public const int CrashBombColor2 = 0x03D335;
+        public const int CrashBombHorizSpeed = 0x03D4AD; // 4
+        public const int CrashBombVertSpeed = 0x03D4D7; // 0
+        public const int CrashBombAmmoUsed = 0x03DB99; // 4
+        public const int CrashBombExplosionType = 0x03DB9F; // 2 or 3
+        public const int CrashBombDetonationDelay = 0x03E09C; // 0x7E
+        public const int CrashBombShootSound = 0x03DBA6;
+        public const int CrashBombAttachSound = 0x03E089;
+        public const int CrashBombExplodeSound = 0x03E0DA;
 
         public const int Item1Color1 = 0x03D338;
         public const int Item1Color2 = 0x03D339;
+        public const int Item1BlinkDelay = 0x03E1AC;
+        public const int Item1DespawnDelay = 0x03E1BF;
+        public const int Item1SpeedFraction = 0x03D4C2; // 0x41
 
         public const int Item2Color1 = 0x03D33C;
         public const int Item2Color2 = 0x03D33D;
 
         public const int Item3Color1 = 0x03D340;
         public const int Item3Color2 = 0x03D341;
-
-        public const int TimeStopperDrainRateDelay = 0x03E16E; // lower value drains ammo faster, default 0F
-        public const int TimeStopperDelayBeforeDrain = 0x03D49D; // higher value is more time before drain starts, default 0F
-                                                                 // search ROM value for 2038 is megaman's eyes and face
 
         public const int FlashManColor1 = 0x0174B6; // bright white
         public const int FlashManColor2 = 0x0174B7; // indigo
@@ -131,8 +186,17 @@
         public const int AirManTornadoHorzSpeedFraction0 = 0x02C3CF; // number of entries = 30
         public const int AirManTornadoFlightTime0 = 0x02C40B; // number of entries = 30
 
-        public const int QuickManColor1 = 0x0134C8;
-        public const int QuickManColor2 = 0x0134C9;
+        public const int QuickManColor1 = 0x0134C9;
+        public const int QuickManColor2 = 0x0134C8;
+        public const int QuickManProjectileCount = 0x02C86E; // 3
+        public const int QuickManProjectileReturnDelay = 0x02C882; // 0x25
+        public const int QuickManProjectileLaunchSpeed = 0x02C887; // 4
+        public const int QuickManProjectileReturnSpeed = 0x03B726; // 4
+        public const int QuickManJump1Height = 0x02C8A3; // 7
+        public const int QuickManJump2Height = 0x02C8A4; // 8
+        public const int QuickManJump3Height = 0x02C8A5; // 4
+        public const int QuickManRunDuration = 0x02C8E4; // 0x3E
+        public const int QuickManRunSpeed = 0x02C8DF; // 2
 
         public const int HeatManColor1 = 0x0034B6;
         public const int HeatManColor2 = 0x0034B7;
