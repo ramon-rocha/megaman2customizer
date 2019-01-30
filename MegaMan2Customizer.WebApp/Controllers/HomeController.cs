@@ -9,7 +9,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
     public class HomeController : Controller
     {
         [HttpGet("")]
-        public IActionResult Index() => View();
+        public IActionResult Index() => Redirect("editor");
 
         [HttpGet("randomizer")]
         public IActionResult Randomizer() => View();
