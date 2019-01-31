@@ -29,9 +29,9 @@ namespace MegaMan2Customizer.Core.Tests
         public void MenuOptions_DefaultColors()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(new Color(Pigment.Crimson, Brightness.Pastel), rom.StartMenuOptions.BorderColor);
-            Assert.Equal(new Color(Pigment.Blue, Brightness.Bright), rom.StartMenuOptions.BackgroundColor);
-            Assert.Equal(new Color(Pigment.Blue, Brightness.Normal), rom.StartMenuOptions.ShadowColor);
+            Assert.Equal(new Color(Pigment.Crimson, Lightness.VeryLight), rom.StartMenuOptions.BorderColor);
+            Assert.Equal(new Color(Pigment.Blue, Lightness.Light), rom.StartMenuOptions.BackgroundColor);
+            Assert.Equal(new Color(Pigment.Blue, Lightness.Normal), rom.StartMenuOptions.ShadowColor);
         }
     }
 }

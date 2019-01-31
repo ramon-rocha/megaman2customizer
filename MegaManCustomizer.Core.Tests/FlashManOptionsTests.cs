@@ -10,10 +10,10 @@ namespace MegaMan2Customizer.Core.Tests
         private readonly ImmutableArray<byte> _romBytes = File.ReadAllBytes("Mega Man II.nes").ToImmutableArray();
 
         [Fact]
-        public void PrimaryColor_IsBrightWhite()
+        public void PrimaryColor_IsWhite()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Bright White", rom.RobotMasterOptions.FlashMan.PrimaryColor.Name);
+            Assert.Equal("White", rom.RobotMasterOptions.FlashMan.PrimaryColor.Name);
         }
 
         [Fact]

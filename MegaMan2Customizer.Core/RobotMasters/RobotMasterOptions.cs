@@ -1,5 +1,4 @@
-﻿using MegaMan2Customizer.Core.RobotMasters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 

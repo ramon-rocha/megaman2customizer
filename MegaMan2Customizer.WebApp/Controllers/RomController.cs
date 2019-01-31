@@ -58,9 +58,14 @@ namespace MegaMan2Customizer.WebApp.Controllers
             byte startingHealth, byte maxHealth, byte speed, byte jumpHeight, string busterPrimaryColor, string busterSecondaryColor, byte busterSpeed, byte busterShots,
             string atomicFirePrimaryColor, string atomicFireSecondaryColor, byte atomicFireLevel1Ammo, byte atomicFireLevel2ChargeTime, byte atomicFireLevel2Ammo, byte atomicFireLevel3ChargeTime, byte atomicFireLevel3Ammo, byte atomicFireSpeed,
             string airShooterPrimaryColor, string airShooterSecondaryColor, byte airShooterAmmo, byte airShooterShots,
-            string flashManPrimaryColor, string flashManSecondaryColor, byte flashManSpeed, byte flashManTimeStopperDelay, byte flashManJumpDistance, byte flashManJumpHeight, byte flashManProjectileCount, byte flashManProjectileSpeed,
-            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, byte airManJump1Distance, byte airManJump2Distance, byte airManJump1Height, byte airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, int[] airManTornadoFlightTime,
-            string quickManPrimaryColor, string quickManSecondaryColor, byte quickManRunSpeed, byte quickManRunDuration, byte quickManProjectileCount, byte quickManProjectileLaunchSpeed, byte quickManProjectileReturnDelay, byte quickManProjectileReturnSpeed
+            string bubbleManPrimaryColor, string bubbleManSecondaryColor,
+            string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, decimal airManJump1Distance, decimal airManJump2Distance, decimal airManJump1Height, decimal airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, int[] airManTornadoFlightTime,
+            string quickManPrimaryColor, string quickManSecondaryColor, byte quickManRunSpeed, byte quickManRunDuration, byte quickManProjectileCount, byte quickManProjectileLaunchSpeed, byte quickManProjectileReturnDelay, byte quickManProjectileReturnSpeed,
+            string heatManPrimaryColor, string heatManSecondaryColor,
+            string woodManPrimaryColor, string woodManSecondaryColor,
+            string metalManPrimaryColor, string metalManSecondaryColor,
+            string flashManPrimaryColor, string flashManSecondaryColor, decimal flashManSpeed, byte flashManTimeStopperDelay, byte flashManJumpDistance, byte flashManJumpHeight, byte flashManProjectileCount, byte flashManProjectileSpeed,
+            string crashManPrimaryColor, string crashManSecondaryColor
             )
         {
             if (airManTornadoVertSpeed.Length != airManTornadoHorzSpeed.Length
@@ -104,15 +109,9 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 airShooter.AmmoUsed = airShooterAmmo;
                 airShooter.ProjectileCount = airShooterShots;
 
-                FlashManOptions flashMan = rom.RobotMasterOptions.FlashMan;
-                flashMan.PrimaryColor = Color.Parse(flashManPrimaryColor);
-                flashMan.SecondaryColor = Color.Parse(flashManSecondaryColor);
-                flashMan.RunSpeed = flashManSpeed;
-                flashMan.TimeStopperDelay = flashManTimeStopperDelay;
-                flashMan.JumpDistance = flashManJumpDistance;
-                flashMan.JumpHeight = flashManJumpHeight;
-                flashMan.ProjectileCount = flashManProjectileCount;
-                flashMan.ProjectileSpeed = flashManProjectileSpeed;
+                BubbleManOptions bubbleMan = rom.RobotMasterOptions.BubbleMan;
+                bubbleMan.PrimaryColor = Color.Parse(bubbleManPrimaryColor);
+                bubbleMan.SecondaryColor = Color.Parse(bubbleManSecondaryColor);
 
                 AirManOptions airMan = rom.RobotMasterOptions.AirMan;
                 airMan.PrimaryColor = Color.Parse(airManPrimaryColor);
@@ -144,6 +143,32 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 quickMan.ProjectileLaunchSpeed = quickManProjectileLaunchSpeed;
                 quickMan.ProjectileReturnDelay = quickManProjectileReturnDelay;
                 quickMan.ProjectileReturnSpeed = quickManProjectileReturnSpeed;
+
+                HeatManOptions heatMan = rom.RobotMasterOptions.HeatMan;
+                heatMan.PrimaryColor = Color.Parse(heatManPrimaryColor);
+                heatMan.SecondaryColor = Color.Parse(heatManSecondaryColor);
+
+                WoodManOptions woodMan = rom.RobotMasterOptions.WoodMan;
+                woodMan.PrimaryColor = Color.Parse(woodManPrimaryColor);
+                woodMan.SecondaryColor = Color.Parse(woodManSecondaryColor);
+
+                MetalManOptions metalMan = rom.RobotMasterOptions.MetalMan;
+                metalMan.PrimaryColor = Color.Parse(metalManPrimaryColor);
+                metalMan.SecondaryColor = Color.Parse(metalManSecondaryColor);
+
+                FlashManOptions flashMan = rom.RobotMasterOptions.FlashMan;
+                flashMan.PrimaryColor = Color.Parse(flashManPrimaryColor);
+                flashMan.SecondaryColor = Color.Parse(flashManSecondaryColor);
+                flashMan.RunSpeed = flashManSpeed;
+                flashMan.TimeStopperDelay = flashManTimeStopperDelay;
+                flashMan.JumpDistance = flashManJumpDistance;
+                flashMan.JumpHeight = flashManJumpHeight;
+                flashMan.ProjectileCount = flashManProjectileCount;
+                flashMan.ProjectileSpeed = flashManProjectileSpeed;
+
+                CrashManOptions crashMan = rom.RobotMasterOptions.CrashMan;
+                crashMan.PrimaryColor = Color.Parse(crashManPrimaryColor);
+                crashMan.SecondaryColor = Color.Parse(crashManSecondaryColor);
 
                 return File(rom.Bytes.ToArray(), "application/octet-stream", $"Custom {romFileName}");
             }

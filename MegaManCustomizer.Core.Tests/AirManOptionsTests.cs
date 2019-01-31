@@ -18,10 +18,10 @@ namespace MegaMan2Customizer.Core.Tests
         }
 
         [Fact]
-        public void SecondaryColor_IsBrightYellow()
+        public void SecondaryColor_IsYellow()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Bright Yellow", rom.RobotMasterOptions.AirMan.SecondaryColor.Name);
+            Assert.Equal("Yellow", rom.RobotMasterOptions.AirMan.SecondaryColor.Name);
         }
         
         [Fact]

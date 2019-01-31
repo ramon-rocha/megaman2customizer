@@ -10,10 +10,10 @@ namespace MegaMan2Customizer.Core.Tests
         private readonly ImmutableArray<byte> _romBytes = File.ReadAllBytes("Mega Man II.nes").ToImmutableArray();
 
         [Fact]
-        public void PrimaryColor_IsBrightYellow()
+        public void PrimaryColor_IsYellow()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Bright Yellow", rom.WeaponOptions.AtomicFire.PrimaryColor.Name);
+            Assert.Equal("Yellow", rom.WeaponOptions.AtomicFire.PrimaryColor.Name);
         }
 
         [Fact]
@@ -32,16 +32,16 @@ namespace MegaMan2Customizer.Core.Tests
             var atomicFire = rom.WeaponOptions.AtomicFire;
             charge1Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor1]);
             charge2Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor2]);
-            Assert.NotEqual("Bright White", atomicFire.SecondaryColor.Name);
-            Assert.NotEqual("Bright White", charge1Color.Name);
-            Assert.NotEqual("Bright White", charge2Color.Name);
+            Assert.NotEqual("White", atomicFire.SecondaryColor.Name);
+            Assert.NotEqual("White", charge1Color.Name);
+            Assert.NotEqual("White", charge2Color.Name);
 
-            atomicFire.SecondaryColor = new Color(Pigment.White, Brightness.Bright);
+            atomicFire.SecondaryColor = new Color(Pigment.White, Lightness.Light);
             charge1Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor1]);
             charge2Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor2]);
-            Assert.Equal("Bright White", atomicFire.SecondaryColor.Name);
-            Assert.Equal("Bright White", charge1Color.Name);
-            Assert.Equal("Bright White", charge2Color.Name);
+            Assert.Equal("White", atomicFire.SecondaryColor.Name);
+            Assert.Equal("White", charge1Color.Name);
+            Assert.Equal("White", charge2Color.Name);
         }
     }
 }

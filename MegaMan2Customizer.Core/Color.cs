@@ -5,26 +5,26 @@ using System.Linq;
 
 namespace MegaMan2Customizer.Core
 {
-    public enum Brightness
+    public enum Lightness
     {
         Dark = 0x00,
         Normal = 0x10,
-        Bright = 0x20,
-        Pastel = 0x30
+        Light = 0x20,
+        VeryLight = 0x30
     }
 
     public enum Pigment
     {
-        White = 0x00, // bright white and pastel white are the same
+        White = 0x00, // bright white and pastel white are the same, (rename to gray?)
         Blue = 0x01,
         Indigo = 0x02,
-        Purple = 0x03,
-        Pink = 0x04,
+        Violet = 0x03,
+        Magenta = 0x04,
         Crimson = 0x05,
         Red = 0x06,
         Orange = 0x07,
-        Yellow = 0x08,
-        DarkGreen = 0x09,
+        Yellow = 0x08, // the brightness is shifted one category for yellow since we will call dark yellow brown
+        SeaGreen = 0x09,
         Green = 0x0A,
         ForestGreen = 0x0B,
         Cyan = 0x0C,
@@ -33,93 +33,91 @@ namespace MegaMan2Customizer.Core
 
     public class Color
     {
-        public static readonly Color BrightWhite = new Color(Pigment.White, Brightness.Bright);
+        public static readonly Color White = new Color(Pigment.White, Lightness.Light);
 
-        public static readonly Color Black = new Color(Pigment.Black, Brightness.Normal);
+        public static readonly Color Black = new Color(Pigment.Black, Lightness.Normal);
 
         public Pigment Pigment { get; }
 
-        public Brightness Brightness { get; }
+        public Lightness Lightness { get; }
 
-        public byte Value => (byte)((int)this.Pigment + (int)this.Brightness);
+        public byte Value => (byte)((int)this.Pigment + (int)this.Lightness);
 
-        public Color(Pigment pigment, Brightness brightness) => 
-            (this.Pigment, this.Brightness) = ClampColor(pigment, brightness);
+        public Color(Pigment pigment, Lightness lightness) =>
+            (this.Pigment, this.Lightness) = ClampColor(pigment, lightness);
 
-        public Color (byte value)
+        public Color(byte value)
         {
             if (value > 0x3D)
             {
                 throw new ArgumentOutOfRangeException(nameof(value));
             }
 
-            var brightness = (Brightness)(value & 0xF0);
+            var lightness = (Lightness)(value & 0xF0);
             var pigment = (Pigment)(value & 0x0F);
-            (this.Pigment, this.Brightness) = ClampColor(pigment, brightness);
+            (this.Pigment, this.Lightness) = ClampColor(pigment, lightness);
         }
 
-        private (Pigment, Brightness) ClampColor(Pigment pigment, Brightness brightness)
+        private (Pigment, Lightness) ClampColor(Pigment pigment, Lightness lightness)
         {
-            if (pigment == Pigment.White && brightness == Brightness.Pastel)
+            if (pigment == Pigment.White && lightness == Lightness.VeryLight)
             {
-                brightness = Brightness.Bright;
+                lightness = Lightness.Light;
             }
-            else if (pigment == Pigment.Black && brightness == Brightness.Dark)
+            else if (pigment == Pigment.Black && lightness == Lightness.Dark)
             {
-                brightness = Brightness.Normal;
+                lightness = Lightness.Normal;
             }
 
-            return (pigment, brightness);
+            return (pigment, lightness);
         }
+
+        public override bool Equals(object obj) =>
+            obj is Color other ? Equals(other) : false;
+
+        public bool Equals(Color other) =>
+            other != null && this.Name == other.Name;
+
+        public override int GetHashCode() => this.Name.GetHashCode();
+
+        private readonly static IReadOnlyDictionary<byte, string> _specialNamedColors = new Dictionary<byte, string>
+        {
+            { 0x00, "Dark Gray" },
+            { 0x10, "Light Gray" },
+            { 0x20, "White" },
+            { 0x30, "White" },
+            { 0x0D, "Black" },
+            { 0x2D, "Dark Gray" }, // slightly darker than 0x00 but only if measured
+            { 0x3D, "Gray" },
+            { 0x08, "Brown"},
+            { 0x18, "Dark Yellow"},
+            { 0x28, "Yellow"},
+            { 0x38, "Light Yellow"},
+        }.ToImmutableDictionary();
 
         public string Name
         {
             get
             {
-                string pigment = this.Pigment.ToString().Replace("kG", "k G").Replace("tG", "t G");
+                if (_specialNamedColors.TryGetValue(this.Value, out string name))
+                {
+                    return name;
+                }
 
-                if (this.Brightness == Brightness.Normal)
+                string pigment = this.Pigment.ToString()
+                    .Replace("kG", "k G")
+                    .Replace("tG", "t G")
+                    .Replace("aG", "a G");
+
+                if (this.Lightness == Lightness.Normal)
                 {
                     return pigment;
                 }
 
-                if (this.Pigment == Pigment.White && this.Brightness == Brightness.Dark)
-                {
-                    return "Gray";
-                }
+                string lightness = this.Lightness.ToString()
+                    .Replace("yL", "y L");
 
-                if (this.Pigment == Pigment.Black)
-                {
-                    if (this.Brightness == Brightness.Bright)
-                    {
-                        return "Dark Gray";
-                    }
-
-                    if (this.Brightness == Brightness.Pastel)
-                    {
-                        return "Light Gray";
-                    }
-                }
-
-                if (this.Pigment == Pigment.DarkGreen)
-                {
-                    if (this.Brightness == Brightness.Dark)
-                    {
-                        return "Extra Dark Green";
-                    }
-
-                    if (this.Brightness == Brightness.Bright)
-                    {
-                        return "Lime Green";
-                    }
-
-                    if (this.Brightness == Brightness.Pastel)
-                    {
-                        return "Pastel Lime Green";
-                    }
-                }
-
-                return $"{this.Brightness} {pigment}";
+                return $"{lightness} {pigment}";
             }
         }
 
@@ -129,7 +127,7 @@ namespace MegaMan2Customizer.Core
             if (_allColors == null)
             {
                 var colors = new HashSet<Color>();
-                foreach (var brightness in (Brightness[])Enum.GetValues(typeof(Brightness)))
+                foreach (var brightness in (Lightness[])Enum.GetValues(typeof(Lightness)))
                 {
                     foreach (var pigment in (Pigment[])Enum.GetValues(typeof(Pigment)))
                     {
@@ -145,13 +143,5 @@ namespace MegaMan2Customizer.Core
             GetAllColors().FirstOrDefault(c => c.Name == name) ?? throw new FormatException(nameof(name));
 
         public override string ToString() => $"{this.Name} ({this.Value})";
-
-        public override bool Equals(object obj) =>
-            obj is Color other ? Equals(other) : false;
-
-        public bool Equals(Color other) =>
-            other != null && this.Value == other.Value;
-
-        public override int GetHashCode() => this.Value.GetHashCode();
     }
 }

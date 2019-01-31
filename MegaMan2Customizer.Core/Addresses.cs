@@ -202,19 +202,55 @@
         public const int HeatManColor2 = 0x0034B7;
         public const int HeatManProjectileColor1 = 0x0034B3;
         public const int HeatManProjectileColor2 = 0x0034B4;
+        public const int HeatManProjectile1Height = 0x02C207; // 7
+        public const int HeatManProjectile1Distance = 0x02C20A; // 0x3A
+        public const int HeatManProjectile2Height = 0x02C208; // 5
+        public const int HeatManProjectile2Distance = 0x02C20B; // 0x2E
+        public const int HeatManProjectile3Height = 0x02C209; // 3
+        public const int HeatManProjectile3Distance = 0x02C20C; // 0x1C
+        public const int HeatManDelay1 = 0x02C29D; // 0x1F
+        public const int HeatManDelay2 = 0x02C29E; // 0x3E
+        public const int HeatManDelay3 = 0x02C29F; // 0x5D
+        public const int HeatManRushSpeed = 0x02C253; // 4
 
         public const int BubbleManColor1 = 0x00F4B6;
         public const int BubbleManColor2 = 0x00F4B7;
+        public const int BubbleManMaxHeight = 0x02C707; // 0x50
+        public const int BubbleManFallSpeed = 0x02C70B; // 0xFF
+        public const int BubbleManRiseSpeed = 0x02C6D3; // 1
+        public const int BubbleManShotDelay = 0x02C745; // 0x12
+        public const int BubbleManProjectileHorzSpeedWhole = 0x03DA25; // 1
+        public const int BubbleManProjectileHorzSpeedFraction = 0x03DA25; // 0
+        public const int BubbleManProjectileVertLaunchSpeedWhole = 0x03DA4D; // 3
+        public const int BubbleManProjectileVertLaunchSpeedFraction = 0x03DA4E; // 0x76
+        public const int BubbleManProjectileVertBounceSpeedWhole = 0x03B747; // 3
+        public const int BubbleManProjectileVertBounceSpeedFraction = 0x03B74C; // 0x76
+        
+        public const int CrashManColor1 = 0x01F4ED;
+        public const int CrashManColor2 = 0x01F4EC;
+        public const int CrashManWalkSpeedWhole = 0x02CCF7; // 0x47
+        public const int CrashManWalkSpeedFraction = 0x02CCF2; // 1
+        public const int CrashManJumpHeight = 0x02CD2A; // 6
+        public const int CrashManProjectileSpeed = 0x02CDEE; // 6
 
-        public const int CrashManColor1 = 0x01F4EC;
-        public const int CrashManColor2 = 0x01F4ED;
-
-        public const int WoodManColor1 = 0x00B4EC;
-        public const int WoodManColor2 = 0x00B4ED;
+        public const int WoodManColor1 = 0x00B4ED;
+        public const int WoodManColor2 = 0x00B4EC;
         public const int WoodManLeafColor = 0x00B4EA;
+        public const int WoodManLeafDelay = 0x02C537; // 0x12
+        public const int WoodManJumpHeight = 0x02C5DD; // 4
+        public const int WoodManJumpDistance = 0x02C5E2; // 1
+        public const int WoodManProjectileSpeed = 0x02C5A9; // 4
+        public const int WoodManFallingLeafCount = 0x02C553; // 3
+        public const int WoodManFallingLeafHorzSpeed = 0x02C576; // 2
+        public const int WoodManFallingLeafVertSpeed = 0x03B855; // 0x20 (smaller is faster)
 
-        public const int MetalManColor1 = 0x01B4A4;
-        public const int MetalManColor2 = 0x01B4A5;
+        public const int MetalManColor1 = 0x01B4A5;
+        public const int MetalManColor2 = 0x01B4A4;
         public const int MetalManBladeColor = 0x01B4A1;
+        public const int MetalManBladeSound = 0x02CC29;
+        public const int MetalManProjectileSpeed = 0x02CC3F; // 4
+        public const int MetalManJump1Height = 0x02CBB5; // 6
+        public const int MetalManJump2Height = 0x02CBB6; // 5
+        public const int MetalManJump3Height = 0x02CBB7; // 4
     }
 }

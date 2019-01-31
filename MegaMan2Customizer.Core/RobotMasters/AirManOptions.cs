@@ -73,13 +73,13 @@ namespace MegaMan2Customizer.Core
 
     public class AirManOptions : BaseRobotMasterOptions
     {
-        public virtual Color TornadoPrimaryColor
+        public Color TornadoPrimaryColor
         {
             get => new Color(_romBytes[Addresses.AirManProjectileColor1]);
             set => _romBytes[Addresses.AirManProjectileColor1] = value.Value;
         }
 
-        public virtual Color TornadoSecondaryColor
+        public Color TornadoSecondaryColor
         {
             get => new Color(_romBytes[Addresses.AirManProjectileColor2]);
             set => _romBytes[Addresses.AirManProjectileColor2] = value.Value;

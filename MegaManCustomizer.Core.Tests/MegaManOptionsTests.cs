@@ -20,7 +20,7 @@ namespace MegaMan2Customizer.Core.Tests
         public void BusterPrimaryColor_IsCyan()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Bright Cyan", rom.MegaManOptions.BusterPrimaryColor.Name);
+            Assert.Equal("Light Cyan", rom.MegaManOptions.BusterPrimaryColor.Name);
         }
 
         [Fact]

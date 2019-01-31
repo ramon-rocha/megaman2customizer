@@ -219,18 +219,8 @@
                     </div>
                     <div id="collapseTimeStopper" class="card-body collapse">
                         <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label for="timeStopperPrimaryColor">Primary Color</label>
-                                <select class="form-control" name="timeStopperPrimaryColor" id="timeStopperPrimaryColor">
-                                    <option>Bright Pink</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <label for="timeStopperSecondaryColor">Secondary Color</label>
-                                <select class="form-control" name="timeStopperSecondaryColor" id="timeStopperSecondaryColor">
-                                    <option>Pink</option>
-                                </select>
-                            </div>
+                            <partial name="_ColorFormGroup" model="@("Primary Color", "timeStopperPrimaryColor", rom.WeaponOptions.TimeStopper.PrimaryColor.Name)" />
+                            <partial name="_ColorFormGroup" model="@("Secondary Color", "timeStopperSecondaryColor", rom.WeaponOptions.TimeStopper.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="timeStopperDrainRateDelay">Drain Rate Delay</label>
                                 <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="timeStopperDrainRateDelay" id="timeStopperDrainRateDelay" value="15" placeholder="Default: 15" />
@@ -249,18 +239,8 @@
                     </div>
                     <div id="collapseMetalBlade" class="collapse card-body">
                         <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label for="metalBladePrimaryColor">Primary Color</label>
-                                <select class="form-control" name="metalBladePrimaryColor" id="metalBladePrimaryColor">
-                                    <option>Yellow</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <label for="metalBladeSecondaryColor">Secondary Color</label>
-                                <select class="form-control" name="metalBladeSecondaryColor" id="metalBladeSecondaryColor">
-                                    <option>Dark Yellow</option>
-                                </select>
-                            </div>
+                            <partial name="_ColorFormGroup" model="@("Primary Color", "metalBladePrimaryColor", rom.WeaponOptions.MetalBlade.PrimaryColor.Name)" />
+                            <partial name="_ColorFormGroup" model="@("Secondary Color", "metalBladeSecondaryColor", rom.WeaponOptions.MetalBlade.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="metalBladeAmmo">Shots per Ammo Tick</label>
                                 <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="metalBladeAmmo" id="metalBladeAmmo" value="4" placeholder="Default: 4" />
@@ -285,18 +265,8 @@
                     </div>
                     <div id="collapseCrashBomber" class="collapse card-body">
                         <div class="row">
-                            <div class="col-md-3 form-group">
-                                <label for="crashBomberPrimaryColor">Primary Color</label>
-                                <select class="form-control" name="crashBomberPrimaryColor" id="crashBomberPrimaryColor">
-                                    <option>Bright White</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 form-group">
-                                <label for="crashBomberSecondaryColor">Secondary Color</label>
-                                <select class="form-control" name="crashBomberSecondaryColor" id="crashBomberSecondaryColor">
-                                    <option>Red</option>
-                                </select>
-                            </div>
+                            <partial name="_ColorFormGroup" model="@("Primary Color", "crashBomberPrimaryColor", rom.WeaponOptions.CrashBomber.PrimaryColor.Name)" />
+                            <partial name="_ColorFormGroup" model="@("Secondary Color", "crashBomberSecondaryColor", rom.WeaponOptions.CrashBomber.SecondaryColor.Name)" />
                             <div class="col-md-3 form-group">
                                 <label for="crashBomberAmmo">Ammo Used</label>
                                 <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="crashBomberAmmo" id="crashBomberAmmo" value="4" placeholder="Default: 4" />
@@ -397,44 +367,44 @@
                 @for (int i = 0; i < rom.RobotMasterOptions.AirMan.Patterns.Count; i++)
                 {
                     TornadoPattern pattern = rom.RobotMasterOptions.AirMan.Patterns[i];
-                    <div class="card">
-                        <div class="card-header">
-                            @{ string patternCollapseId = $"collapsePattern{i + 1}"; }
-                            <h4><a data-toggle="collapse" href="#@patternCollapseId">Tornado Pattern @(i + 1)</a></h4>
-                        </div>
-                        <div class="card-body collapse" id="@patternCollapseId">
-                            <div class="row">
-                                @for (int j = 0; j < pattern.Tornados.Count; j += 2)
+                <div class="card">
+                    <div class="card-header">
+                        @{ string patternCollapseId = $"collapsePattern{i + 1}"; }
+                        <h4><a data-toggle="collapse" href="#@patternCollapseId">Tornado Pattern @(i + 1)</a></h4>
+                    </div>
+                    <div class="card-body collapse" id="@patternCollapseId">
+                        <div class="row">
+                            @for (int j = 0; j < pattern.Tornados.Count; j += 2)
                                 {
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 1) Vert. Speed</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j].VerticalVelocity" />
-                                    </div>
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 1) Horz. Speed</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j].HorizontalVelocity" />
-                                    </div>
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 1) Flight Time</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j].FlightTime" />
-                                    </div>
-
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 2) Vert. Speed</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j + 1].VerticalVelocity" />
-                                    </div>
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 2) Horz. Speed</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j + 1].HorizontalVelocity" />
-                                    </div>
-                                    <div class="col-md-2 form-group">
-                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 2) Flight Time</small></label>
-                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j + 1].FlightTime" />
-                                    </div>
-                                }
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 1) Vert. Speed</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j].VerticalVelocity" />
                             </div>
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 1) Horz. Speed</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j].HorizontalVelocity" />
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 1) Flight Time</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j].FlightTime" />
+                            </div>
+
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoVertSpeed"><small>Tornado @(j + 2) Vert. Speed</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="@pattern.Tornados[j + 1].VerticalVelocity" />
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoHorzSpeed"><small>Tornado @(j + 2) Horz. Speed</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="@pattern.Tornados[j + 1].HorizontalVelocity" />
+                            </div>
+                            <div class="col-md-2 form-group">
+                                <label class="small" for="airManTornadoFlightTime"><small>Tornado @(j + 2) Flight Time</small></label>
+                                <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="@pattern.Tornados[j + 1].FlightTime" />
+                            </div>
+                                }
                         </div>
                     </div>
+                </div>
                 }
             </div>
         </div>
@@ -473,6 +443,66 @@
                         <label for="quickManProjectileReturnSpeed">Projectile Return Speed</label>
                         <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnSpeed" id="quickManProjectileReturnSpeed" value="@rom.RobotMasterOptions.QuickMan.ProjectileReturnSpeed" />
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseHeatMan">Heat Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseHeatMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "heatManPrimaryColor", rom.RobotMasterOptions.HeatMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "heatManSecondaryColor", rom.RobotMasterOptions.HeatMan.SecondaryColor.Name)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseBubbleMan">Bubble Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseBubbleMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "bubbleManPrimaryColor", rom.RobotMasterOptions.BubbleMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "bubbleManSecondaryColor", rom.RobotMasterOptions.BubbleMan.SecondaryColor.Name)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseWoodMan">Wood Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseWoodMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "woodManPrimaryColor", rom.RobotMasterOptions.WoodMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "woodManSecondaryColor", rom.RobotMasterOptions.WoodMan.SecondaryColor.Name)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseMetalMan">Metal Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseMetalMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "metalManPrimaryColor", rom.RobotMasterOptions.MetalMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "metalManSecondaryColor", rom.RobotMasterOptions.MetalMan.SecondaryColor.Name)" />
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3><a data-toggle="collapse" href="#collapseCrashMan">Crash Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseCrashMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "crashManPrimaryColor", rom.RobotMasterOptions.CrashMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "crashManSecondaryColor", rom.RobotMasterOptions.CrashMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>

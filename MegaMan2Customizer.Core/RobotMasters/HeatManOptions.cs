@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MegaMan2Customizer.Core.RobotMasters
+namespace MegaMan2Customizer.Core
 {
     public class HeatManOptions : BaseRobotMasterOptions
     {
