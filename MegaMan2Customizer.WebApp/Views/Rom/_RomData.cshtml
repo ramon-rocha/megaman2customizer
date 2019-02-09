@@ -295,33 +295,33 @@
             </div>
             <div class="card-body collapse" id="collapseFlashMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "flashManPrimaryColor", rom.RobotMasterOptions.FlashMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "flashManSecondaryColor", rom.RobotMasterOptions.FlashMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "flashManPrimaryColor", rom.RobotMasters.FlashMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "flashManSecondaryColor", rom.RobotMasters.FlashMan.SecondaryColor.Name)" />
                     <div class="col-md-3 form-group">
                         <label for="flashManSpeed">Running Speed</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="@rom.RobotMasterOptions.FlashMan.RunSpeed" placeholder="Default: 1.0234375" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="@rom.RobotMasters.FlashMan.RunSpeed" placeholder="Default: 1.0234375" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManTimeStopperDelay">Time Stopper Delay</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="@rom.RobotMasterOptions.FlashMan.TimeStopperDelay" placeholder="Default: 187" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="@rom.RobotMasters.FlashMan.TimeStopperDelay" placeholder="Default: 187" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
                         <label for="flashManJumpDistance">Jump Distance</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpDistance" id="flashManJumpDistance" value="@rom.RobotMasterOptions.FlashMan.JumpDistance" placeholder="Default: 0" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpDistance" id="flashManJumpDistance" value="@rom.RobotMasters.FlashMan.JumpDistance" placeholder="Default: 0" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManJumpHeight">Jump Height</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpHeight" id="flashManJumpHeight" value="@rom.RobotMasterOptions.FlashMan.JumpHeight" placeholder="Default: 4" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpHeight" id="flashManJumpHeight" value="@rom.RobotMasters.FlashMan.JumpHeight" placeholder="Default: 4" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManProjectileCount">Number of Projectiles</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileCount" id="flashManProjectileCount" value="@rom.RobotMasterOptions.FlashMan.ProjectileCount" placeholder="Default: 6" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileCount" id="flashManProjectileCount" value="@rom.RobotMasters.FlashMan.ProjectileCount" placeholder="Default: 6" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="flashManProjectileSpeed">Projectile Speed</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="@rom.RobotMasterOptions.FlashMan.ProjectileSpeed" placeholder="Default: 8" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="@rom.RobotMasters.FlashMan.ProjectileSpeed" placeholder="Default: 8" />
                     </div>
                 </div>
             </div>
@@ -334,39 +334,39 @@
 
             <div class="card-body collapse" id="collapseAirMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "airManPrimaryColor", rom.RobotMasterOptions.AirMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "airManSecondaryColor", rom.RobotMasterOptions.AirMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "airManPrimaryColor", rom.RobotMasters.AirMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "airManSecondaryColor", rom.RobotMasters.AirMan.SecondaryColor.Name)" />
                     <div class="col-md-3 form-group">
                         <label for="airManShotsBeforeJumping">Shots Before Jumping</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="@rom.RobotMasterOptions.AirMan.ShotsBeforeJumping" placeholder="Default: 3" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="@rom.RobotMasters.AirMan.ShotsBeforeJumping" placeholder="Default: 3" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
                         <label for="airManJump1Distance">First Jump Distance</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Distance" id="airManJump1Distance" value="@rom.RobotMasterOptions.AirMan.Jump1Distance" placeholder="Default: 1" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Distance" id="airManJump1Distance" value="@rom.RobotMasters.AirMan.Jump1Distance" placeholder="Default: 1" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="airManJump1Height">First Jump Height</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Height" id="airManJump1Height" value="@rom.RobotMasterOptions.AirMan.Jump1Height" placeholder="Default: 4" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Height" id="airManJump1Height" value="@rom.RobotMasters.AirMan.Jump1Height" placeholder="Default: 4" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="airManJump2Distance">Second Jump Distance</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Distance" id="airManJump2Distance" value="@rom.RobotMasterOptions.AirMan.Jump2Distance" placeholder="Default: 1" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Distance" id="airManJump2Distance" value="@rom.RobotMasters.AirMan.Jump2Distance" placeholder="Default: 1" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="airManJump2Height">Second Jump Height</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Height" id="airManJump2Height" value="@rom.RobotMasterOptions.AirMan.Jump2Height" placeholder="Default: 7" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Height" id="airManJump2Height" value="@rom.RobotMasters.AirMan.Jump2Height" placeholder="Default: 7" />
                     </div>
                 </div>
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Tornado Primary Color", "airManTornadoPrimaryColor", rom.RobotMasterOptions.AirMan.TornadoPrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Tornado Secondary Color", "airManTornadoSecondaryColor", rom.RobotMasterOptions.AirMan.TornadoSecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Tornado Primary Color", "airManTornadoPrimaryColor", rom.RobotMasters.AirMan.TornadoPrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Tornado Secondary Color", "airManTornadoSecondaryColor", rom.RobotMasters.AirMan.TornadoSecondaryColor.Name)" />
                 </div>
 
-                @for (int i = 0; i < rom.RobotMasterOptions.AirMan.Patterns.Count; i++)
+                @for (int i = 0; i < rom.RobotMasters.AirMan.Patterns.Count; i++)
                 {
-                    TornadoPattern pattern = rom.RobotMasterOptions.AirMan.Patterns[i];
+                    TornadoPattern pattern = rom.RobotMasters.AirMan.Patterns[i];
                 <div class="card">
                     <div class="card-header">
                         @{ string patternCollapseId = $"collapsePattern{i + 1}"; }
@@ -415,33 +415,33 @@
             </div>
             <div class="card-body collapse" id="collapseQuickMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "quickManPrimaryColor", rom.RobotMasterOptions.QuickMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "quickManSecondaryColor", rom.RobotMasterOptions.QuickMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "quickManPrimaryColor", rom.RobotMasters.QuickMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "quickManSecondaryColor", rom.RobotMasters.QuickMan.SecondaryColor.Name)" />
                     <div class="col-md-3 form-group">
                         <label for="quickManRunSpeed">Running Speed</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="quickManRunSpeed" id="quickManRunSpeed" value="@rom.RobotMasterOptions.QuickMan.RunSpeed" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="quickManRunSpeed" id="quickManRunSpeed" value="@rom.RobotMasters.QuickMan.RunSpeed" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="quickManRunDuration">Run Duration</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManRunDuration" id="quickManRunDuration" value="@rom.RobotMasterOptions.QuickMan.RunDuration" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManRunDuration" id="quickManRunDuration" value="@rom.RobotMasters.QuickMan.RunDuration" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 form-group">
                         <label for="quickManProjectileCount">Number of Projectiles</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileCount" id="quickManProjectileCount" value="@rom.RobotMasterOptions.QuickMan.ProjectileCount" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileCount" id="quickManProjectileCount" value="@rom.RobotMasters.QuickMan.ProjectileCount" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="quickManProjectileLaunchSpeed">Projectile Launch Speed</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileLaunchSpeed" id="quickManProjectileLaunchSpeed" value="@rom.RobotMasterOptions.QuickMan.ProjectileLaunchSpeed" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileLaunchSpeed" id="quickManProjectileLaunchSpeed" value="@rom.RobotMasters.QuickMan.ProjectileLaunchSpeed" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="quickManProjectileReturnDelay">Delay Before Returning</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnDelay" id="quickManProjectileReturnDelay" value="@rom.RobotMasterOptions.QuickMan.ProjectileReturnDelay" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnDelay" id="quickManProjectileReturnDelay" value="@rom.RobotMasters.QuickMan.ProjectileReturnDelay" />
                     </div>
                     <div class="col-md-3 form-group">
                         <label for="quickManProjectileReturnSpeed">Projectile Return Speed</label>
-                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnSpeed" id="quickManProjectileReturnSpeed" value="@rom.RobotMasterOptions.QuickMan.ProjectileReturnSpeed" />
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnSpeed" id="quickManProjectileReturnSpeed" value="@rom.RobotMasters.QuickMan.ProjectileReturnSpeed" />
                     </div>
                 </div>
             </div>
@@ -453,8 +453,8 @@
             </div>
             <div class="card-body collapse" id="collapseHeatMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "heatManPrimaryColor", rom.RobotMasterOptions.HeatMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "heatManSecondaryColor", rom.RobotMasterOptions.HeatMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "heatManPrimaryColor", rom.RobotMasters.HeatMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "heatManSecondaryColor", rom.RobotMasters.HeatMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>
@@ -465,8 +465,8 @@
             </div>
             <div class="card-body collapse" id="collapseBubbleMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "bubbleManPrimaryColor", rom.RobotMasterOptions.BubbleMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "bubbleManSecondaryColor", rom.RobotMasterOptions.BubbleMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "bubbleManPrimaryColor", rom.RobotMasters.BubbleMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "bubbleManSecondaryColor", rom.RobotMasters.BubbleMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>
@@ -477,8 +477,8 @@
             </div>
             <div class="card-body collapse" id="collapseWoodMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "woodManPrimaryColor", rom.RobotMasterOptions.WoodMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "woodManSecondaryColor", rom.RobotMasterOptions.WoodMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "woodManPrimaryColor", rom.RobotMasters.WoodMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "woodManSecondaryColor", rom.RobotMasters.WoodMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>
@@ -489,8 +489,8 @@
             </div>
             <div class="card-body collapse" id="collapseMetalMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "metalManPrimaryColor", rom.RobotMasterOptions.MetalMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "metalManSecondaryColor", rom.RobotMasterOptions.MetalMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "metalManPrimaryColor", rom.RobotMasters.MetalMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "metalManSecondaryColor", rom.RobotMasters.MetalMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>
@@ -501,8 +501,8 @@
             </div>
             <div class="card-body collapse" id="collapseCrashMan">
                 <div class="row">
-                    <partial name="_ColorFormGroup" model="@("Primary Color", "crashManPrimaryColor", rom.RobotMasterOptions.CrashMan.PrimaryColor.Name)" />
-                    <partial name="_ColorFormGroup" model="@("Secondary Color", "crashManSecondaryColor", rom.RobotMasterOptions.CrashMan.SecondaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Primary Color", "crashManPrimaryColor", rom.RobotMasters.CrashMan.PrimaryColor.Name)" />
+                    <partial name="_ColorFormGroup" model="@("Secondary Color", "crashManSecondaryColor", rom.RobotMasters.CrashMan.SecondaryColor.Name)" />
                 </div>
             </div>
         </div>

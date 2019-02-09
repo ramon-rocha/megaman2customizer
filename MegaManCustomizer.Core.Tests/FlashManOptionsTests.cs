@@ -13,21 +13,21 @@ namespace MegaMan2Customizer.Core.Tests
         public void PrimaryColor_IsWhite()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("White", rom.RobotMasterOptions.FlashMan.PrimaryColor.Name);
+            Assert.Equal("White", rom.RobotMasters.FlashMan.PrimaryColor.Name);
         }
 
         [Fact]
         public void SecondaryColor_IsIndigo()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Indigo", rom.RobotMasterOptions.FlashMan.SecondaryColor.Name);
+            Assert.Equal("Indigo", rom.RobotMasters.FlashMan.SecondaryColor.Name);
         }
 
         [Fact]
         public void RunSpeed_Is1()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(1.0234375m, rom.RobotMasterOptions.FlashMan.RunSpeed);
+            Assert.Equal(1.0234375m, rom.RobotMasters.FlashMan.RunSpeed);
         }
 
         [Theory]
@@ -40,29 +40,29 @@ namespace MegaMan2Customizer.Core.Tests
         {
             var value = decimal.Parse(valueText);
             var rom = new MegaManRom(_romBytes);
-            rom.RobotMasterOptions.FlashMan.RunSpeed = value;
-            Assert.Equal(value, rom.RobotMasterOptions.FlashMan.RunSpeed);
+            rom.RobotMasters.FlashMan.RunSpeed = value;
+            Assert.Equal(value, rom.RobotMasters.FlashMan.RunSpeed);
         }
 
         [Fact]
         public void JumpDistance_Is0() // TODO: include fraction
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(0, rom.RobotMasterOptions.FlashMan.JumpDistance);
+            Assert.Equal(0, rom.RobotMasters.FlashMan.JumpDistance);
         }
 
         [Fact]
         public void JumpHeight_Is4()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(4, rom.RobotMasterOptions.FlashMan.JumpHeight);
+            Assert.Equal(4, rom.RobotMasters.FlashMan.JumpHeight);
         }
 
         [Fact]
         public void ProjectileCount_Is6()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(6, rom.RobotMasterOptions.FlashMan.ProjectileCount);
+            Assert.Equal(6, rom.RobotMasters.FlashMan.ProjectileCount);
         }
 
 
@@ -70,14 +70,14 @@ namespace MegaMan2Customizer.Core.Tests
         public void ProjectileSpeed_Is8()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(8, rom.RobotMasterOptions.FlashMan.ProjectileSpeed);
+            Assert.Equal(8, rom.RobotMasters.FlashMan.ProjectileSpeed);
         }
 
         [Fact]
         public void TimeStopperDelay_Is187()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal(0xBB, rom.RobotMasterOptions.FlashMan.TimeStopperDelay);
+            Assert.Equal(0xBB, rom.RobotMasters.FlashMan.TimeStopperDelay);
         }
     }
 }

@@ -83,7 +83,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 }
                 var rom = new MegaManRom(path);
 
-                MegaManOptions megaMan = rom.MegaManOptions;
+                MegaManOptions megaMan = rom.MegaMan;
                 megaMan.StartingHealth = startingHealth;
                 megaMan.MaxHealth = maxHealth;
                 megaMan.Speed = speed;
@@ -93,7 +93,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 megaMan.BusterSpeed = busterSpeed;
                 megaMan.MaxBusterShots = busterShots;
 
-                AtomicFireOptions atomicFire = rom.WeaponOptions.AtomicFire;
+                AtomicFireOptions atomicFire = rom.Weapons.AtomicFire;
                 atomicFire.PrimaryColor = Color.Parse(atomicFirePrimaryColor);
                 atomicFire.SecondaryColor = Color.Parse(atomicFireSecondaryColor);
                 atomicFire.Level1AmmoUsed = atomicFireLevel1Ammo;
@@ -103,17 +103,17 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 atomicFire.Level3AmmoUsed = atomicFireLevel3Ammo;
                 atomicFire.ProjectileSpeed = atomicFireSpeed;
 
-                AirShooterOptions airShooter = rom.WeaponOptions.AirShooter;
+                AirShooterOptions airShooter = rom.Weapons.AirShooter;
                 airShooter.PrimaryColor = Color.Parse(airShooterPrimaryColor);
                 airShooter.SecondaryColor = Color.Parse(airShooterSecondaryColor);
                 airShooter.AmmoUsed = airShooterAmmo;
                 airShooter.ProjectileCount = airShooterShots;
 
-                BubbleManOptions bubbleMan = rom.RobotMasterOptions.BubbleMan;
+                BubbleManOptions bubbleMan = rom.RobotMasters.BubbleMan;
                 bubbleMan.PrimaryColor = Color.Parse(bubbleManPrimaryColor);
                 bubbleMan.SecondaryColor = Color.Parse(bubbleManSecondaryColor);
 
-                AirManOptions airMan = rom.RobotMasterOptions.AirMan;
+                AirManOptions airMan = rom.RobotMasters.AirMan;
                 airMan.PrimaryColor = Color.Parse(airManPrimaryColor);
                 airMan.SecondaryColor = Color.Parse(airManSecondaryColor);
                 airMan.ShotsBeforeJumping = airManShotsBeforeJumping;
@@ -134,7 +134,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                     tornado.FlightTime = (byte)airManTornadoFlightTime[i];
                 }
 
-                QuickManOptions quickMan = rom.RobotMasterOptions.QuickMan;
+                QuickManOptions quickMan = rom.RobotMasters.QuickMan;
                 quickMan.PrimaryColor = Color.Parse(quickManPrimaryColor);
                 quickMan.SecondaryColor = Color.Parse(quickManSecondaryColor);
                 quickMan.RunSpeed = quickManRunSpeed;
@@ -144,19 +144,19 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 quickMan.ProjectileReturnDelay = quickManProjectileReturnDelay;
                 quickMan.ProjectileReturnSpeed = quickManProjectileReturnSpeed;
 
-                HeatManOptions heatMan = rom.RobotMasterOptions.HeatMan;
+                HeatManOptions heatMan = rom.RobotMasters.HeatMan;
                 heatMan.PrimaryColor = Color.Parse(heatManPrimaryColor);
                 heatMan.SecondaryColor = Color.Parse(heatManSecondaryColor);
 
-                WoodManOptions woodMan = rom.RobotMasterOptions.WoodMan;
+                WoodManOptions woodMan = rom.RobotMasters.WoodMan;
                 woodMan.PrimaryColor = Color.Parse(woodManPrimaryColor);
                 woodMan.SecondaryColor = Color.Parse(woodManSecondaryColor);
 
-                MetalManOptions metalMan = rom.RobotMasterOptions.MetalMan;
+                MetalManOptions metalMan = rom.RobotMasters.MetalMan;
                 metalMan.PrimaryColor = Color.Parse(metalManPrimaryColor);
                 metalMan.SecondaryColor = Color.Parse(metalManSecondaryColor);
 
-                FlashManOptions flashMan = rom.RobotMasterOptions.FlashMan;
+                FlashManOptions flashMan = rom.RobotMasters.FlashMan;
                 flashMan.PrimaryColor = Color.Parse(flashManPrimaryColor);
                 flashMan.SecondaryColor = Color.Parse(flashManSecondaryColor);
                 flashMan.RunSpeed = flashManSpeed;
@@ -166,7 +166,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 flashMan.ProjectileCount = flashManProjectileCount;
                 flashMan.ProjectileSpeed = flashManProjectileSpeed;
 
-                CrashManOptions crashMan = rom.RobotMasterOptions.CrashMan;
+                CrashManOptions crashMan = rom.RobotMasters.CrashMan;
                 crashMan.PrimaryColor = Color.Parse(crashManPrimaryColor);
                 crashMan.SecondaryColor = Color.Parse(crashManSecondaryColor);
 

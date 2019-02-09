@@ -10,13 +10,13 @@ namespace MegaMan2Customizer.Core
         private readonly byte[] _bytes;
         public ImmutableArray<byte> Bytes => _bytes.ToImmutableArray();
 
-        public StartMenuOptions StartMenuOptions { get; }
+        public StartMenuOptions StartMenu { get; }
 
-        public MegaManOptions MegaManOptions { get; }
+        public MegaManOptions MegaMan { get; }
 
-        public WeaponOptions WeaponOptions { get; }
+        public WeaponOptions Weapons { get; }
 
-        public RobotMasterOptions RobotMasterOptions { get; }
+        public RobotMasterOptions RobotMasters { get; }
 
         public byte LargeHealthPickupAmount => this.Bytes[Addresses.LargeHealthPickupAmount];
 
@@ -30,11 +30,10 @@ namespace MegaMan2Customizer.Core
         {
             _bytes = new byte[bytes.Length];
             Array.Copy(bytes, _bytes, bytes.Length);
-            this.StartMenuOptions = new StartMenuOptions(_bytes);
-            this.MegaManOptions = new MegaManOptions(_bytes);
-            this.WeaponOptions = new WeaponOptions(_bytes);
-            this.RobotMasterOptions = new RobotMasterOptions(_bytes);
-
+            this.StartMenu = new StartMenuOptions(_bytes);
+            this.MegaMan = new MegaManOptions(_bytes);
+            this.Weapons = new WeaponOptions(_bytes);
+            this.RobotMasters = new RobotMasterOptions(_bytes);
         }
 
         public void SaveAs(string path) => File.WriteAllBytes(path, this.Bytes.ToArray());

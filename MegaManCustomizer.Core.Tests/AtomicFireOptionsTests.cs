@@ -13,14 +13,14 @@ namespace MegaMan2Customizer.Core.Tests
         public void PrimaryColor_IsYellow()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Yellow", rom.WeaponOptions.AtomicFire.PrimaryColor.Name);
+            Assert.Equal("Yellow", rom.Weapons.AtomicFire.PrimaryColor.Name);
         }
 
         [Fact]
         public void SecondaryColor_IsCrimson()
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("Crimson", rom.WeaponOptions.AtomicFire.SecondaryColor.Name);
+            Assert.Equal("Crimson", rom.Weapons.AtomicFire.SecondaryColor.Name);
         }
 
         [Fact]
@@ -29,7 +29,7 @@ namespace MegaMan2Customizer.Core.Tests
             Color charge1Color, charge2Color;
 
             var rom = new MegaManRom(_romBytes);
-            var atomicFire = rom.WeaponOptions.AtomicFire;
+            var atomicFire = rom.Weapons.AtomicFire;
             charge1Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor1]);
             charge2Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor2]);
             Assert.NotEqual("White", atomicFire.SecondaryColor.Name);
