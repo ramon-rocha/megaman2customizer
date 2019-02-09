@@ -17,6 +17,14 @@ namespace MegaMan2Customizer.Core
             return whole + fraction;
         }
 
+        public static (byte whole, byte fraction) SetDecimal(this byte[] bytes, int wholeAddress, int fractionAddress, decimal value)
+        {
+            (byte whole, byte fraction) pair = value.ToBytePair();
+            bytes[wholeAddress] = pair.whole;
+            bytes[fractionAddress] = pair.fraction;
+            return pair;
+        }
+
         public static (byte whole, byte fraction) ToBytePair(this decimal value)
         {
             if (value < 0 || value >= 256)

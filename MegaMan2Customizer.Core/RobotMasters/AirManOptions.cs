@@ -16,23 +16,13 @@ namespace MegaMan2Customizer.Core
         public decimal VerticalVelocity
         {
             get => _romBytes.GetDecimal(_vertWholeAddress, _vertFractionAddress);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[_vertWholeAddress] = whole;
-                _romBytes[_vertFractionAddress] = fraction;
-            }
+            set => _romBytes.SetDecimal(_vertWholeAddress, _vertFractionAddress, value);
         }
 
         public decimal HorizontalVelocity
         {
             get => _romBytes.GetDecimal(_horzWholeAddress, _horzFractionAddress);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[_horzWholeAddress] = whole;
-                _romBytes[_horzFractionAddress] = fraction;
-            }
+            set => _romBytes.SetDecimal(_horzWholeAddress, _horzFractionAddress, value);
         }
 
         public byte FlightTime
@@ -94,46 +84,27 @@ namespace MegaMan2Customizer.Core
         public decimal Jump1Distance
         {
             get => _romBytes.GetDecimal(Addresses.AirManJump1DistanceWhole, Addresses.AirManJump1DistanceFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.AirManJump1DistanceWhole] = whole;
-                _romBytes[Addresses.AirManJump1DistanceFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.AirManJump1DistanceWhole, Addresses.AirManJump1DistanceFraction, value);
         }
 
         public decimal Jump1Height
         {
             get => _romBytes.GetDecimal(Addresses.AirManJump1HeightWhole, Addresses.AirManJump1HeightFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.AirManJump1HeightWhole] = whole;
-                _romBytes[Addresses.AirManJump1HeightFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.AirManJump1HeightWhole, Addresses.AirManJump1HeightFraction, value);
         }
 
         public decimal Jump2Distance
         {
             get => _romBytes.GetDecimal(Addresses.AirManJump2DistanceWhole, Addresses.AirManJump2DistanceFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.AirManJump2DistanceWhole] = whole;
-                _romBytes[Addresses.AirManJump2DistanceFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.AirManJump2DistanceWhole, Addresses.AirManJump2DistanceFraction, value);
         }
 
         public decimal Jump2Height
         {
             get => _romBytes.GetDecimal(Addresses.AirManJump2HeightWhole, Addresses.AirManJump2HeightFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.AirManJump2HeightWhole] = whole;
-                _romBytes[Addresses.AirManJump2HeightFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.AirManJump2HeightWhole, Addresses.AirManJump2HeightFraction, value);
         }
+
         public IReadOnlyList<TornadoPattern> Patterns { get; }
 
         public AirManOptions(byte[] romBytes) : base(romBytes, Addresses.AirManColor1, Addresses.AirManColor2)

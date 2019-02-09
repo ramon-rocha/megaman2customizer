@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public class MegaManOptions
     {
@@ -39,23 +37,13 @@ namespace MegaMan2Customizer.Core
         public decimal LadderClimbSpeed
         {
             get => _romBytes.GetDecimal(Addresses.MegaManLadderClimbSpeedWhole, Addresses.MegaManLadderClimbSpeedFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.MegaManLadderClimbSpeedWhole] = whole;
-                _romBytes[Addresses.MegaManLadderClimbSpeedFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.MegaManLadderClimbSpeedWhole, Addresses.MegaManLadderClimbSpeedFraction, value);
         }
 
         public decimal LadderDescentSpeed
         {
             get => _romBytes.GetDecimal(Addresses.MegaManLadderDescentSpeedWhole, Addresses.MegaManLadderDescentSpeedFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.MegaManLadderDescentSpeedWhole] = whole;
-                _romBytes[Addresses.MegaManLadderDescentSpeedFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.MegaManLadderDescentSpeedWhole, Addresses.MegaManLadderDescentSpeedFraction, value);
         }
 
         public byte JumpHeight

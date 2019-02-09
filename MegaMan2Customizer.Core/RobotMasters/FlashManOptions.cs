@@ -5,12 +5,7 @@
         public decimal RunSpeed
         {
             get => _romBytes.GetDecimal(Addresses.FlashManRunSpeedWhole, Addresses.FlashManRunSpeedFraction);
-            set
-            {
-                (byte whole, byte fraction) = value.ToBytePair();
-                _romBytes[Addresses.FlashManRunSpeedWhole] = whole;
-                _romBytes[Addresses.FlashManRunSpeedFraction] = fraction;
-            }
+            set => _romBytes.SetDecimal(Addresses.FlashManRunSpeedWhole, Addresses.FlashManRunSpeedFraction, value);
         }
 
         public byte TimeStopperDelay
