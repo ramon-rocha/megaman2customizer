@@ -2,17 +2,10 @@
 
 @model (string labelText, string attributeName, string selectedColorName)
 
-@{
-    IReadOnlyList<string> colorNames =
-        Color.GetAllColors()
-        .Select(c => c.Name)
-        .ToList();
-}
-
 <div class="col-md-3 form-group">
     <label class="control-label" for="@this.Model.attributeName">@this.Model.labelText</label>
     <select class="form-control" name="@this.Model.attributeName" id="@this.Model.attributeName">
-        @foreach (string name in colorNames)
+        @foreach (string name in Color.GetAllColors().Select(c => c.Name))
         {
             if (name == this.Model.selectedColorName)
             {

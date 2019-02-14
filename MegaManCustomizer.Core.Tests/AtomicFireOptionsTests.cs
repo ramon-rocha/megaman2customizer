@@ -36,7 +36,7 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.NotEqual("White", charge1Color.Name);
             Assert.NotEqual("White", charge2Color.Name);
 
-            atomicFire.SecondaryColor = new Color(Pigment.White, Lightness.Light);
+            atomicFire.SecondaryColor = Color.White;
             charge1Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor1]);
             charge2Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor2]);
             Assert.Equal("White", atomicFire.SecondaryColor.Name);

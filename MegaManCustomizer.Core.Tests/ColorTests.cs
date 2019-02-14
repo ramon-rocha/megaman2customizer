@@ -1,4 +1,6 @@
-﻿using MegaMan2Customizer.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace MegaMan2Customizer.Core.Tests
@@ -6,8 +8,8 @@ namespace MegaMan2Customizer.Core.Tests
     public class ColorTests
     {
         [Theory]
-        [InlineData(0x00, "Dark Gray")]
-        [InlineData(0x10, "Light Gray")]
+        [InlineData(0x00, "Darker Gray")]
+        [InlineData(0x10, "Gray")]
         [InlineData(0x20, "White")]
         [InlineData(0x30, "White")]
         [InlineData(0x16, "Red")]
@@ -25,7 +27,7 @@ namespace MegaMan2Customizer.Core.Tests
         [InlineData(0x0D, "Black")]
         [InlineData(0x1D, "Black")]
         [InlineData(0x2D, "Dark Gray")]
-        [InlineData(0x3D, "Gray")]
+        [InlineData(0x3D, "Light Gray")]
         [InlineData(0x08, "Brown")]
         [InlineData(0x18, "Dark Yellow")]
         [InlineData(0x28, "Yellow")]
@@ -37,69 +39,137 @@ namespace MegaMan2Customizer.Core.Tests
         }
 
         [Theory]
-        [InlineData(Pigment.Red, Lightness.Normal, "Red")]
-        [InlineData(Pigment.Green, Lightness.Normal, "Green")]
-        [InlineData(Pigment.Blue, Lightness.Normal, "Blue")]
-        [InlineData(Pigment.Red, Lightness.Dark, "Dark Red")]
-        [InlineData(Pigment.Green, Lightness.Dark, "Dark Green")]
-        [InlineData(Pigment.Blue, Lightness.Dark, "Dark Blue")]
-        [InlineData(Pigment.Red, Lightness.Light, "Light Red")]
-        [InlineData(Pigment.Green, Lightness.Light, "Light Green")]
-        [InlineData(Pigment.Blue, Lightness.Light, "Light Blue")]
-        [InlineData(Pigment.Red, Lightness.VeryLight, "Very Light Red")]
-        [InlineData(Pigment.Green, Lightness.VeryLight, "Very Light Green")]
-        [InlineData(Pigment.Blue, Lightness.VeryLight, "Very Light Blue")]
-        [InlineData(Pigment.White, Lightness.Normal, "Light Gray")]
-        [InlineData(Pigment.White, Lightness.Dark, "Dark Gray")]
-        [InlineData(Pigment.White, Lightness.Light, "White")]
-        [InlineData(Pigment.White, Lightness.VeryLight, "White")]
-        [InlineData(Pigment.Black, Lightness.Normal, "Black")]
-        [InlineData(Pigment.Black, Lightness.Dark, "Black")]
-        [InlineData(Pigment.Black, Lightness.Light, "Dark Gray")]
-        [InlineData(Pigment.Black, Lightness.VeryLight, "Gray")]
-        [InlineData(Pigment.SeaGreen, Lightness.Normal, "Sea Green")]
-        [InlineData(Pigment.SeaGreen, Lightness.Dark, "Dark Sea Green")]
-        [InlineData(Pigment.SeaGreen, Lightness.Light, "Light Sea Green")]
-        [InlineData(Pigment.SeaGreen, Lightness.VeryLight, "Very Light Sea Green")]
-        [InlineData(Pigment.ForestGreen, Lightness.Normal, "Forest Green")]
-        [InlineData(Pigment.ForestGreen, Lightness.Dark, "Dark Forest Green")]
-        [InlineData(Pigment.ForestGreen, Lightness.Light, "Light Forest Green")]
-        [InlineData(Pigment.ForestGreen, Lightness.VeryLight, "Very Light Forest Green")]
-        [InlineData(Pigment.Yellow, Lightness.Dark, "Brown")]
-        [InlineData(Pigment.Yellow, Lightness.Normal, "Dark Yellow")]
-        [InlineData(Pigment.Yellow, Lightness.Light, "Yellow")]
-        [InlineData(Pigment.Yellow, Lightness.VeryLight, "Light Yellow")]
-        public void Name_BasedOnPigmentAndLightness(Pigment pigment, Lightness lightness, string name)
+        [InlineData(Chrominance.Red, Luma.Medium, "Red")]
+        [InlineData(Chrominance.Green, Luma.Medium, "Green")]
+        [InlineData(Chrominance.Blue, Luma.Medium, "Blue")]
+        [InlineData(Chrominance.Red, Luma.Dark, "Dark Red")]
+        [InlineData(Chrominance.Green, Luma.Dark, "Dark Green")]
+        [InlineData(Chrominance.Blue, Luma.Dark, "Dark Blue")]
+        [InlineData(Chrominance.Red, Luma.Light, "Light Red")]
+        [InlineData(Chrominance.Green, Luma.Light, "Light Green")]
+        [InlineData(Chrominance.Blue, Luma.Light, "Light Blue")]
+        [InlineData(Chrominance.Red, Luma.VeryLight, "Very Light Red")]
+        [InlineData(Chrominance.Green, Luma.VeryLight, "Very Light Green")]
+        [InlineData(Chrominance.Blue, Luma.VeryLight, "Very Light Blue")]
+        [InlineData(Chrominance.Gray, Luma.Medium, "Gray")]
+        [InlineData(Chrominance.Gray, Luma.Dark, "Darker Gray")]
+        [InlineData(Chrominance.Gray, Luma.Light, "White")]
+        [InlineData(Chrominance.Gray, Luma.VeryLight, "White")]
+        [InlineData(Chrominance.Black, Luma.Medium, "Black")]
+        [InlineData(Chrominance.Black, Luma.Dark, "Black")]
+        [InlineData(Chrominance.Black, Luma.Light, "Dark Gray")]
+        [InlineData(Chrominance.Black, Luma.VeryLight, "Light Gray")]
+        [InlineData(Chrominance.SeaGreen, Luma.Medium, "Sea Green")]
+        [InlineData(Chrominance.SeaGreen, Luma.Dark, "Dark Sea Green")]
+        [InlineData(Chrominance.SeaGreen, Luma.Light, "Light Sea Green")]
+        [InlineData(Chrominance.SeaGreen, Luma.VeryLight, "Very Light Sea Green")]
+        [InlineData(Chrominance.ForestGreen, Luma.Medium, "Forest Green")]
+        [InlineData(Chrominance.ForestGreen, Luma.Dark, "Dark Forest Green")]
+        [InlineData(Chrominance.ForestGreen, Luma.Light, "Light Forest Green")]
+        [InlineData(Chrominance.ForestGreen, Luma.VeryLight, "Very Light Forest Green")]
+        [InlineData(Chrominance.Yellow, Luma.Dark, "Brown")]
+        [InlineData(Chrominance.Yellow, Luma.Medium, "Dark Yellow")]
+        [InlineData(Chrominance.Yellow, Luma.Light, "Yellow")]
+        [InlineData(Chrominance.Yellow, Luma.VeryLight, "Light Yellow")]
+        [InlineData(Chrominance.Black2, Luma.Dark, "Black")]
+        [InlineData(Chrominance.Black2, Luma.Medium, "Black")]
+        [InlineData(Chrominance.Black2, Luma.Light, "Black")]
+        [InlineData(Chrominance.Black2, Luma.VeryLight, "Black")]
+        [InlineData(Chrominance.Black3, Luma.Dark, "Black")]
+        [InlineData(Chrominance.Black3, Luma.Medium, "Black")]
+        [InlineData(Chrominance.Black3, Luma.Light, "Black")]
+        [InlineData(Chrominance.Black3, Luma.VeryLight, "Black")]
+        public void Name_BasedOnChromaAndLuma(Chrominance chroma, Luma luma, string name)
         {
-            var color = new Color(pigment, lightness);
+            var color = new Color(chroma, luma);
             Assert.Equal(name, color.Name);
         }
 
         [Theory]
-        [InlineData(Pigment.Red, Lightness.Normal, 0x16)]
-        [InlineData(Pigment.Green, Lightness.Normal, 0x1A)]
-        [InlineData(Pigment.Blue, Lightness.Normal, 0x11)]
-        [InlineData(Pigment.Red, Lightness.Dark, 0x06)]
-        [InlineData(Pigment.Green, Lightness.Dark, 0x0A)]
-        [InlineData(Pigment.Blue, Lightness.Dark, 0x01)]
-        [InlineData(Pigment.Red, Lightness.Light, 0x26)]
-        [InlineData(Pigment.Green, Lightness.Light, 0x2A)]
-        [InlineData(Pigment.Blue, Lightness.Light, 0x21)]
-        [InlineData(Pigment.Red, Lightness.VeryLight, 0x36)]
-        [InlineData(Pigment.Green, Lightness.VeryLight, 0x3A)]
-        [InlineData(Pigment.Blue, Lightness.VeryLight, 0x31)]
-        [InlineData(Pigment.White, Lightness.Normal, 0x10)]
-        [InlineData(Pigment.White, Lightness.Dark, 0x00)]
-        [InlineData(Pigment.White, Lightness.Light, 0x20)]
-        [InlineData(Pigment.White, Lightness.VeryLight, 0x20)]
-        [InlineData(Pigment.Black, Lightness.Normal, 0x1D)]
-        [InlineData(Pigment.Black, Lightness.Dark, 0x1D)]
-        [InlineData(Pigment.Black, Lightness.Light, 0x2D)]
-        [InlineData(Pigment.Black, Lightness.VeryLight, 0x3D)]
-        public void Value_BasedOnPigmentAndlightness(Pigment pigment, Lightness lightness, byte value)
+        [InlineData(Chrominance.Red, Luma.Medium, 0x16)]
+        [InlineData(Chrominance.Green, Luma.Medium, 0x1A)]
+        [InlineData(Chrominance.Blue, Luma.Medium, 0x11)]
+        [InlineData(Chrominance.Red, Luma.Dark, 0x06)]
+        [InlineData(Chrominance.Green, Luma.Dark, 0x0A)]
+        [InlineData(Chrominance.Blue, Luma.Dark, 0x01)]
+        [InlineData(Chrominance.Red, Luma.Light, 0x26)]
+        [InlineData(Chrominance.Green, Luma.Light, 0x2A)]
+        [InlineData(Chrominance.Blue, Luma.Light, 0x21)]
+        [InlineData(Chrominance.Red, Luma.VeryLight, 0x36)]
+        [InlineData(Chrominance.Green, Luma.VeryLight, 0x3A)]
+        [InlineData(Chrominance.Blue, Luma.VeryLight, 0x31)]
+        [InlineData(Chrominance.Gray, Luma.Medium, 0x10)]
+        [InlineData(Chrominance.Gray, Luma.Dark, 0x00)]
+        [InlineData(Chrominance.Gray, Luma.Light, 0x20)]
+        [InlineData(Chrominance.Gray, Luma.VeryLight, 0x30)]
+        [InlineData(Chrominance.Black, Luma.Dark, 0x0D)]
+        [InlineData(Chrominance.Black, Luma.Medium, 0x1D)]
+        [InlineData(Chrominance.Black, Luma.Light, 0x2D)]
+        [InlineData(Chrominance.Black, Luma.VeryLight, 0x3D)]
+        [InlineData(Chrominance.Black2, Luma.Dark, 0x0E)]
+        [InlineData(Chrominance.Black3, Luma.Dark, 0x0F)]
+        public void Value_BasedOnChromaAndLuma(Chrominance chroma, Luma luma, byte value)
         {
-            var color = new Color(pigment, lightness);
+            var color = new Color(chroma, luma);
             Assert.Equal(value, color.Value);
+        }
+
+        [Fact]
+        public void AllColors_ContainsStaticMembers()
+        {
+            Assert.Contains(Color.White, Color.GetAllColors());
+            Assert.Contains(Color.Black, Color.GetAllColors());
+        }
+
+        [Theory]
+        [InlineData(Chrominance.Gray, Luma.VeryLight)]
+        [InlineData(Chrominance.Black, Luma.Medium)]
+        [InlineData(Chrominance.Black2, Luma.Dark)]
+        [InlineData(Chrominance.Black2, Luma.Medium)]
+        [InlineData(Chrominance.Black2, Luma.Light)]
+        [InlineData(Chrominance.Black2, Luma.VeryLight)]
+        [InlineData(Chrominance.Black3, Luma.Dark)]
+        [InlineData(Chrominance.Black3, Luma.Medium)]
+        [InlineData(Chrominance.Black3, Luma.Light)]
+        [InlineData(Chrominance.Black3, Luma.VeryLight)]
+        public void AllColors_DoesNotContain_DuplicateColors(Chrominance chroma, Luma luma)
+        {
+            byte value = new Color(chroma, luma).Value;
+            IEnumerable<byte> allValues = Color.GetAllColors().Select(c => c.Value);
+            Assert.DoesNotContain(value, allValues);
+        }
+
+        [Fact]
+        public void Color_Throws_IfGreaterThan_0x3F()
+        {
+            Assert.Equal("Black", new Color(0x3F).Name);
+            for (byte b = 0x40; b < 0xFF; b++)
+            {
+                Assert.Throws<ArgumentOutOfRangeException>(() => new Color(b));
+            }
+        }
+
+        [Theory]
+        [InlineData("Black", Chrominance.Black, Luma.Dark)]
+        [InlineData("Darker Gray", Chrominance.Gray, Luma.Dark)]
+        [InlineData("Dark Gray", Chrominance.Black, Luma.Light)]
+        [InlineData("Gray", Chrominance.Gray, Luma.Medium)]
+        [InlineData("Light Gray", Chrominance.Black, Luma.VeryLight)]
+        [InlineData("White", Chrominance.Gray, Luma.Light)]
+        [InlineData("Brown", Chrominance.Yellow, Luma.Dark)]
+        [InlineData("Dark Yellow", Chrominance.Yellow, Luma.Medium)]
+        [InlineData("Yellow", Chrominance.Yellow, Luma.Light)]
+        [InlineData("Light Yellow", Chrominance.Yellow, Luma.VeryLight)]
+        [InlineData("Red", Chrominance.Red, Luma.Medium)]
+        [InlineData("Green", Chrominance.Green, Luma.Medium)]
+        [InlineData("Blue", Chrominance.Blue, Luma.Medium)]
+        [InlineData("Sea Green", Chrominance.SeaGreen, Luma.Medium)]
+        public void Parse_ParsesValidNames(string name, Chrominance chroma, Luma luma)
+        {
+            Color c = Color.Parse(name);
+            Assert.Equal(name, c.Name);
+            Assert.Equal(chroma, c.Chrominance);
+            Assert.Equal(luma, c.Luma);
         }
     }
 }
