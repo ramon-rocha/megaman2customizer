@@ -208,9 +208,9 @@
         public const int HeatManProjectile2Distance = 0x02C20B; // 0x2E
         public const int HeatManProjectile3Height = 0x02C209; // 3
         public const int HeatManProjectile3Distance = 0x02C20C; // 0x1C
-        public const int HeatManDelay1 = 0x02C29D; // 0x1F
-        public const int HeatManDelay2 = 0x02C29E; // 0x3E
-        public const int HeatManDelay3 = 0x02C29F; // 0x5D
+        public const int HeatManRushDelay1 = 0x02C29D; // 0x1F
+        public const int HeatManRushDelay2 = 0x02C29E; // 0x3E
+        public const int HeatManRushDelay3 = 0x02C29F; // 0x5D
         public const int HeatManRushSpeed = 0x02C253; // 4
 
         public const int BubbleManColor1 = 0x00F4B6;
