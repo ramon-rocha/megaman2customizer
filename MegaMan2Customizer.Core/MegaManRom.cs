@@ -14,9 +14,9 @@ namespace MegaMan2Customizer.Core
 
         public MegaManOptions MegaMan { get; }
 
-        public WeaponOptions Weapons { get; }
+        public AllWeaponOptions Weapons { get; }
 
-        public RobotMasterOptions RobotMasters { get; }
+        public AllRobotMasterOptions RobotMasters { get; }
 
         public byte LargeHealthPickupAmount => this.Bytes[Addresses.LargeHealthPickupAmount];
 
@@ -32,8 +32,8 @@ namespace MegaMan2Customizer.Core
             Array.Copy(bytes, _bytes, bytes.Length);
             this.StartMenu = new StartMenuOptions(_bytes);
             this.MegaMan = new MegaManOptions(_bytes);
-            this.Weapons = new WeaponOptions(_bytes);
-            this.RobotMasters = new RobotMasterOptions(_bytes);
+            this.Weapons = new AllWeaponOptions(_bytes);
+            this.RobotMasters = new AllRobotMasterOptions(_bytes);
         }
 
         public void SaveAs(string path) => File.WriteAllBytes(path, this.Bytes.ToArray());

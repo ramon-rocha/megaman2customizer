@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MegaMan2Customizer.Core
 {
-    public class RobotMasterOptions
+    public class AllRobotMasterOptions
     {
         public BubbleManOptions BubbleMan { get; }
 
@@ -22,7 +22,7 @@ namespace MegaMan2Customizer.Core
 
         public CrashManOptions CrashMan { get; }
 
-        public RobotMasterOptions(byte[] romBytes)
+        public AllRobotMasterOptions(byte[] romBytes)
         {
             this.BubbleMan = new BubbleManOptions(romBytes);
             this.AirMan = new AirManOptions(romBytes);

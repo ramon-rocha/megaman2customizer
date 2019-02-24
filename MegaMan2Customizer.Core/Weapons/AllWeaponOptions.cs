@@ -1,6 +1,6 @@
 ﻿namespace MegaMan2Customizer.Core
 {
-    public class WeaponOptions
+    public class AllWeaponOptions
     {
         public AirShooterOptions AirShooter { get; }
 
@@ -18,7 +18,7 @@
 
         public TimeStopperOptions TimeStopper { get; }
 
-        public WeaponOptions(byte[] romBytes)
+        public AllWeaponOptions(byte[] romBytes)
         {
             this.AirShooter = new AirShooterOptions(romBytes);
             this.AtomicFire = new AtomicFireOptions(romBytes);
