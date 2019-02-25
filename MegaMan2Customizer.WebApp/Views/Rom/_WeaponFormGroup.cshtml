@@ -1,0 +1,21 @@
+﻿@using MegaMan2Customizer.Core
+
+@model (string attributeName, WeaponId selectedWeapon)
+
+<div class="col-md-3 form-group">
+    <label class="control-label" for="@this.Model.attributeName">Weapon on Defeat</label>
+    <select class="form-control" name="@this.Model.attributeName" id="@this.Model.attributeName">
+        @foreach (WeaponId weapon in (WeaponId[])Enum.GetValues(typeof(WeaponId)))
+        {
+            if (weapon == this.Model.selectedWeapon)
+            {
+                <option selected="selected">@weapon.ToString()</option>
+            }
+            else
+            {
+                <option>@weapon.ToString()</option>
+            }
+        }
+
+    </select>
+</div>

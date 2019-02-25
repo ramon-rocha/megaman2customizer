@@ -50,7 +50,7 @@
             set => _romBytes[Addresses.WoodManFallingLeafVertSpeed] = value;
         }
 
-        public WoodManOptions(byte[] romBytes) : base(romBytes, Addresses.WoodManColor1, Addresses.WoodManColor2)
+        public WoodManOptions(byte[] romBytes) : base(romBytes, Addresses.WoodManColor1, Addresses.WoodManColor2, Addresses.WoodManWeaponOnDefeat, Addresses.WoodManItemOnDefeat)
         {
         }
     }

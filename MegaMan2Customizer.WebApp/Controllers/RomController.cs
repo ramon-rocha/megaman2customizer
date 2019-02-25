@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System.IO;
 using MegaMan2Customizer.Core;
 using MegaMan2Customizer.WebApp.Models;
+using System;
 
 namespace MegaMan2Customizer.WebApp.Controllers
 {
@@ -55,7 +56,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
             byte startingHealth, byte maxHealth, byte speed, byte jumpHeight, string busterPrimaryColor, string busterSecondaryColor, byte busterSpeed, byte busterShots,
             string atomicFirePrimaryColor, string atomicFireSecondaryColor, byte atomicFireLevel1Ammo, byte atomicFireLevel2ChargeTime, byte atomicFireLevel2Ammo, byte atomicFireLevel3ChargeTime, byte atomicFireLevel3Ammo, byte atomicFireSpeed,
             string airShooterPrimaryColor, string airShooterSecondaryColor, byte airShooterAmmo, byte airShooterShots,
-            string bubbleManPrimaryColor, string bubbleManSecondaryColor, byte bubbleManRiseSpeed, byte bubbleManFallSpeed, byte bubbleManMaxHeight, byte bubbleManShotDelay, decimal bubbleManProjectileSpeed, decimal bubbleManProjectileVertSpeed, decimal bubbleManBounceSpeed,
+            string bubbleManPrimaryColor, string bubbleManSecondaryColor, byte bubbleManRiseSpeed, byte bubbleManFallSpeed, byte bubbleManMaxHeight, byte bubbleManShotDelay, decimal bubbleManProjectileSpeed, decimal bubbleManProjectileVertSpeed, decimal bubbleManBounceSpeed, string bubbleManWeaponOnDefeat,
             string airManPrimaryColor, string airManSecondaryColor, byte airManShotsBeforeJumping, decimal airManJump1Distance, decimal airManJump2Distance, decimal airManJump1Height, decimal airManJump2Height, decimal[] airManTornadoVertSpeed, decimal[] airManTornadoHorzSpeed, int[] airManTornadoFlightTime,
             string quickManPrimaryColor, string quickManSecondaryColor, byte quickManRunSpeed, byte quickManRunDuration, byte quickManProjectileCount, byte quickManProjectileLaunchSpeed, byte quickManProjectileReturnDelay, byte quickManProjectileReturnSpeed,
             string heatManPrimaryColor, string heatManSecondaryColor, string heatManProjectileColor1, string heatManProjectileColor2, byte heatManProjectile1Height, byte heatManProjectile1Distance, byte heatManProjectile2Height, byte heatManProjectile2Distance, byte heatManProjectile3Height, byte heatManProjectile3Distance, byte heatManRushDelay1, byte heatManRushDelay2, byte heatManRushDelay3, byte heatManRushSpeed,
@@ -116,6 +117,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 bubbleMan.ProjectileSpeed = bubbleManProjectileSpeed;
                 bubbleMan.ProjectileVerticalLaunchSpeed = bubbleManProjectileVertSpeed;
                 bubbleMan.ProjectileBounceSpeed = bubbleManBounceSpeed;
+                bubbleMan.WeaponOnDefeat = Enum.Parse<WeaponId>(bubbleManWeaponOnDefeat, ignoreCase: true);
 
                 AirManOptions airMan = rom.RobotMasters.AirMan;
                 airMan.PrimaryColor = Color.Parse(airManPrimaryColor);

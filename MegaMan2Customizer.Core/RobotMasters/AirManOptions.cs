@@ -107,7 +107,7 @@ namespace MegaMan2Customizer.Core
 
         public IReadOnlyList<TornadoPattern> Patterns { get; }
 
-        public AirManOptions(byte[] romBytes) : base(romBytes, Addresses.AirManColor1, Addresses.AirManColor2)
+        public AirManOptions(byte[] romBytes) : base(romBytes, Addresses.AirManColor1, Addresses.AirManColor2, Addresses.AirManWeaponOnDefeat, Addresses.AirManItemOnDefeat)
         {
             var patterns = new List<TornadoPattern>(5);
             for (int i = 0; i < 5; i++)

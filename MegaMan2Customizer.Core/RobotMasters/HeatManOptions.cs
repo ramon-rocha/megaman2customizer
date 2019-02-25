@@ -74,7 +74,7 @@
             set => _romBytes[Addresses.HeatManRushSpeed] = value;
         }
 
-        public HeatManOptions(byte[] romBytes) : base(romBytes, Addresses.HeatManColor1, Addresses.HeatManColor2)
+        public HeatManOptions(byte[] romBytes) : base(romBytes, Addresses.HeatManColor1, Addresses.HeatManColor2, Addresses.HeatManWeaponOnDefeat, Addresses.HeatManItemOnDefeat)
         {
         }
     }

@@ -20,7 +20,7 @@
             set => _romBytes[Addresses.CrashManProjectileSpeed] = value;
         }
 
-        public CrashManOptions(byte[] romBytes) : base(romBytes, Addresses.CrashManColor1, Addresses.CrashManColor2)
+        public CrashManOptions(byte[] romBytes) : base(romBytes, Addresses.CrashManColor1, Addresses.CrashManColor2, Addresses.CrashManWeaponOnDefeat, Addresses.CrashManItemOnDefeat)
         {
         }
     }

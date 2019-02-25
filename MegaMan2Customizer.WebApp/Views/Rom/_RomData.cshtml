@@ -330,6 +330,11 @@
                         <label for="bubbleManBounceSpeed">Projectile Bounce Speed</label>
                         <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="bubbleManBounceSpeed" id="bubbleManBounceSpeed" value="@rom.RobotMasters.BubbleMan.ProjectileBounceSpeed" />
                     </div>
+                    <partial name="_WeaponFormGroup" model="@("bubbleManWeaponOnDefeat", rom.RobotMasters.BubbleMan.WeaponOnDefeat)" />
+                    <div class="col-md-3 form-group">
+                        <label for="bubbleManItemOnDefeat">Item On Defeat</label>
+                        <input class="form-control" type="text" name="bubbleManItemOnDefeat" id="bubbleManItemOnDefeat" value="@rom.RobotMasters.BubbleMan.ItemOnDefeat.ToString()" />
+                    </div>
                 </div>
             </div>
         </div>

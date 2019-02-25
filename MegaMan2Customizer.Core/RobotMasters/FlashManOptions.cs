@@ -38,7 +38,7 @@
             set => _romBytes[Addresses.FlashManProjectileCount] = value;
         }
 
-        public FlashManOptions(byte[] romBytes) : base(romBytes, Addresses.FlashManColor1, Addresses.FlashManColor2)
+        public FlashManOptions(byte[] romBytes) : base(romBytes, Addresses.FlashManColor1, Addresses.FlashManColor2, Addresses.FlashManWeaponOnDefeat, Addresses.FlashManItemOnDefeat)
         {
         }
     }

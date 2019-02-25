@@ -48,6 +48,8 @@
         public const int BusterColor2 = 0x03D315;
         // search ROM value for 2038 is megaman's eyes and face
 
+        public const int AtomciFireLetterCode = 0x037E22;
+        public const int AtomicFireName = 0x037E2C;
         public const int AtomicFireColor1 = 0x03D318;
         public const int AtomicFireColor2 = 0x03D319; // also apply to 0x03DE4A and 0x03DE4C for charging shots
         public const int AtomicFireChargeColor1 = 0x03DE4A; // becomes secondary color after shooting so should match 0x03D319
@@ -63,6 +65,8 @@
         public const int AtomicFireChargeLevel3Sound = 0x03DE47;
         public const int AtomicFireFullyChargedSound = 0x03DE48;
 
+        public const int AirShooterLetterCode = 0x037E23;
+        public const int AirShooterName = 0x037E3C;
         public const int AirShooterColor1 = 0x03D31C;
         public const int AirShooterColor2 = 0x03D31D;
         public const int AirShooterProjectileCount = 0x03DAD6; // default 4
@@ -77,6 +81,8 @@
         public const int AirShooterHorizSpeedWhole3 = 0x03DE83; // default 2
         public const int AirShooterSound = 0x03DAE6;
 
+        public const int LeafShieldName = 0x037E4C;
+        public const int LeafShieldLetterCode = 0x037E24;
         public const int LeafShieldColor1 = 0x03D320;
         public const int LeafShieldColor2 = 0x03D321;
         public const int LeafShieldDeployDelay = 0x03DEDA; // 12, use even numbers only
@@ -86,6 +92,8 @@
         public const int LeafShieldAmmoUsed = 0x03DF72; // 3
         public const int LeafShieldSound = 0x03DF1F;
 
+        public const int BubbleLeadName = 0x037E5C;
+        public const int BubbleLeadLetterCode = 0x037E25;
         public const int BubbleLeadColor1 = 0x03D324;
         public const int BubbleLeadColor2 = 0x03D325;
         public const int BubbleLeadHorizSpeed = 0x03D4AB; // 1
@@ -97,6 +105,9 @@
         public const int BubbleLeadSound = 0x03DB34;
         public const int BubbleLeadShotsPerAmmo = 0x03DB3D; // 2
 
+        public const int QuickBoomerangNameLine1 = 0x037E6C;
+        public const int QuickBoomerangNameLine2 = 0x037F5C;
+        public const int QuickBoomerangLetterCode = 0x037E26;
         public const int QuickBoomerangColor1 = 0x03D328;
         public const int QuickBoomerangColor2 = 0x03D329;
         public const int QuickBoomerangFireDelay = 0x03DB54; // 11
@@ -109,12 +120,16 @@
         public const int QuickBoomerangBehavior = 0x03DFFF; // 0x40
         public const int QuickBoomerangFlightTime = 0x03E007; // 0x23
 
+        public const int TimeStopperName = 0x037E7C;
+        public const int TimeStopperLetterCode = 0x037E27;
         public const int TimeStopperColor1 = 0x03D32C;
         public const int TimeStopperColor2 = 0x03D32D;
         public const int TimeStopperSound = 0x03DC59;
         public const int TimeStopperDrainRateDelay = 0x03E16E; // lower value drains ammo faster, default 0F
         public const int TimeStopperDelayBeforeDrain = 0x03D49D; // higher value is more time before drain starts, default 0F
 
+        public const int MetalBladeName = 0x037E8C;
+        public const int MetalBladeLetterCode = 0x037E28;
         public const int MetalBladeColor1 = 0x03D330;
         public const int MetalBladeColor2 = 0x03D331;
         public const int MetalBladeMaxshots = 0x03DBB6; // 4
@@ -134,6 +149,8 @@
         public const int MetalBladeHorizSpeedUpRight = 0x03DC3A; // 2
         public const int MetalBladeHorizSpeedDownRight = 0x03DC3B; // 2
 
+        public const int CrashBomberName = 0x037E9C;
+        public const int CrashBomberLetterCode = 0x037E29;
         public const int CrashBombColor1 = 0x03D334;
         public const int CrashBombColor2 = 0x03D335;
         public const int CrashBombHorizSpeed = 0x03D4AD; // 4
@@ -157,18 +174,23 @@
         public const int Item3Color1 = 0x03D340;
         public const int Item3Color2 = 0x03D341;
 
-        public const int FlashManColor1 = 0x0174B6; // bright white
-        public const int FlashManColor2 = 0x0174B7; // indigo
-        public const int FlashManRunSpeedWhole = 0x02C982; // default 1
-        public const int FlashManRunSpeedFraction = 0x02C97D; // default 6
-        public const int FlashManTimeStopperDelay = 0x02C98B; // default BB
-        public const int FlashManJumpDistance = 0x02CAC6; // default 0
-        public const int FlashManJumpHeight = 0x02CACE; // default 4
-        public const int FlashManProjectileSpeed = 0x02CA81; // default 8
-        public const int FlashManProjectileCount = 0x02CA09; // default 6
+        public const int BubbleManColor1 = 0x00F4B6;
+        public const int BubbleManColor2 = 0x00F4B7;
+        public const int BubbleManMaxHeight = 0x02C707; // 0x50
+        public const int BubbleManFallSpeed = 0x02C70B; // 0xFF
+        public const int BubbleManRiseSpeed = 0x02C6D3; // 1
+        public const int BubbleManShotDelay = 0x02C745; // 0x12
+        public const int BubbleManProjectileHorzSpeedWhole = 0x03DA25; // 1
+        public const int BubbleManProjectileHorzSpeedFraction = 0x03DA25; // 0
+        public const int BubbleManProjectileVertLaunchSpeedWhole = 0x03DA4D; // 3
+        public const int BubbleManProjectileVertLaunchSpeedFraction = 0x03DA4E; // 0x76
+        public const int BubbleManProjectileVertBounceSpeedWhole = 0x03B747; // 3
+        public const int BubbleManProjectileVertBounceSpeedFraction = 0x03B74C; // 0x76
+        public const int BubbleManWeaponOnDefeat = 0x03C28C;
+        public const int BubbleManItemOnDefeat = 0x03C294;
 
         public const int AirManColor1 = 0x0074B7; // blue
-        public const int AirManColor2 = 0x0074B6; // bright yellow
+        public const int AirManColor2 = 0x0074B6; // yellow
         public const int AirManProjectileColor1 = 0x0074B4; // blue
         public const int AirManProjectileColor2 = 0x0074B3; // white
         public const int AirManShotsBeforeJumping = 0x02C30C; // default 3
@@ -185,6 +207,8 @@
         public const int AirManTornadoHorzSpeedWhole0 = 0x02C3ED; // number of entries = 30
         public const int AirManTornadoHorzSpeedFraction0 = 0x02C3CF; // number of entries = 30
         public const int AirManTornadoFlightTime0 = 0x02C40B; // number of entries = 30
+        public const int AirManWeaponOnDefeat = 0x03C28A;
+        public const int AirManItemOnDefeat = 0x03C292;
 
         public const int QuickManColor1 = 0x0134C9;
         public const int QuickManColor2 = 0x0134C8;
@@ -197,6 +221,8 @@
         public const int QuickManJump3Height = 0x02C8A5; // 4
         public const int QuickManRunDuration = 0x02C8E4; // 0x3E
         public const int QuickManRunSpeed = 0x02C8DF; // 2
+        public const int QuickManWeaponOnDefeat = 0x03C28D;
+        public const int QuickManItemOnDefeat = 0x03C295;
 
         public const int HeatManColor1 = 0x0034B6;
         public const int HeatManColor2 = 0x0034B7;
@@ -212,26 +238,8 @@
         public const int HeatManRushDelay2 = 0x02C29E; // 0x3E
         public const int HeatManRushDelay3 = 0x02C29F; // 0x5D
         public const int HeatManRushSpeed = 0x02C253; // 4
-
-        public const int BubbleManColor1 = 0x00F4B6;
-        public const int BubbleManColor2 = 0x00F4B7;
-        public const int BubbleManMaxHeight = 0x02C707; // 0x50
-        public const int BubbleManFallSpeed = 0x02C70B; // 0xFF
-        public const int BubbleManRiseSpeed = 0x02C6D3; // 1
-        public const int BubbleManShotDelay = 0x02C745; // 0x12
-        public const int BubbleManProjectileHorzSpeedWhole = 0x03DA25; // 1
-        public const int BubbleManProjectileHorzSpeedFraction = 0x03DA25; // 0
-        public const int BubbleManProjectileVertLaunchSpeedWhole = 0x03DA4D; // 3
-        public const int BubbleManProjectileVertLaunchSpeedFraction = 0x03DA4E; // 0x76
-        public const int BubbleManProjectileVertBounceSpeedWhole = 0x03B747; // 3
-        public const int BubbleManProjectileVertBounceSpeedFraction = 0x03B74C; // 0x76
-        
-        public const int CrashManColor1 = 0x01F4ED;
-        public const int CrashManColor2 = 0x01F4EC;
-        public const int CrashManWalkSpeedWhole = 0x02CCF7; // 0x47
-        public const int CrashManWalkSpeedFraction = 0x02CCF2; // 1
-        public const int CrashManJumpHeight = 0x02CD2A; // 6
-        public const int CrashManProjectileSpeed = 0x02CDEE; // 6
+        public const int HeatManWeaponOnDefeat = 0x03C289;
+        public const int HeatManItemOnDefeat = 0x03C291;
 
         public const int WoodManColor1 = 0x00B4ED;
         public const int WoodManColor2 = 0x00B4EC;
@@ -243,6 +251,8 @@
         public const int WoodManFallingLeafCount = 0x02C553; // 3
         public const int WoodManFallingLeafHorzSpeed = 0x02C576; // 2
         public const int WoodManFallingLeafVertSpeed = 0x03B855; // 0x20 (smaller is faster)
+        public const int WoodManWeaponOnDefeat = 0x03C28B;
+        public const int WoodManItemOnDefeat = 0x03C293;
 
         public const int MetalManColor1 = 0x01B4A5;
         public const int MetalManColor2 = 0x01B4A4;
@@ -252,5 +262,28 @@
         public const int MetalManJump1Height = 0x02CBB5; // 6
         public const int MetalManJump2Height = 0x02CBB6; // 5
         public const int MetalManJump3Height = 0x02CBB7; // 4
+        public const int MetalManWeaponOnDefeat = 0x03C28F;
+        public const int MetalManItemOnDefeat = 0x03C297;
+
+        public const int FlashManColor1 = 0x0174B6; // bright white
+        public const int FlashManColor2 = 0x0174B7; // indigo
+        public const int FlashManRunSpeedWhole = 0x02C982; // default 1
+        public const int FlashManRunSpeedFraction = 0x02C97D; // default 6
+        public const int FlashManTimeStopperDelay = 0x02C98B; // default BB
+        public const int FlashManJumpDistance = 0x02CAC6; // default 0
+        public const int FlashManJumpHeight = 0x02CACE; // default 4
+        public const int FlashManProjectileSpeed = 0x02CA81; // default 8
+        public const int FlashManProjectileCount = 0x02CA09; // default 6
+        public const int FlashManWeaponOnDefeat = 0x03C28E;
+        public const int FlashManItemOnDefeat = 0x03C296;
+
+        public const int CrashManColor1 = 0x01F4ED;
+        public const int CrashManColor2 = 0x01F4EC;
+        public const int CrashManWalkSpeedWhole = 0x02CCF7; // 0x47
+        public const int CrashManWalkSpeedFraction = 0x02CCF2; // 1
+        public const int CrashManJumpHeight = 0x02CD2A; // 6
+        public const int CrashManProjectileSpeed = 0x02CDEE; // 6
+        public const int CrashManWeaponOnDefeat = 0x03C290;
+        public const int CrashManItemOnDefeat = 0x03C298;
     }
 }

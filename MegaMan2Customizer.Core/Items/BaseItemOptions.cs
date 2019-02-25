@@ -1,18 +1,18 @@
-﻿namespace MegaMan2Customizer.Core
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace MegaMan2Customizer.Core
 {
-    public enum WeaponId
+    public enum ItemId
     {
-        AtomicFire = 0x01,
-        AirShooter = 0x02,
-        LeafShield = 0x04,
-        BubbleLead = 0x08,
-        QuickBoomerang = 0x10,
-        TimeStopper = 0x20,
-        MetalBlade = 0x40,
-        CrashBomb = 0x80
+        None = 0x00,
+        Item1 = 0x01,
+        Item2 = 0x02,
+        Item3 = 0x04
     }
 
-    public abstract class BaseWeaponOptions
+    public abstract class BaseItemOptions
     {
         protected readonly byte[] _romBytes;
 
@@ -32,18 +32,19 @@
             set => _romBytes[_secondaryColorAddress] = value.Value;
         }
 
-        public abstract string Name { get; set; }
+        public ItemId ItemId { get; }
 
-        public abstract char LetterCode { get; set; }
-
-        public WeaponId WeaponId { get; }
-
-        public BaseWeaponOptions(byte[] romBytes, int primaryColorAddress, int secondaryColorAddress, WeaponId weaponId)
+        public BaseItemOptions(byte[] romBytes, int primaryColorAddress, int secondaryColorAddress, ItemId itemId)
         {
+            if (itemId == ItemId.None)
+            {
+                throw new ArgumentException($"Cannot instatiate item when {nameof(itemId)} is {ItemId.None}");
+            }
+
             _romBytes = romBytes;
             _primaryColorAddress = primaryColorAddress;
             _secondaryColorAddress = secondaryColorAddress;
-            this.WeaponId = weaponId;
+            this.ItemId = itemId;
         }
     }
 }

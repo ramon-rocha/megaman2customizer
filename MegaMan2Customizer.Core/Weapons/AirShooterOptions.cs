@@ -1,7 +1,21 @@
-﻿namespace MegaMan2Customizer.Core
+﻿using System;
+
+namespace MegaMan2Customizer.Core
 {
     public class AirShooterOptions : BaseWeaponOptions
     {
+        public override string Name
+        {
+            get => Text.DecodeWeaponName(_romBytes, Addresses.AirShooterName);
+            set => throw new NotImplementedException();
+        }
+
+        public override char LetterCode
+        {
+            get => (char)_romBytes[Addresses.AirShooterLetterCode];
+            set => _romBytes[Addresses.AirShooterLetterCode] = (byte)value;
+        }
+
         public byte ProjectileCount
         {
             get => _romBytes[Addresses.AirShooterProjectileCount];
@@ -38,7 +52,7 @@
             set => _romBytes[Addresses.AirShooterVertAccelWhole] = value;
         }
 
-        public AirShooterOptions(byte[] romBytes) : base(romBytes, Addresses.AirShooterColor1, Addresses.AirShooterColor2)
+        public AirShooterOptions(byte[] romBytes) : base(romBytes, Addresses.AirShooterColor1, Addresses.AirShooterColor2, WeaponId.AirShooter)
         {
         }
     }

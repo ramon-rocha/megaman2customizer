@@ -56,7 +56,7 @@
             set => _romBytes[Addresses.QuickManRunDuration] = value;
         }
 
-        public QuickManOptions(byte[] romBytes) : base(romBytes, Addresses.QuickManColor1, Addresses.QuickManColor2)
+        public QuickManOptions(byte[] romBytes) : base(romBytes, Addresses.QuickManColor1, Addresses.QuickManColor2, Addresses.QuickManWeaponOnDefeat, Addresses.QuickManItemOnDefeat)
         {
         }
     }

@@ -1,7 +1,21 @@
-﻿namespace MegaMan2Customizer.Core
+﻿using System;
+
+namespace MegaMan2Customizer.Core
 {
     public class AtomicFireOptions : BaseWeaponOptions
     {
+        public override string Name
+        {
+            get => Text.DecodeWeaponName(_romBytes, Addresses.AtomicFireName);
+            set => throw new NotImplementedException();
+        }
+
+        public override char LetterCode
+        {
+            get => (char)_romBytes[Addresses.AtomciFireLetterCode];
+            set => _romBytes[Addresses.AtomciFireLetterCode] = (byte)value;
+        }
+
         public override Color SecondaryColor
         {
             set
@@ -48,6 +62,8 @@
             set => _romBytes[Addresses.AtomicFireProjectileSpeed] = value;
         }
 
-        public AtomicFireOptions(byte[] romBytes) : base(romBytes, Addresses.AtomicFireColor1, Addresses.AtomicFireColor2) { }
+        public AtomicFireOptions(byte[] romBytes) : base(romBytes, Addresses.AtomicFireColor1, Addresses.AtomicFireColor2, WeaponId.AtomicFire)
+        {
+        }
     }
 }

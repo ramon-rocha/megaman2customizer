@@ -43,5 +43,12 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal("White", charge1Color.Name);
             Assert.Equal("White", charge2Color.Name);
         }
+
+        [Fact]
+        public void DefaultWeaponId()
+        {
+            var rom = new MegaManRom(_romBytes);
+            Assert.Equal(WeaponId.AtomicFire, rom.Weapons.AtomicFire.WeaponId);
+        }
     }
 }

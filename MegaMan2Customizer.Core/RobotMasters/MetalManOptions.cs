@@ -32,7 +32,7 @@
             set => _romBytes[Addresses.MetalManJump3Height] = value;
         }
 
-        public MetalManOptions(byte[] romBytes) : base(romBytes, Addresses.MetalManColor1, Addresses.MetalManColor2)
+        public MetalManOptions(byte[] romBytes) : base(romBytes, Addresses.MetalManColor1, Addresses.MetalManColor2, Addresses.MetalManWeaponOnDefeat, Addresses.MetalManItemOnDefeat)
         {
         }
     }

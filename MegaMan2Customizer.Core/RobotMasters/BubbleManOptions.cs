@@ -45,7 +45,7 @@
             set => _romBytes.SetDecimal(Addresses.BubbleManProjectileVertBounceSpeedWhole, Addresses.BubbleManProjectileVertBounceSpeedFraction, value);
         }
 
-        public BubbleManOptions(byte[] romBytes) : base(romBytes, Addresses.BubbleManColor1, Addresses.BubbleManColor2)
+        public BubbleManOptions(byte[] romBytes) : base(romBytes, Addresses.BubbleManColor1, Addresses.BubbleManColor2, Addresses.BubbleManWeaponOnDefeat, Addresses.BubbleManItemOnDefeat)
         {
         }
     }
