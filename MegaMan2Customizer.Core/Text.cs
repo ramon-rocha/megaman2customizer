@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -21,7 +19,7 @@ namespace MegaMan2Customizer.Core
             return sb.ToString();
         }
 
-        private static IReadOnlyDictionary<byte, char> _cutSceneMap = new Dictionary<byte, char>
+        private static readonly IReadOnlyDictionary<byte, char> _cutSceneMap = new Dictionary<byte, char>
         {
             { 0x40, ' ' },
             { 0x41, 'A' },
@@ -68,15 +66,111 @@ namespace MegaMan2Customizer.Core
             { 0xA9, '9' },
         }.ToImmutableDictionary();
 
-        public static string DecodeCutScene(byte[] bytes, int address, int length) =>
-            Decode(_cutSceneMap, bytes, address, length);
+        private static IReadOnlyDictionary<char, byte> _invertedCutSceneMap = null;
+        private static IReadOnlyDictionary<char, byte> InvertedCutSceneMap
+        {
+            get
+            {
+                if (_invertedCutSceneMap == null)
+                {
+                    _invertedCutSceneMap = _cutSceneMap.ToImmutableDictionary(e => e.Value, e => e.Key);
+                }
+                return _invertedCutSceneMap;
+            }
+        }
+
+        public static string DecodeCutScene(ImmutableArray<byte> bytes, int address) =>
+            DecodeCutScene(bytes.ToArray(), address);
+
+        public static string DecodeCutScene(byte[] bytes, int address) =>
+            Decode(_cutSceneMap, bytes, address, Defaults.MaxCutSceneTextLength);
 
         public static string DecodeWeaponName(byte[] bytes, int address) =>
-            DecodeCutScene(bytes, address, Defaults.MaxWeaponNameLength).Trim();
+            DecodeCutScene(bytes, address).Trim();
+
+        private static readonly IReadOnlyDictionary<byte, char> _weaponMenuMap = new Dictionary<byte, char>
+        {
+            { 0x95, 'N' },
+            { 0x96, 'E' },
+            { 0x97, 'X' }, // also shows small part of T character
+            { 0x98, 'T' }, // slightly off-center
+            { 0x99, 'W' },
+            { 0x9A, 'F' },
+            { 0x9B, 'A' },
+            { 0x9C, 'Q' },
+            { 0x9D, 'B' },
+            { 0x9E, 'M' },
+            { 0x9F, 'H' },
+            { 0x10, 'C' },
+            { 0x11, '→' },
+            { 0x12, '►' },
+            { 0x13, '○' },
+            { 0x48, '●' },
+            { 0x14, '0' },
+            { 0x15, '1' },
+            { 0x16, '2' },
+            { 0x17, '3' },
+            { 0x18, '4' },
+            { 0x19, '5' },
+            { 0x1A, '6' },
+            { 0x1B, '7' },
+            { 0x1C, '8' },
+            { 0x1D, '9' },
+            { 0x1E, ':' },
+            { 0x1F, 'P' },
+        }.ToImmutableDictionary();
+
+        private static IReadOnlyDictionary<char, byte> _invertedWeaponMenuMap = null;
+        private static IReadOnlyDictionary<char, byte> InvertedWeaponMenuMap
+        {
+            get
+            {
+                if (_invertedWeaponMenuMap == null)
+                {
+                    _invertedWeaponMenuMap = _weaponMenuMap.ToImmutableDictionary(e => e.Value, e => e.Key);
+                }
+                return _invertedWeaponMenuMap;
+            }
+        }
+
+        private static IReadOnlyList<char> _weaponLetterCodes = null;
+
+        public static IReadOnlyList<char> WeaponLetterCodes
+        {
+            get
+            {
+                if (_weaponLetterCodes == null)
+                {
+                    _weaponLetterCodes = _cutSceneMap.Values.Intersect(_weaponMenuMap.Values).ToImmutableList();
+                }
+                return _weaponLetterCodes;
+            }
+        }
 
         public static byte[] EncodeCutScene(string text)
         {
-            return text.ToCharArray().Select(c => (byte)c).ToArray();
+            if (text.Length < Defaults.MaxCutSceneTextLength)
+            {
+                while (!text.StartsWith("  ") && text.Length < Defaults.MaxCutSceneTextLength)
+                {
+                    text = " " + text;
+                }
+                while (text.Length < Defaults.MaxCutSceneTextLength)
+                {
+                    text += " ";
+                }
+            }
+            var bytes = new List<byte>();
+            foreach (char c in text)
+            {
+                byte b = EncodeCutScene(c);
+                bytes.Add(b);
+            }
+            return bytes.ToArray();
         }
+
+        public static byte EncodeWeaponMenu(char value) => InvertedWeaponMenuMap[value];
+
+        public static byte EncodeCutScene(char value) => InvertedCutSceneMap[value];
     }
 }

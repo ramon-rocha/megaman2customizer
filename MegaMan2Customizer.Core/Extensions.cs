@@ -37,6 +37,5 @@ namespace MegaMan2Customizer.Core
             fraction *= 256;
             return ((byte)whole, (byte)fraction);
         }
-
     }
 }

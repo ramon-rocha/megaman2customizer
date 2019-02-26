@@ -48,7 +48,18 @@
         public const int BusterColor2 = 0x03D315;
         // search ROM value for 2038 is megaman's eyes and face
 
-        public const int AtomciFireLetterCode = 0x037E22;
+        public const int GetEquippedText1 = 0x037EAC; // "  GET EQUIPPED"
+        public const int GetEquippedText2 = 0x037EBC; // "  WITH        "
+
+        public const int MessageFromDrLightText1 = 0x037ECC; // " MESSAGE FROM "
+        public const int MessageFromDrLightText2 = 0x037EDC; // " DR.LIGHT.    "
+
+        public const int ItemCompletedText1 = 0x037EEC; // "COMPLETED!    "
+        public const int ItemCompletedText2 = 0x037EFC; // "GET YOUR      "
+        public const int ItemCompletedText3 = 0x037F0C; // "WEAPONS READY!"
+
+        public const int AtomicFireLetterCode1 = 0x037E22;
+        public const int AtomicFireLetterCode2 = 0x035651;
         public const int AtomicFireName = 0x037E2C;
         public const int AtomicFireColor1 = 0x03D318;
         public const int AtomicFireColor2 = 0x03D319; // also apply to 0x03DE4A and 0x03DE4C for charging shots
