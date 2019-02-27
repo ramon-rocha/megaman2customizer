@@ -1,23 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public class TimeStopperOptions : BaseWeaponOptions
     {
-        public override string Name
-        {
-            get => Text.DecodeWeaponName(_romBytes, Addresses.TimeStopperName);
-            set => throw new NotImplementedException();
-        }
-
-        public override char LetterCode
-        {
-            get => (char)_romBytes[Addresses.TimeStopperLetterCode];
-            set => _romBytes[Addresses.TimeStopperLetterCode] = (byte)value;
-        }
-
         public byte DrainRateDelay
         {
             get => _romBytes[Addresses.TimeStopperDrainRateDelay];
@@ -30,7 +14,14 @@ namespace MegaMan2Customizer.Core
             set => _romBytes[Addresses.TimeStopperDelayBeforeDrain] = value;
         }
 
-        public TimeStopperOptions(byte[] romBytes) : base(romBytes, Addresses.TimeStopperColor1, Addresses.TimeStopperColor2, WeaponId.TimeStopper)
+        public TimeStopperOptions(byte[] romBytes) : base(
+            romBytes,
+            primaryColorAddress: Addresses.TimeStopperColor1,
+            secondaryColorAddress: Addresses.TimeStopperColor2,
+            weaponNameAddress: Addresses.TimeStopperName,
+            cutSceneLetterAddress: Addresses.TimeStopperCutSceneLetterCode,
+            menuLetterAddress: Addresses.TimeStopperMenuLetterCode,
+            weaponId: WeaponId.TimeStopper)
         {
         }
     }

@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public class CrashBomberOptions : BaseWeaponOptions
     {
-        public override string Name
-        {
-            get => Text.DecodeWeaponName(_romBytes, Addresses.CrashBomberName);
-            set => throw new NotImplementedException();
-        }
-
-        public override char LetterCode
-        {
-            get => (char)_romBytes[Addresses.CrashBomberLetterCode];
-            set => _romBytes[Addresses.CrashBomberLetterCode] = (byte)value;
-        }
-        public CrashBomberOptions(byte[] romBytes) : base(romBytes, Addresses.CrashBombColor1, Addresses.CrashBombColor2, WeaponId.CrashBomb)
+        public CrashBomberOptions(byte[] romBytes) : base(
+            romBytes,
+            primaryColorAddress: Addresses.CrashBombColor1,
+            secondaryColorAddress: Addresses.CrashBombColor2,
+            weaponNameAddress: Addresses.CrashBomberName,
+            cutSceneLetterAddress: Addresses.CrashBomberCutSceneLetterCode,
+            menuLetterAddress: Addresses.CrashBomberMenuLetterCode,
+            weaponId: WeaponId.CrashBomb)
         {
         }
     }

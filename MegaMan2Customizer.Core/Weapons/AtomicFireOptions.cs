@@ -1,37 +1,7 @@
-﻿using System;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public class AtomicFireOptions : BaseWeaponOptions
     {
-        public override string Name
-        {
-            get => Text.DecodeWeaponName(_romBytes, Addresses.AtomicFireName);
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentException($"Weapon name cannot be null or empty");
-                }
-                if (value.Length > Defaults.MaxCutSceneTextLength)
-                {
-                    throw new ArgumentException($"Weapon name cannot be longer than {Defaults.MaxCutSceneTextLength} characters");
-                }
-                byte[] bytes = Text.EncodeCutScene(value);
-                bytes.CopyTo(_romBytes, Addresses.AtomicFireName);
-            }
-        }
-
-        public override char LetterCode
-        {
-            get => (char)_romBytes[Addresses.AtomicFireLetterCode1];
-            set
-            {
-                _romBytes[Addresses.AtomicFireLetterCode1] = Text.EncodeCutScene(value);
-                _romBytes[Addresses.AtomicFireLetterCode2] = Text.EncodeWeaponMenu(value);
-            }
-        }
-
         public override Color SecondaryColor
         {
             set
@@ -78,7 +48,14 @@ namespace MegaMan2Customizer.Core
             set => _romBytes[Addresses.AtomicFireProjectileSpeed] = value;
         }
 
-        public AtomicFireOptions(byte[] romBytes) : base(romBytes, Addresses.AtomicFireColor1, Addresses.AtomicFireColor2, WeaponId.AtomicFire)
+        public AtomicFireOptions(byte[] romBytes) : base(
+            romBytes,
+            primaryColorAddress: Addresses.AtomicFireColor1,
+            secondaryColorAddress: Addresses.AtomicFireColor2,
+            weaponNameAddress: Addresses.AtomicFireName,
+            cutSceneLetterAddress: Addresses.AtomicFireCutSceneLetterCode,
+            menuLetterAddress: Addresses.AtomicFireMenuLetterCode,
+            weaponId: WeaponId.AtomicFire)
         {
         }
     }

@@ -1,4 +1,6 @@
-﻿namespace MegaMan2Customizer.Core
+﻿using System;
+
+namespace MegaMan2Customizer.Core
 {
     public enum WeaponId
     {
@@ -17,7 +19,6 @@
         protected readonly byte[] _romBytes;
 
         private readonly int _primaryColorAddress;
-
         private readonly int _secondaryColorAddress;
 
         public virtual Color PrimaryColor
@@ -32,17 +33,50 @@
             set => _romBytes[_secondaryColorAddress] = value.Value;
         }
 
-        public abstract string Name { get; set; }
+        private readonly int _weaponNameAddress;
 
-        public abstract char LetterCode { get; set; }
+        public virtual string Name
+        {
+            get => Text.DecodeWeaponName(_romBytes, _weaponNameAddress);
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException($"Weapon name cannot be null or empty");
+                }
+                if (value.Length > Defaults.MaxCutSceneTextLength)
+                {
+                    throw new ArgumentException($"Weapon name cannot be longer than {Defaults.MaxCutSceneTextLength} characters");
+                }
+                byte[] bytes = Text.EncodeCutScene(value);
+                bytes.CopyTo(_romBytes, _weaponNameAddress);
+            }
+        }
+
+
+        private readonly int _cutSceneLetterAddress;
+        private readonly int _menuLetterAddress;
+
+        public virtual char LetterCode
+        {
+            get => (char)_romBytes[_cutSceneLetterAddress];
+            set
+            {
+                _romBytes[_cutSceneLetterAddress] = Text.EncodeCutScene(value);
+                _romBytes[_menuLetterAddress] = Text.EncodeWeaponMenu(value);
+            }
+        }
 
         public WeaponId WeaponId { get; }
 
-        public BaseWeaponOptions(byte[] romBytes, int primaryColorAddress, int secondaryColorAddress, WeaponId weaponId)
+        public BaseWeaponOptions(byte[] romBytes, int primaryColorAddress, int secondaryColorAddress, int weaponNameAddress, int cutSceneLetterAddress, int menuLetterAddress, WeaponId weaponId)
         {
             _romBytes = romBytes;
             _primaryColorAddress = primaryColorAddress;
             _secondaryColorAddress = secondaryColorAddress;
+            _weaponNameAddress = weaponNameAddress;
+            _cutSceneLetterAddress = cutSceneLetterAddress;
+            _menuLetterAddress = menuLetterAddress;
             this.WeaponId = weaponId;
         }
     }

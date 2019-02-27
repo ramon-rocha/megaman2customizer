@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public class BubbleLeadOptions : BaseWeaponOptions
     {
-        public override string Name
-        {
-            get => Text.DecodeWeaponName(_romBytes, Addresses.BubbleLeadName);
-            set => throw new NotImplementedException();
-        }
-
-        public override char LetterCode
-        {
-            get => (char)_romBytes[Addresses.BubbleLeadLetterCode];
-            set => _romBytes[Addresses.BubbleLeadLetterCode] = (byte)value;
-        }
-        public BubbleLeadOptions(byte[] romBytes) : base(romBytes, Addresses.BubbleLeadColor1, Addresses.BubbleLeadColor2, WeaponId.BubbleLead)
+        public BubbleLeadOptions(byte[] romBytes) : base(
+            romBytes,
+            primaryColorAddress: Addresses.BubbleLeadColor1,
+            secondaryColorAddress: Addresses.BubbleLeadColor2,
+            weaponNameAddress: Addresses.BubbleLeadName,
+            cutSceneLetterAddress: Addresses.BubbleLeadCutSceneLetterCode,
+            menuLetterAddress: Addresses.BubbleLeadMenuLetterCode,
+            weaponId: WeaponId.BubbleLead)
         {
         }
     }

@@ -58,8 +58,8 @@
         public const int ItemCompletedText2 = 0x037EFC; // "GET YOUR      "
         public const int ItemCompletedText3 = 0x037F0C; // "WEAPONS READY!"
 
-        public const int AtomicFireLetterCode1 = 0x037E22;
-        public const int AtomicFireLetterCode2 = 0x035651;
+        public const int AtomicFireCutSceneLetterCode = 0x037E22;
+        public const int AtomicFireMenuLetterCode = 0x035651;
         public const int AtomicFireName = 0x037E2C;
         public const int AtomicFireColor1 = 0x03D318;
         public const int AtomicFireColor2 = 0x03D319; // also apply to 0x03DE4A and 0x03DE4C for charging shots
@@ -76,7 +76,8 @@
         public const int AtomicFireChargeLevel3Sound = 0x03DE47;
         public const int AtomicFireFullyChargedSound = 0x03DE48;
 
-        public const int AirShooterLetterCode = 0x037E23;
+        public const int AirShooterCutSceneLetterCode = 0x037E23;
+        public const int AirShooterMenuLetterCode = 0x03562;
         public const int AirShooterName = 0x037E3C;
         public const int AirShooterColor1 = 0x03D31C;
         public const int AirShooterColor2 = 0x03D31D;
@@ -93,7 +94,8 @@
         public const int AirShooterSound = 0x03DAE6;
 
         public const int LeafShieldName = 0x037E4C;
-        public const int LeafShieldLetterCode = 0x037E24;
+        public const int LeafShieldCutSceneLetterCode = 0x037E24;
+        public const int LeafShieldMenuLetterCode = 0x035653;
         public const int LeafShieldColor1 = 0x03D320;
         public const int LeafShieldColor2 = 0x03D321;
         public const int LeafShieldDeployDelay = 0x03DEDA; // 12, use even numbers only
@@ -104,7 +106,8 @@
         public const int LeafShieldSound = 0x03DF1F;
 
         public const int BubbleLeadName = 0x037E5C;
-        public const int BubbleLeadLetterCode = 0x037E25;
+        public const int BubbleLeadCutSceneLetterCode = 0x037E25;
+        public const int BubbleLeadMenuLetterCode = 0x035654;
         public const int BubbleLeadColor1 = 0x03D324;
         public const int BubbleLeadColor2 = 0x03D325;
         public const int BubbleLeadHorizSpeed = 0x03D4AB; // 1
@@ -118,7 +121,8 @@
 
         public const int QuickBoomerangNameLine1 = 0x037E6C;
         public const int QuickBoomerangNameLine2 = 0x037F5C;
-        public const int QuickBoomerangLetterCode = 0x037E26;
+        public const int QuickBoomerangCutSceneLetterCode = 0x037E26;
+        public const int QuickBoomerangMenuLetterCode = 0x035655;
         public const int QuickBoomerangColor1 = 0x03D328;
         public const int QuickBoomerangColor2 = 0x03D329;
         public const int QuickBoomerangFireDelay = 0x03DB54; // 11
@@ -132,7 +136,8 @@
         public const int QuickBoomerangFlightTime = 0x03E007; // 0x23
 
         public const int TimeStopperName = 0x037E7C;
-        public const int TimeStopperLetterCode = 0x037E27;
+        public const int TimeStopperCutSceneLetterCode = 0x037E27;
+        public const int TimeStopperMenuLetterCode = 0x035656;
         public const int TimeStopperColor1 = 0x03D32C;
         public const int TimeStopperColor2 = 0x03D32D;
         public const int TimeStopperSound = 0x03DC59;
@@ -140,7 +145,8 @@
         public const int TimeStopperDelayBeforeDrain = 0x03D49D; // higher value is more time before drain starts, default 0F
 
         public const int MetalBladeName = 0x037E8C;
-        public const int MetalBladeLetterCode = 0x037E28;
+        public const int MetalBladeCutSceneLetterCode = 0x037E28;
+        public const int MetalBladeCutMenuCode = 0x035657;
         public const int MetalBladeColor1 = 0x03D330;
         public const int MetalBladeColor2 = 0x03D331;
         public const int MetalBladeMaxshots = 0x03DBB6; // 4
@@ -161,7 +167,8 @@
         public const int MetalBladeHorizSpeedDownRight = 0x03DC3B; // 2
 
         public const int CrashBomberName = 0x037E9C;
-        public const int CrashBomberLetterCode = 0x037E29;
+        public const int CrashBomberCutSceneLetterCode = 0x037E29;
+        public const int CrashBomberMenuLetterCode = 0x035658;
         public const int CrashBombColor1 = 0x03D334;
         public const int CrashBombColor2 = 0x03D335;
         public const int CrashBombHorizSpeed = 0x03D4AD; // 4

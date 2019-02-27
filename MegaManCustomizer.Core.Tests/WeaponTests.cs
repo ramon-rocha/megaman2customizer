@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 using Xunit;
@@ -30,22 +29,6 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal('M', rom.Weapons.MetalBlade.LetterCode);
             Assert.Equal("CRASH BOMBER", rom.Weapons.CrashBomber.Name);
             Assert.Equal('C', rom.Weapons.CrashBomber.LetterCode);
-        }
-
-        [Fact]
-        public void ChangeAtomicFireName()
-        {
-            var rom = new MegaManRom(_romBytes);
-            Assert.Equal("ATOMIC FIRE", rom.Weapons.AtomicFire.Name);
-            Assert.Equal('H', rom.Weapons.AtomicFire.LetterCode);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = null);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = "");
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = "THIS NAME IS WAY TOO LONG!");
-            rom.Weapons.AtomicFire.Name = "HEAT WAVE";
-            rom.Weapons.AtomicFire.LetterCode = 'W';
-            Assert.Equal("HEAT WAVE", rom.Weapons.AtomicFire.Name);
-            Assert.Equal('W', rom.Weapons.AtomicFire.LetterCode);
-            Assert.Equal("  HEAT WAVE   ", Text.DecodeCutScene(rom.Bytes, Addresses.AtomicFireName));
         }
 
         [Fact]
