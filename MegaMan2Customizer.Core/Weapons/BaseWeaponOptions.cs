@@ -14,7 +14,7 @@ namespace MegaMan2Customizer.Core
         CrashBomb = 0x80
     }
 
-    public abstract class BaseWeaponOptions
+    public abstract class BaseWeaponOptions : IWeaponOptions
     {
         protected readonly byte[] _romBytes;
 

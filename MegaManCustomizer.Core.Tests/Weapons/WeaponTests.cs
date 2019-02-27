@@ -10,26 +10,22 @@ namespace MegaMan2Customizer.Core.Tests
     {
         private readonly ImmutableArray<byte> _romBytes = File.ReadAllBytes("Mega Man II.nes").ToImmutableArray();
 
-        [Fact]
-        public void DefaultNamesAndLetterCodes()
+        [InlineData(WeaponId.AtomicFire, "ATOMIC FIRE", 'H')]
+        [InlineData(WeaponId.AirShooter, "AIR SHOOTER", 'A')]
+        [InlineData(WeaponId.LeafShield, "LEAF SHIELD", 'W')]
+        [InlineData(WeaponId.BubbleLead, "BUBBLE-LEAD", 'B')]
+        [InlineData(WeaponId.QuickBoomerang, "QUICK-BOOMERANG", 'Q')]
+        [InlineData(WeaponId.TimeStopper, "TIME-STOPPER", 'F')]
+        [InlineData(WeaponId.MetalBlade, "METAL-BLADE", 'M')]
+        [InlineData(WeaponId.CrashBomb, "CRASH BOMBER", 'C')]
+        [Theory]
+        public void DefaultNamesAndLetterCodes(WeaponId weaponId, string name, char letterCode)
         {
             var rom = new MegaManRom(_romBytes);
-            Assert.Equal("ATOMIC FIRE", rom.Weapons.AtomicFire.Name);
-            Assert.Equal('H', rom.Weapons.AtomicFire.LetterCode);
-            Assert.Equal("AIR SHOOTER", rom.Weapons.AirShooter.Name);
-            Assert.Equal('A', rom.Weapons.AirShooter.LetterCode);
-            Assert.Equal("LEAF SHIELD", rom.Weapons.LeafShield.Name);
-            Assert.Equal('W', rom.Weapons.LeafShield.LetterCode);
-            Assert.Equal("BUBBLE-LEAD", rom.Weapons.BubbleLead.Name);
-            Assert.Equal('B', rom.Weapons.BubbleLead.LetterCode);
-            Assert.Equal("QUICK-BOOMERANG", rom.Weapons.QuickBoomerang.Name);
-            Assert.Equal('Q', rom.Weapons.QuickBoomerang.LetterCode);
-            Assert.Equal("TIME-STOPPER", rom.Weapons.TimeStopper.Name);
-            Assert.Equal('F', rom.Weapons.TimeStopper.LetterCode);
-            Assert.Equal("METAL-BLADE", rom.Weapons.MetalBlade.Name);
-            Assert.Equal('M', rom.Weapons.MetalBlade.LetterCode);
-            Assert.Equal("CRASH BOMBER", rom.Weapons.CrashBomber.Name);
-            Assert.Equal('C', rom.Weapons.CrashBomber.LetterCode);
+            IWeaponOptions weaponOptions = rom.Weapons.GetWeaponOptions(weaponId);
+            Assert.Equal(weaponId, weaponOptions.WeaponId);
+            Assert.Equal(name, weaponOptions.Name);
+            Assert.Equal(letterCode, weaponOptions.LetterCode);
         }
 
         [Fact]
