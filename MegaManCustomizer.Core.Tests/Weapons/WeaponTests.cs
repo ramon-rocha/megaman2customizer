@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
+
 using Xunit;
 
 namespace MegaMan2Customizer.Core.Tests

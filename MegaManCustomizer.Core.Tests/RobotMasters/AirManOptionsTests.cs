@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Immutable;
 using System.IO;
 
 using Xunit;
@@ -114,22 +112,6 @@ namespace MegaMan2Customizer.Core.Tests
         {
             var rom = new MegaManRom(_romBytes);
             Assert.Equal(7.4609375m, rom.RobotMasters.AirMan.Jump2Height);
-        }
-
-        [Fact]
-        public void ChangeAirShooterName()
-        {
-            var rom = new MegaManRom(_romBytes);
-            Assert.Equal("AIR SHOOTER", rom.Weapons.AirShooter.Name);
-            Assert.Equal('A', rom.Weapons.AirShooter.LetterCode);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = null);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = "");
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = "THIS NAME IS WAY TOO LONG!");
-            rom.Weapons.AirShooter.Name = "TORNADO BLAST";
-            rom.Weapons.AirShooter.LetterCode = 'T';
-            Assert.Equal("TORNADO BLAST", rom.Weapons.AirShooter.Name);
-            Assert.Equal('T', rom.Weapons.AirShooter.LetterCode);
-            Assert.Equal(" TORNADO BLAST", Text.DecodeCutScene(rom.Bytes, Addresses.AirShooterName));
         }
     }
 }
