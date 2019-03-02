@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
@@ -172,5 +173,44 @@ namespace MegaMan2Customizer.Core
         public static byte EncodeWeaponMenu(char value) => InvertedWeaponMenuMap[value];
 
         public static byte EncodeCutScene(char value) => InvertedCutSceneMap[value];
+
+        private static readonly IReadOnlyDictionary<byte, char> _stageSelectMap = new Dictionary<byte, char>
+        {
+            { 0x01, 'A' },
+            { 0x02, 'B' },
+            { 0x03, 'C' },
+            { 0x04, 'D' },
+            { 0x05, 'E' },
+            { 0x06, 'F' },
+            { 0x07, 'G' },
+            { 0x08, 'H' },
+            { 0x09, 'I' },
+            { 0x0A, 'J' },
+            { 0x0B, 'K' },
+            { 0x0C, 'L' },
+            { 0x0D, 'M' },
+            { 0x0E, 'N' },
+            { 0x0F, 'O' },
+            { 0x10, 'P' },
+            { 0x11, 'Q' },
+            { 0x12, 'R' },
+            { 0x13, 'S' },
+            { 0x14, 'T' },
+            { 0x15, 'U' },
+            { 0x16, 'V' },
+            { 0x17, 'W' },
+            { 0x18, 'X' },
+            { 0x19, 'Y' },
+            { 0x1A, 'Z' },
+            { 0x1B, '®' },
+            { 0x1C, '.' },
+            { 0x1D, ',' },
+            { 0x1E, '\'' },
+            { 0x1F, '!' },
+            { 0x20, ' ' }
+        }.ToImmutableDictionary();
+
+        public static string DecodeRobotMasterName(byte[] bytes, int address, int length) =>
+            Decode(_stageSelectMap, bytes, address, length);
     }
 }

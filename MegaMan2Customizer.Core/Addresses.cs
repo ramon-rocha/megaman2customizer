@@ -207,6 +207,8 @@
         public const int BubbleManWeaponOnDefeat = 0x03C28C;
         public const int BubbleManItemOnDefeat = 0x03C294;
 
+        public const int AirManNameIntro = 0x0346F5; // 0x024B1E (what is this? credits?)
+        public const int AirManNameStageSelect1 = 0x02EF3E; // which one is line 2?
         public const int AirManColor1 = 0x0074B7; // blue
         public const int AirManColor2 = 0x0074B6; // yellow
         public const int AirManProjectileColor1 = 0x0074B4; // blue

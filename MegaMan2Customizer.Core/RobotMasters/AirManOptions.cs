@@ -63,6 +63,12 @@ namespace MegaMan2Customizer.Core
 
     public class AirManOptions : BaseRobotMasterOptions
     {
+        public string Name
+        {
+            get => Text.DecodeRobotMasterName(_romBytes, Addresses.AirManNameIntro, 6);
+            set => throw new NotImplementedException();
+        }
+
         public Color TornadoPrimaryColor
         {
             get => new Color(_romBytes[Addresses.AirManProjectileColor1]);

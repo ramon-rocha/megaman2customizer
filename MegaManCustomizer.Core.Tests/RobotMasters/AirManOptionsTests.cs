@@ -10,6 +10,13 @@ namespace MegaMan2Customizer.Core.Tests
         private readonly ImmutableArray<byte> _romBytes = File.ReadAllBytes("Mega Man II.nes").ToImmutableArray();
 
         [Fact]
+        public void NameIs_AirMan()
+        {
+            var rom = new MegaManRom(_romBytes);
+            Assert.Equal("AIRMAN", rom.RobotMasters.AirMan.Name);
+        }
+
+        [Fact]
         public void PrimaryColor_IsBlue()
         {
             var rom = new MegaManRom(_romBytes);
@@ -33,6 +40,20 @@ namespace MegaMan2Customizer.Core.Tests
             {
                 Assert.Equal(6, pattern.Tornados.Count);
             }
+        }
+
+        [Fact]
+        public void TornadoPrimaryColor_IsBlue()
+        {
+            var rom = new MegaManRom(_romBytes);
+            Assert.Equal("Blue", rom.RobotMasters.AirMan.TornadoPrimaryColor.Name);
+        }
+
+        [Fact]
+        public void TornadoSecondaryColor_IsWhite()
+        {
+            var rom = new MegaManRom(_romBytes);
+            Assert.Equal("White", rom.RobotMasters.AirMan.TornadoSecondaryColor.Name);
         }
 
         [Theory]
