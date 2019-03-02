@@ -13,28 +13,28 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void PrimaryColor_IsWhite()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("White", rom.Weapons.AirShooter.PrimaryColor.Name);
         }
 
         [Fact]
         public void SecondaryColor_IsBlue()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Blue", rom.Weapons.AirShooter.SecondaryColor.Name);
         }
 
         [Fact]
         public void DefaultWeaponId()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(WeaponId.AirShooter, rom.Weapons.AirShooter.WeaponId);
         }
 
         [Fact]
         public void ChangeAirShooterName()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("AIR SHOOTER", rom.Weapons.AirShooter.Name);
             Assert.Equal('A', rom.Weapons.AirShooter.LetterCode);
             Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = null);

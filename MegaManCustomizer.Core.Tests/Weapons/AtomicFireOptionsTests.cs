@@ -13,14 +13,14 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void PrimaryColor_IsYellow()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Yellow", rom.Weapons.AtomicFire.PrimaryColor.Name);
         }
 
         [Fact]
         public void SecondaryColor_IsCrimson()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Crimson", rom.Weapons.AtomicFire.SecondaryColor.Name);
         }
 
@@ -29,7 +29,7 @@ namespace MegaMan2Customizer.Core.Tests
         {
             Color charge1Color, charge2Color;
 
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             var atomicFire = rom.Weapons.AtomicFire;
             charge1Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor1]);
             charge2Color = new Color(rom.Bytes[Addresses.AtomicFireChargeColor2]);
@@ -48,14 +48,14 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void DefaultWeaponId()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(WeaponId.AtomicFire, rom.Weapons.AtomicFire.WeaponId);
         }
 
         [Fact]
         public void ChangeAtomicFireName()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("ATOMIC FIRE", rom.Weapons.AtomicFire.Name);
             Assert.Equal('H', rom.Weapons.AtomicFire.LetterCode);
             Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = null);

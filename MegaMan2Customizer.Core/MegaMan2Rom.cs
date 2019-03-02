@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace MegaMan2Customizer.Core
 {
-    public class MegaManRom
+    public class MegaMan2Rom
     {
         private readonly byte[] _bytes;
         public ImmutableArray<byte> Bytes => _bytes.ToImmutableArray();
@@ -22,11 +22,11 @@ namespace MegaMan2Customizer.Core
 
         public byte SmallHealthPickupAmount => this.Bytes[Addresses.SmallHealthPickupAmount];
 
-        public MegaManRom(string path) : this(File.ReadAllBytes(path)) { }
+        public MegaMan2Rom(string path) : this(File.ReadAllBytes(path)) { }
 
-        public MegaManRom(ImmutableArray<byte> bytes) : this(bytes.ToArray()) { }
+        public MegaMan2Rom(ImmutableArray<byte> bytes) : this(bytes.ToArray()) { }
 
-        public MegaManRom(byte[] bytes)
+        public MegaMan2Rom(byte[] bytes)
         {
             _bytes = new byte[bytes.Length];
             Array.Copy(bytes, _bytes, bytes.Length);

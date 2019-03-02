@@ -12,28 +12,28 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void NameIs_AirMan()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("AIRMAN", rom.RobotMasters.AirMan.Name);
         }
 
         [Fact]
         public void PrimaryColor_IsBlue()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Blue", rom.RobotMasters.AirMan.PrimaryColor.Name);
         }
 
         [Fact]
         public void SecondaryColor_IsYellow()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Yellow", rom.RobotMasters.AirMan.SecondaryColor.Name);
         }
         
         [Fact]
         public void TornadoPatterns_Has5Patterns_With6TornadoesPerPattern()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             var airMan = rom.RobotMasters.AirMan;
             Assert.Equal(5, airMan.Patterns.Count);
             foreach (TornadoPattern pattern in airMan.Patterns)
@@ -45,14 +45,14 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void TornadoPrimaryColor_IsBlue()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Blue", rom.RobotMasters.AirMan.TornadoPrimaryColor.Name);
         }
 
         [Fact]
         public void TornadoSecondaryColor_IsWhite()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("White", rom.RobotMasters.AirMan.TornadoSecondaryColor.Name);
         }
 
@@ -89,7 +89,7 @@ namespace MegaMan2Customizer.Core.Tests
         [InlineData(4, 5, "0.20703125", "3.99218750", 36)]
         public void TornadoPatterns_DefaultValues(int patternIndex, int tornadoIndex, string vertVelocityText, string horzVelocityText, byte flightTime)
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             var airMan = rom.RobotMasters.AirMan;
 
             var v = decimal.Parse(vertVelocityText);
@@ -103,35 +103,35 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void NumberOfPatterns_BeforeShooting_Is3()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(3, rom.RobotMasters.AirMan.ShotsBeforeJumping);
         }
 
         [Fact]
         public void AirManJump1Distance_Is1Point22()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(1.22265625m, rom.RobotMasters.AirMan.Jump1Distance);
         }
 
         [Fact]
         public void AirManJump1Height_Is4Point89()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(4.8984375m, rom.RobotMasters.AirMan.Jump1Height);
         }
 
         [Fact]
         public void AirManJump2Distance_Is1Point60()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(1.6015625m, rom.RobotMasters.AirMan.Jump2Distance);
         }
 
         [Fact]
         public void AirManJump2Height_Is7Point46()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(7.4609375m, rom.RobotMasters.AirMan.Jump2Height);
         }
     }

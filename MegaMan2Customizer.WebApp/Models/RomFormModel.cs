@@ -13,6 +13,6 @@ namespace MegaMan2Customizer.WebApp.Models
         /// </summary>
         public string RomFileName { get; set; }
 
-        public MegaManRom Rom { get; set; }
+        public MegaMan2Rom Rom { get; set; }
     }
 }

@@ -19,7 +19,7 @@ namespace MegaMan2Customizer.Core.Tests
         [Theory]
         public void DefaultCutSceneText(string expected, int address)
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             string actual = Text.DecodeCutScene(rom.Bytes, address);
             Assert.Equal(expected, actual);
         }

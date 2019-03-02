@@ -14,21 +14,21 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void MegaManOptions_StartingHealth_IsDefault28()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(28, rom.MegaMan.StartingHealth);
         }
 
         [Fact]
         public void MegaManOptions_MaxHealth_IsDefault28()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(28, rom.MegaMan.MaxHealth);
         }
 
         [Fact]
         public void MenuOptions_DefaultColors()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(new Color(Chrominance.Crimson, Luma.VeryLight), rom.StartMenu.BorderColor);
             Assert.Equal(new Color(Chrominance.Blue, Luma.Light), rom.StartMenu.BackgroundColor);
             Assert.Equal(new Color(Chrominance.Blue, Luma.Medium), rom.StartMenu.ShadowColor);

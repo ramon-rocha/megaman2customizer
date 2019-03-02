@@ -21,7 +21,7 @@ namespace MegaMan2Customizer.Core.Tests
         [Theory]
         public void DefaultNamesAndLetterCodes(WeaponId weaponId, string name, char letterCode)
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             IWeaponOptions weaponOptions = rom.Weapons.GetWeaponOptions(weaponId);
             Assert.Equal(weaponId, weaponOptions.WeaponId);
             Assert.Equal(name, weaponOptions.Name);

@@ -12,49 +12,49 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void StartingHealth_Is28()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(28, rom.MegaMan.StartingHealth);
         }
 
         [Fact]
         public void BusterPrimaryColor_IsCyan()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Light Cyan", rom.MegaMan.BusterPrimaryColor.Name);
         }
 
         [Fact]
         public void BusterPrimaryColor_IsBlue()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("Blue", rom.MegaMan.BusterSecondaryColor.Name);
         }
 
         [Fact]
         public void MaxBusterShots_Is4()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(4, rom.MegaMan.MaxBusterShots);
         }
 
         [Fact]
         public void BusterSpeed_Is4()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(4, rom.MegaMan.BusterSpeed);
         }
 
         [Fact]
         public void Speed_Is1()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(1, rom.MegaMan.Speed);
         }
 
         [Fact]
         public void LadderClimbSpeed_IsPoint75()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(0.75m, rom.MegaMan.LadderClimbSpeed);
         }
 
@@ -67,7 +67,7 @@ namespace MegaMan2Customizer.Core.Tests
         public void LadderClimbSpeed_CanBeChanged(string valueText)
         {
             var value = decimal.Parse(valueText);
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             rom.MegaMan.LadderClimbSpeed = value;
             Assert.Equal(value, rom.MegaMan.LadderClimbSpeed);
         }
@@ -75,14 +75,14 @@ namespace MegaMan2Customizer.Core.Tests
         [Fact]
         public void LadderDescentSpeed_Is255Point25()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(255.25m, rom.MegaMan.LadderDescentSpeed);
         }
 
         [Fact]
         public void JumpHeight_Is4()
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal(4, rom.MegaMan.JumpHeight);
         }
 
@@ -94,14 +94,14 @@ namespace MegaMan2Customizer.Core.Tests
         [InlineData(0xFF)]
         public void CanChange_StartingHealth(byte startingHealth)
         {
-            var rom = new MegaManRom(_romBytes);
+            var rom = new MegaMan2Rom(_romBytes);
             rom.MegaMan.StartingHealth = startingHealth;
             string path = "";
             try
             {
                 path = Path.GetTempFileName();
                 rom.SaveAs(path);
-                var modifiedRom = new MegaManRom(path);
+                var modifiedRom = new MegaMan2Rom(path);
                 Assert.Equal(startingHealth, rom.MegaMan.StartingHealth);
             }
             finally

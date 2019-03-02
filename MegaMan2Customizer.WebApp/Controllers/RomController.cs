@@ -33,7 +33,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 {
                     await romFile.CopyToAsync(stream);
                 }
-                var rom = new MegaManRom(path);
+                var rom = new MegaMan2Rom(path);
 
                 var model = new RomFormModel
                 {
@@ -79,7 +79,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 {
                     await romFile.CopyToAsync(stream);
                 }
-                var rom = new MegaManRom(path);
+                var rom = new MegaMan2Rom(path);
 
                 MegaManOptions megaMan = rom.MegaMan;
                 megaMan.StartingHealth = startingHealth;
