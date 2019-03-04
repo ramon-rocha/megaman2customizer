@@ -46,6 +46,7 @@
 
         public const int BusterColor1 = 0x03D314; // 0x0368 in RAM is MegaMan's current color
         public const int BusterColor2 = 0x03D315;
+        public const int BusterLetterCode = 0x035650;
         // search ROM value for 2038 is megaman's eyes and face
 
         public const int GetEquippedText1 = 0x037EAC; // "  GET EQUIPPED"

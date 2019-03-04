@@ -51,6 +51,13 @@
             get => _romBytes[Addresses.MegaManJumpHeight];
             set => _romBytes[Addresses.MegaManJumpHeight] = value;
         }
+
+        public char BusterLetterCode
+        {
+            get => Text.DecodeWeaponMenu(_romBytes, Addresses.BusterLetterCode, 1)[0];
+            set => _romBytes[Addresses.BusterLetterCode] = Text.EncodeWeaponMenu(value);
+        }
+
         public Color BusterPrimaryColor
         {
             get => new Color(_romBytes[Addresses.BusterColor1]);

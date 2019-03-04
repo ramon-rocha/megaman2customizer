@@ -68,6 +68,10 @@ namespace MegaMan2Customizer.Core
         }.ToImmutableDictionary();
 
         private static IReadOnlyDictionary<char, byte> _invertedCutSceneMap = null;
+
+        public static string DecodeWeaponMenu(byte[] bytes, int address, int length) =>
+            Decode(_weaponMenuMap, bytes, address, length);
+
         private static IReadOnlyDictionary<char, byte> InvertedCutSceneMap
         {
             get
