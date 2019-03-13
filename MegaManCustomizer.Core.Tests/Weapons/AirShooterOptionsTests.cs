@@ -46,5 +46,12 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal('T', rom.Weapons.AirShooter.LetterCode);
             Assert.Equal(" TORNADO BLAST", Text.DecodeCutScene(rom.Bytes, Addresses.AirShooterName));
         }
+
+        [Fact]
+        public void DefaultProjectileCount_Is3()
+        {
+            var rom = new MegaMan2Rom(_romBytes);
+            Assert.Equal(3, rom.Weapons.AirShooter.ProjectileCount);
+        }
     }
 }

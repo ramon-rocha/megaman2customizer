@@ -47,6 +47,11 @@
         public const int BusterColor1 = 0x03D314; // 0x0368 in RAM is MegaMan's current color
         public const int BusterColor2 = 0x03D315;
         public const int BusterLetterCode = 0x035650;
+        public const int BusterColor1TitleScreen = 0x036AB1;
+        public const int BusterColor2TitleScreen = 0x036AB2;
+        public const int BusterColor1CutScene = 0x036F3B;
+        public const int BusterColor2CutScene = 0x036F3C;
+        public const int BusterColor2CutSceneBoots = 0x036F44; // Mega Man's boots in a cut scene have their own address
         // search ROM value for 2038 is megaman's eyes and face
 
         public const int GetEquippedText1 = 0x037EAC; // "  GET EQUIPPED"
@@ -82,7 +87,7 @@
         public const int AirShooterName = 0x037E3C;
         public const int AirShooterColor1 = 0x03D31C;
         public const int AirShooterColor2 = 0x03D31D;
-        public const int AirShooterProjectileCount = 0x03DAD6; // default 4
+        public const int AirShooterProjectileCount = 0x03DAD6; // default 4 (4 is 3 tornadoes, 3 is 2, 2 is 1, others are broken)
         public const int AirShooterAmmoUsed = 0x03DAEE; // default 2
         public const int AirShooterVertAccelFraction = 0x03DE6E; // default 10
         public const int AirShooterVertAccelWhole = 0x03DE76; // default 0
@@ -170,16 +175,16 @@
         public const int CrashBomberName = 0x037E9C;
         public const int CrashBomberCutSceneLetterCode = 0x037E29;
         public const int CrashBomberMenuLetterCode = 0x035658;
-        public const int CrashBombColor1 = 0x03D334;
-        public const int CrashBombColor2 = 0x03D335;
-        public const int CrashBombHorizSpeed = 0x03D4AD; // 4
-        public const int CrashBombVertSpeed = 0x03D4D7; // 0
-        public const int CrashBombAmmoUsed = 0x03DB99; // 4
-        public const int CrashBombExplosionType = 0x03DB9F; // 2 or 3
-        public const int CrashBombDetonationDelay = 0x03E09C; // 0x7E
-        public const int CrashBombShootSound = 0x03DBA6;
-        public const int CrashBombAttachSound = 0x03E089;
-        public const int CrashBombExplodeSound = 0x03E0DA;
+        public const int CrashBomberColor1 = 0x03D334;
+        public const int CrashBomberColor2 = 0x03D335;
+        public const int CrashBomberHorizSpeed = 0x03D4AD; // 4
+        public const int CrashBomberVertSpeed = 0x03D4D7; // 0
+        public const int CrashBomberAmmoUsed = 0x03DB99; // 4
+        public const int CrashBomberExplosionType = 0x03DB9F; // 2 or 3
+        public const int CrashBomberDetonationDelay = 0x03E09C; // 0x7E
+        public const int CrashBomberShootSound = 0x03DBA6;
+        public const int CrashBomberAttachSound = 0x03E089;
+        public const int CrashBomberExplodeSound = 0x03E0DA;
 
         public const int Item1Color1 = 0x03D338;
         public const int Item1Color2 = 0x03D339;

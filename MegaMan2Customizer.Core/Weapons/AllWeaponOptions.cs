@@ -50,7 +50,7 @@ namespace MegaMan2Customizer.Core
                     return this.TimeStopper;
                 case WeaponId.MetalBlade:
                     return this.MetalBlade;
-                case WeaponId.CrashBomb:
+                case WeaponId.CrashBomber:
                     return this.CrashBomber;
                 default:
                     throw new Exception($"Unhandled value '{weaponId}' for {nameof(weaponId)}");

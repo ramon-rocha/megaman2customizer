@@ -68,7 +68,7 @@ namespace MegaMan2Customizer.Core.Tests
         public void CrashMan_DefaultEquipment()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(WeaponId.CrashBomb, rom.RobotMasters.CrashMan.WeaponOnDefeat);
+            Assert.Equal(WeaponId.CrashBomber, rom.RobotMasters.CrashMan.WeaponOnDefeat);
             Assert.Equal(ItemId.None, rom.RobotMasters.CrashMan.ItemOnDefeat);
         }
     }

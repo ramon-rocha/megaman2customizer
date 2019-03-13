@@ -10,6 +10,7 @@ namespace MegaMan2Customizer.Core.Tests
     {
         private readonly ImmutableArray<byte> _romBytes = File.ReadAllBytes("Mega Man II.nes").ToImmutableArray();
 
+        [Theory]
         [InlineData(WeaponId.AtomicFire, "ATOMIC FIRE", 'H')]
         [InlineData(WeaponId.AirShooter, "AIR SHOOTER", 'A')]
         [InlineData(WeaponId.LeafShield, "LEAF SHIELD", 'W')]
@@ -17,8 +18,7 @@ namespace MegaMan2Customizer.Core.Tests
         [InlineData(WeaponId.QuickBoomerang, "QUICK-BOOMERANG", 'Q')]
         [InlineData(WeaponId.TimeStopper, "TIME-STOPPER", 'F')]
         [InlineData(WeaponId.MetalBlade, "METAL-BLADE", 'M')]
-        [InlineData(WeaponId.CrashBomb, "CRASH BOMBER", 'C')]
-        [Theory]
+        [InlineData(WeaponId.CrashBomber, "CRASH BOMBER", 'C')]
         public void DefaultNamesAndLetterCodes(WeaponId weaponId, string name, char letterCode)
         {
             var rom = new MegaMan2Rom(_romBytes);
@@ -39,6 +39,24 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.DoesNotContain('D', letterCodes);
             Assert.DoesNotContain('Y', letterCodes);
             Assert.DoesNotContain('Z', letterCodes);
+        }
+
+        [Theory]
+        [InlineData(WeaponId.AtomicFire, "Yellow", "Crimson")]
+        [InlineData(WeaponId.AirShooter, "White", "Blue")]
+        [InlineData(WeaponId.LeafShield, "White", "Sea Green")]
+        [InlineData(WeaponId.BubbleLead, "White", "Darker Gray")]
+        [InlineData(WeaponId.QuickBoomerang, "Very Light Magenta", "Light Crimson")]
+        [InlineData(WeaponId.TimeStopper, "Very Light Magenta", "Magenta")]
+        [InlineData(WeaponId.MetalBlade, "Very Light Orange", "Dark Yellow")]
+        [InlineData(WeaponId.CrashBomber, "White", "Light Red")]
+        public void DefaultWeaponColors(WeaponId weaponId, string primaryColor, string secondaryColor)
+        {
+            var rom = new MegaMan2Rom(_romBytes);
+            IWeaponOptions weaponOptions = rom.Weapons.GetWeaponOptions(weaponId);
+            Assert.Equal(weaponId, weaponOptions.WeaponId);
+            Assert.Equal(primaryColor, weaponOptions.PrimaryColor.Name);
+            Assert.Equal(secondaryColor, weaponOptions.SecondaryColor.Name);
         }
     }
 }

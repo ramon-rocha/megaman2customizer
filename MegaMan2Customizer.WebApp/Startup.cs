@@ -23,7 +23,6 @@ namespace MegaMan2Customizer.WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 

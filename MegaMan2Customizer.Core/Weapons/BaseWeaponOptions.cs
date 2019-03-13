@@ -11,7 +11,7 @@ namespace MegaMan2Customizer.Core
         QuickBoomerang = 0x10,
         TimeStopper = 0x20,
         MetalBlade = 0x40,
-        CrashBomb = 0x80
+        CrashBomber = 0x80
     }
 
     public abstract class BaseWeaponOptions : IWeaponOptions

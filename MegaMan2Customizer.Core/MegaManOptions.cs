@@ -61,13 +61,26 @@
         public Color BusterPrimaryColor
         {
             get => new Color(_romBytes[Addresses.BusterColor1]);
-            set => _romBytes[Addresses.BusterColor1] = value.Value;
+            set
+            {
+                byte v = value.Value;
+                _romBytes[Addresses.BusterColor1] = v;
+                _romBytes[Addresses.BusterColor1CutScene] = v;
+                _romBytes[Addresses.BusterColor1TitleScreen] = v;
+            }
         }
 
         public Color BusterSecondaryColor
         {
             get => new Color(_romBytes[Addresses.BusterColor2]);
-            set => _romBytes[Addresses.BusterColor2] = value.Value;
+            set
+            {
+                byte v = value.Value;
+                _romBytes[Addresses.BusterColor2] = v;
+                _romBytes[Addresses.BusterColor2CutScene] = v;
+                _romBytes[Addresses.BusterColor2CutSceneBoots] = v;
+                _romBytes[Addresses.BusterColor2TitleScreen] = v;
+            }
         }
 
         public MegaManOptions(byte[] romBytes) => _romBytes = romBytes;

@@ -119,5 +119,31 @@ namespace MegaMan2Customizer.Core.Tests
                 }
             }
         }
+
+        [Fact]
+        public void ChangingBusterColor_ChangesMultipleLocations()
+        {
+            var rom = new MegaMan2Rom(_romBytes);
+            Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1]).Name);
+            Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2]).Name);
+            Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1CutScene]).Name);
+            Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2CutScene]).Name);
+            Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2CutSceneBoots]).Name);
+            Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1TitleScreen]).Name);
+            Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2TitleScreen]).Name);
+
+            rom.MegaMan.BusterPrimaryColor = new Color(Chrominance.Black, Luma.Medium);
+            rom.MegaMan.BusterSecondaryColor = new Color(Chrominance.Red, Luma.Dark);
+
+            Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1]).Name);
+            Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2]).Name);
+            Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1CutScene]).Name);
+            Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2CutScene]).Name);
+            Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2CutSceneBoots]).Name);
+            Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1TitleScreen]).Name);
+            Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2TitleScreen]).Name);
+
+            // TODO: Find addresses for final cut scene at end of game
+        }
     }
 }

@@ -126,7 +126,6 @@ namespace MegaMan2Customizer.Core
                 }
 
                 string chroma = this.Chrominance.ToString()
-                    .Replace("kG", "k G")
                     .Replace("tG", "t G")
                     .Replace("aG", "a G");
 

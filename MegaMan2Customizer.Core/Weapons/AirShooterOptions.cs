@@ -4,8 +4,8 @@
     {
         public byte ProjectileCount
         {
-            get => _romBytes[Addresses.AirShooterProjectileCount];
-            set => _romBytes[Addresses.AirShooterProjectileCount] = value;
+            get => (byte)(_romBytes[Addresses.AirShooterProjectileCount] - 1);
+            set => _romBytes[Addresses.AirShooterProjectileCount] = (byte)(value + 1);
         }
 
         public byte AmmoUsed

@@ -4,12 +4,12 @@
     {
         public CrashBomberOptions(byte[] romBytes) : base(
             romBytes,
-            primaryColorAddress: Addresses.CrashBombColor1,
-            secondaryColorAddress: Addresses.CrashBombColor2,
+            primaryColorAddress: Addresses.CrashBomberColor1,
+            secondaryColorAddress: Addresses.CrashBomberColor2,
             weaponNameAddress: Addresses.CrashBomberName,
             cutSceneLetterAddress: Addresses.CrashBomberCutSceneLetterCode,
             menuLetterAddress: Addresses.CrashBomberMenuLetterCode,
-            weaponId: WeaponId.CrashBomb)
+            weaponId: WeaponId.CrashBomber)
         {
         }
     }
