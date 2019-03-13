@@ -127,6 +127,7 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1]).Name);
             Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2]).Name);
             Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1CutScene]).Name);
+            Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1CutSceneBoots]).Name);
             Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2CutScene]).Name);
             Assert.Equal("Blue", new Color(rom.Bytes[Addresses.BusterColor2CutSceneBoots]).Name);
             Assert.Equal("Light Cyan", new Color(rom.Bytes[Addresses.BusterColor1TitleScreen]).Name);
@@ -138,6 +139,7 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1]).Name);
             Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2]).Name);
             Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1CutScene]).Name);
+            Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1CutSceneBoots]).Name);
             Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2CutScene]).Name);
             Assert.Equal("Dark Red", new Color(rom.Bytes[Addresses.BusterColor2CutSceneBoots]).Name);
             Assert.Equal("Black", new Color(rom.Bytes[Addresses.BusterColor1TitleScreen]).Name);

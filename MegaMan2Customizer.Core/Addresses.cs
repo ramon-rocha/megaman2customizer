@@ -51,7 +51,8 @@
         public const int BusterColor2TitleScreen = 0x036AB2;
         public const int BusterColor1CutScene = 0x036F3B;
         public const int BusterColor2CutScene = 0x036F3C;
-        public const int BusterColor2CutSceneBoots = 0x036F44; // Mega Man's boots in a cut scene have their own address
+        public const int BusterColor1CutSceneBoots = 0x036F43; // Mega Man's boots in a cut scene have their own address
+        public const int BusterColor2CutSceneBoots = 0x036F44;
         // search ROM value for 2038 is megaman's eyes and face
 
         public const int GetEquippedText1 = 0x037EAC; // "  GET EQUIPPED"

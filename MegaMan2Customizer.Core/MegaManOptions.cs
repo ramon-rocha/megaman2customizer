@@ -66,6 +66,7 @@
                 byte v = value.Value;
                 _romBytes[Addresses.BusterColor1] = v;
                 _romBytes[Addresses.BusterColor1CutScene] = v;
+                _romBytes[Addresses.BusterColor1CutSceneBoots] = v;
                 _romBytes[Addresses.BusterColor1TitleScreen] = v;
             }
         }
