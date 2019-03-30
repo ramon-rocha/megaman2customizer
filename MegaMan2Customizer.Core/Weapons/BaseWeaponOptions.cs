@@ -14,6 +14,19 @@ namespace MegaMan2Customizer.Core
         CrashBomber = 0x80
     }
 
+    public static class WeaponIdExtensions
+    {
+        public static string ToDisplayString(this WeaponId weapon)
+        {
+            return weapon.ToString()
+                .Replace("F", " F")
+                .Replace("S", " S")
+                .Replace("L", " L")
+                .Replace("B", " B")
+                .Trim();
+        }
+    }
+
     public abstract class BaseWeaponOptions : IWeaponOptions
     {
         protected readonly byte[] _romBytes;

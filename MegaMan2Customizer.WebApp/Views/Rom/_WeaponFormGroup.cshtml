@@ -9,11 +9,11 @@
         {
             if (weapon == this.Model.selectedWeapon)
             {
-                <option selected="selected">@weapon.ToString()</option>
+                <option selected="selected" value="@weapon.ToString()">@weapon.ToDisplayString()</option>
             }
             else
             {
-                <option>@weapon.ToString()</option>
+                <option value="@weapon.ToString()">@weapon.ToDisplayString()</option>
             }
         }
 
