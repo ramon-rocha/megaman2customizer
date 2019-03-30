@@ -38,10 +38,19 @@ namespace MegaMan2Customizer.Core.Tests
         }
 
         [Fact]
-        public void MaxBusterShots_Is4()
+        public void BusterLetterCode_CanBeChanged()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(4, rom.MegaMan.MaxBusterShots);
+            Assert.Equal('P', rom.MegaMan.BusterLetterCode);
+            rom.MegaMan.BusterLetterCode = 'M';
+            Assert.Equal('M', rom.MegaMan.BusterLetterCode);
+        }
+
+        [Fact]
+        public void MaxBusterShots_Is3()
+        {
+            var rom = new MegaMan2Rom(_romBytes);
+            Assert.Equal(3, rom.MegaMan.MaxBusterShots);
         }
 
         [Fact]

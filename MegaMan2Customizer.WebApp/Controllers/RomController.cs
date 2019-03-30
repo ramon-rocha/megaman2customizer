@@ -15,7 +15,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
         public IActionResult Editor(RomFormModel model) => View("Editor", model);
 
         [HttpGet("editor2")]
-        public IActionResult Editor2(EditorViewModel model) => View("Editor2", model);
+        public IActionResult Editor2(EditorViewModel model) => View(model);
 
         [HttpPost("romdata2")]
         public async Task<IActionResult> RomData2(EditorViewModel model)

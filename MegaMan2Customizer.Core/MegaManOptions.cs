@@ -18,8 +18,8 @@
 
         public byte MaxBusterShots
         {
-            get => _romBytes[Addresses.MegaManBusterMaxShots];
-            set => _romBytes[Addresses.MegaManBusterMaxShots] = value;
+            get => (byte)(_romBytes[Addresses.MegaManBusterMaxShots] - 1);
+            set => _romBytes[Addresses.MegaManBusterMaxShots] = (byte)(value + 1);
         }
 
         public byte BusterSpeed

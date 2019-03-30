@@ -41,7 +41,7 @@ namespace MegaMan2Customizer.Core.Tests
         public void FallSpeed_Is1()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(255, rom.RobotMasters.BubbleMan.FallSpeed);
+            Assert.Equal(255, rom.RobotMasters.BubbleMan.FallSpeed); // TODO: should be -1
         }
 
         [Fact]
