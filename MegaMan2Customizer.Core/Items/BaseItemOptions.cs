@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MegaMan2Customizer.Core
 {
@@ -10,6 +8,11 @@ namespace MegaMan2Customizer.Core
         Item1 = 0x01,
         Item2 = 0x02,
         Item3 = 0x04
+    }
+
+    public static class ItemIdExtensions
+    {
+        public static string ToDisplayString(this ItemId item) => item.ToString().Replace("m", "m-");
     }
 
     public abstract class BaseItemOptions
@@ -38,7 +41,7 @@ namespace MegaMan2Customizer.Core
         {
             if (itemId == ItemId.None)
             {
-                throw new ArgumentException($"Cannot instatiate item when {nameof(itemId)} is {ItemId.None}");
+                throw new ArgumentException($"Cannot instantiate item when {nameof(itemId)} is {ItemId.None}");
             }
 
             _romBytes = romBytes;
