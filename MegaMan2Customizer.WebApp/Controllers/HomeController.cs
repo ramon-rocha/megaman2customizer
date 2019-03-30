@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MegaMan2Customizer.WebApp.Models;
-using Microsoft.AspNetCore.Http;
-using MegaMan2Customizer.Core;
 
 namespace MegaMan2Customizer.WebApp.Controllers
 {
