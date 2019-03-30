@@ -9,7 +9,7 @@
         public const int MegaManMaxHealth = 0x038315; // does not apply when using E tank, health refill doesn't go past 28
 
         // https://www.smwcentral.net/?p=viewthread&t=57100&page=1&pid=928995#p928995
-        public const int MegaManBusterMaxShots = 0x03DA83;
+        public const int MegaManBusterMaxShots = 0x03DA83; // stored value is 1 higher than actual, 4 default (3 shots max)
         // http://www.romhacking.net/hacks/4093/
         public const int MegaManBusterSpeed = 0x03D4A7; // higher is faster, 4 default
         // http://acmlm.kafuka.org/board/thread.php?id=7941
@@ -24,7 +24,7 @@
         public const int MegaManLadderDescentSpeedFraction = 0x038730; // lower is faster, 40 default
         public const int MegaManFirstStepSpeed = 0x038920; // higher is faster, default 0
         public const int MegaManWalkSpeed = 0x038921; // higher is faster, default 1
-        public const int MegaManJumpHorizontalSpeed = 0x038922; // higher is faster, default 1, TODO: check x38923 as well
+        public const int MegaManJumpHorizontalSpeed = 0x038922; // higher is faster, default 1
         public const int MegaManJumpHeight = 0x038A81; // higher is...higher.
 
         public const int MegaManStandingHorizontalSpeed = 0x03891F; // default is 0, non zero value means Mega Man slides on the ground all the time, higher is faster
