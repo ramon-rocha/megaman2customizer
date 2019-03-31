@@ -1,9 +1,15 @@
-﻿body {
+﻿@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css");
+
+body {
     padding-bottom: 20px;
 }
 
 .container {
     margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .logo {
@@ -57,6 +63,21 @@
 .card-header, .card-body {
     padding: .625rem;
 }
+
+.panel-title {
+    margin: .5rem;
+}
+
+    .panel-title > a:before {
+        float: right;
+        font-family: FontAwesome;
+        content: "\f068";
+    }
+
+    .panel-title > a.collapsed:before {
+        float: right;
+        content: "\f067";
+    }
 
 button[type=submit] {
     margin-top: 15px;
