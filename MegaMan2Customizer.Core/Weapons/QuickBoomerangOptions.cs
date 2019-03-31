@@ -39,54 +39,53 @@ namespace MegaMan2Customizer.Core
                 {
                     throw new ArgumentException($"Weapon name cannot be longer than {Defaults.MaxCutSceneTextLength * 2} characters");
                 }
-                
-                if (value.Length < Defaults.MaxCutSceneTextLength - 2)
-                {
-                    byte[] line1 = Text.EncodeCutScene(value);
-                    byte[] line2 = Text.EncodeCutScene("");
-                    line1.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine1);
-                    line2.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine2);
-                }
-                else
+
+                string line1 = value;
+                string line2 = "";
+
+                bool line1TooLong = line1.Length > Defaults.MaxCutSceneTextLength;
+                bool line1CanBeSplit = (line1.Contains("-") || line1.Contains(" ")) && line1.Length > Defaults.MaxCutSceneTextLength - 2;
+
+                if (line1TooLong || line1CanBeSplit)
                 {
                     int spaceIndex = value.IndexOf(' ');
                     int hyphenIndex = value.IndexOf('-');
-                    int index = value.Contains(" ") ? spaceIndex
+                    int splitIndex = value.Contains(" ") ? spaceIndex
                         : value.Contains("-") ? hyphenIndex
                         : value.Length % 2 == 0 ? value.Length / 2
                         : value.Length / 2 + 1;
 
-                    string line1 = value.Substring(0, index);
-                    string line2 = value.Substring(index, value.Length - index);
+                    line1 = value.Substring(0, splitIndex);
+                    line2 = value.Substring(splitIndex, value.Length - splitIndex);
 
-                    bool hypenOnLine1 = hyphenIndex > 0 
+                    bool hypenCausesMisalignment = hyphenIndex > 0 
                         && line2.Length > Defaults.MaxCutSceneTextLength - 2
                         && line1.Length < Defaults.MaxCutSceneTextLength;
 
-                    if (hypenOnLine1)
+                    if (hypenCausesMisalignment)
                     {
                         // spaces out better to put the hyphen on line 1 in this case
-                        index++;
-                        line1 = value.Substring(0, index);
-                        line2 = value.Substring(index, value.Length - index);
+                        splitIndex++;
+                        line1 = value.Substring(0, splitIndex);
+                        line2 = value.Substring(splitIndex, value.Length - splitIndex);
                     }
 
                     if ((spaceIndex > 0 || hyphenIndex > 0)
                         && (line1.Length > Defaults.MaxCutSceneTextLength || line2.Length > Defaults.MaxCutSceneTextLength))
                     {
                         // line 1 or line 2 is too long so we can't split on a space or hyphen after all
-                        index = value.Length % 2 == 0 
+                        splitIndex = value.Length % 2 == 0 
                             ? value.Length / 2
                             : value.Length / 2 + 1;
-                        line1 = value.Substring(0, index);
-                        line2 = value.Substring(index, value.Length - index);
+                        line1 = value.Substring(0, splitIndex);
+                        line2 = value.Substring(splitIndex, value.Length - splitIndex);
                     }
-
-                    byte[] line1Bytes = Text.EncodeCutScene(line1);
-                    byte[] line2Bytes = Text.EncodeCutScene(line2);
-                    line1Bytes.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine1);
-                    line2Bytes.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine2);
                 }
+
+                byte[] line1Bytes = Text.EncodeCutScene(line1);
+                byte[] line2Bytes = Text.EncodeCutScene(line2);
+                line1Bytes.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine1);
+                line2Bytes.CopyTo(_romBytes, Addresses.QuickBoomerangNameLine2);
             }
         }
 
