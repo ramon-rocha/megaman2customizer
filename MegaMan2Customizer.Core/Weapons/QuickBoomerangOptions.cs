@@ -89,6 +89,54 @@ namespace MegaMan2Customizer.Core
             }
         }
 
+        public byte FireDelay
+        {
+            get => _romBytes[Addresses.QuickBoomerangFireDelay];
+            set => _romBytes[Addresses.QuickBoomerangFireDelay] = value;
+        }
+
+        public byte MaxShots
+        {
+            get => _romBytes[Addresses.QuickBoomerangMaxShots];
+            set => _romBytes[Addresses.QuickBoomerangMaxShots] = value;
+        }
+
+        public byte ShotsPerAmmo
+        {
+            get => _romBytes[Addresses.QuickBoomerangShotsPerAmmo];
+            set => _romBytes[Addresses.QuickBoomerangShotsPerAmmo] = value;
+        }
+
+        public byte TravelDistance
+        {
+            get => _romBytes[Addresses.QuickBoomerangTravelDistance];
+            set => _romBytes[Addresses.QuickBoomerangTravelDistance] = value;
+        }
+
+        public byte LaunchAngle
+        {
+            get => _romBytes[Addresses.QuickBoomerangLaunchAngle];
+            set => _romBytes[Addresses.QuickBoomerangLaunchAngle] = value;
+        }
+
+        public byte ReturnAngle
+        {
+            get => _romBytes[Addresses.QuickBoomerangReturnAngle];
+            set => _romBytes[Addresses.QuickBoomerangReturnAngle] = value;
+        }
+
+        public byte Behavior
+        {
+            get => _romBytes[Addresses.QuickBoomerangBehavior];
+            set => _romBytes[Addresses.QuickBoomerangBehavior] = value;
+        }
+
+        public byte FlightTime
+        {
+            get => _romBytes[Addresses.QuickBoomerangFlightTime];
+            set => _romBytes[Addresses.QuickBoomerangFlightTime] = value;
+        }
+
         public QuickBoomerangOptions(byte[] romBytes) : base(
             romBytes,
             primaryColorAddress: Addresses.QuickBoomerangColor1,

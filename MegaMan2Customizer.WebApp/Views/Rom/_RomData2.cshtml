@@ -86,6 +86,34 @@
                                 <select class="form-control" asp-for="AtomicFireSecondaryColor" asp-items="Model.Colors"></select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireProjectileSpeed"></label>
+                                <input class="form-control" asp-for="AtomicFireProjectileSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireLevel1AmmoUsed"></label>
+                                <input class="form-control" asp-for="AtomicFireLevel1AmmoUsed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireLevel2AmmoUsed"></label>
+                                <input class="form-control" asp-for="AtomicFireLevel2AmmoUsed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireLevel3AmmoUsed"></label>
+                                <input class="form-control" asp-for="AtomicFireLevel3AmmoUsed" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireLevel2ChargeTime"></label>
+                                <input class="form-control" asp-for="AtomicFireLevel2ChargeTime" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AtomicFireLevel3ChargeTime"></label>
+                                <input class="form-control" asp-for="AtomicFireLevel3ChargeTime" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -111,6 +139,34 @@
                             <div class="col-lg-3 form-group">
                                 <label asp-for="AirShooterSecondaryColor"></label>
                                 <select class="form-control" asp-for="AirShooterSecondaryColor" asp-items="Model.Colors"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterProjectileCount"></label>
+                                <input class="form-control" asp-for="AirShooterProjectileCount" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterProjectile1HorizontalSpeed"></label>
+                                <input class="form-control" asp-for="AirShooterProjectile1HorizontalSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterProjectile2HorizontalSpeed"></label>
+                                <input class="form-control" asp-for="AirShooterProjectile2HorizontalSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterProjectile3HorizontalSpeed"></label>
+                                <input class="form-control" asp-for="AirShooterProjectile3HorizontalSpeed" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterVerticalAcceleration"></label>
+                                <input class="form-control" asp-for="AirShooterVerticalAcceleration" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="AirShooterAmmoUsed"></label>
+                                <input class="form-control" asp-for="AirShooterAmmoUsed" />
                             </div>
                         </div>
                     </div>
@@ -139,6 +195,20 @@
                                 <select class="form-control" asp-for="LeafShieldSecondaryColor" asp-items="Model.Colors"></select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="LeafShieldAmmoUsed"></label>
+                                <input class="form-control" asp-for="LeafShieldAmmoUsed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="LeafShieldDeployDelay"></label>
+                                <input class="form-control" asp-for="LeafShieldDeployDelay" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="LeafShieldProjectileSpeed"></label>
+                                <input class="form-control" asp-for="LeafShieldProjectileSpeed" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -163,6 +233,38 @@
                             <div class="col-lg-3 form-group">
                                 <label asp-for="BubbleLeadSecondaryColor"></label>
                                 <select class="form-control" asp-for="BubbleLeadSecondaryColor" asp-items="Model.Colors"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadHorizontalSpeed"></label>
+                                <input class="form-control" asp-for="BubbleLeadHorizontalSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadVerticalSpeed"></label>
+                                <input class="form-control" asp-for="BubbleLeadVerticalSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadHorizontalFallingSpeed"></label>
+                                <input class="form-control" asp-for="BubbleLeadHorizontalFallingSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadVerticalFallingSpeed"></label>
+                                <input class="form-control" asp-for="BubbleLeadVerticalFallingSpeed" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadSurfaceSpeed"></label>
+                                <input class="form-control" asp-for="BubbleLeadSurfaceSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadMaxProjectiles"></label>
+                                <input class="form-control" asp-for="BubbleLeadMaxProjectiles" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="BubbleLeadShotsPerAmmo"></label>
+                                <input class="form-control" asp-for="BubbleLeadShotsPerAmmo" />
                             </div>
                         </div>
                     </div>
@@ -191,6 +293,34 @@
                                 <select class="form-control" asp-for="QuickBoomerangSecondaryColor" asp-items="Model.Colors"></select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangFireDelay"></label>
+                                <input class="form-control" asp-for="QuickBoomerangFireDelay" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangMaxShots"></label>
+                                <input class="form-control" asp-for="QuickBoomerangMaxShots" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangShotsPerAmmo"></label>
+                                <input class="form-control" asp-for="QuickBoomerangShotsPerAmmo" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangTravelDistance"></label>
+                                <input class="form-control" asp-for="QuickBoomerangTravelDistance" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangLaunchAngle"></label>
+                                <input class="form-control" asp-for="QuickBoomerangLaunchAngle" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="QuickBoomerangReturnAngle"></label>
+                                <input class="form-control" asp-for="QuickBoomerangReturnAngle" />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -215,6 +345,16 @@
                             <div class="col-lg-3 form-group">
                                 <label asp-for="TimeStopperSecondaryColor"></label>
                                 <select class="form-control" asp-for="TimeStopperSecondaryColor" asp-items="Model.Colors"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="TimeStopperDelayBeforeDrain"></label>
+                                <input class="form-control" asp-for="TimeStopperDelayBeforeDrain" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="TimeStopperDrainRateDelay"></label>
+                                <select class="form-control" asp-for="TimeStopperDrainRateDelay" asp-items="Model.WeaponLetterCodes"></select>
                             </div>
                         </div>
                     </div>
@@ -243,6 +383,20 @@
                                 <select class="form-control" asp-for="MetalBladeSecondaryColor" asp-items="Model.Colors"></select>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="MetalBladeMaxShots"></label>
+                                <input class="form-control" asp-for="MetalBladeMaxShots" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="MetalBladeShotsPerAmmo"></label>
+                                <select class="form-control" asp-for="MetalBladeShotsPerAmmo" asp-items="Model.WeaponLetterCodes"></select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="MetalBladeProjectileSpeed"></label>
+                                <select class="form-control" asp-for="MetalBladeProjectileSpeed" asp-items="Model.Colors"></select>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -267,6 +421,24 @@
                             <div class="col-lg-3 form-group">
                                 <label asp-for="CrashBomberSecondaryColor"></label>
                                 <select class="form-control" asp-for="CrashBomberSecondaryColor" asp-items="Model.Colors"></select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="CrashBomberHorizontalSpeed"></label>
+                                <input class="form-control" asp-for="CrashBomberHorizontalSpeed" />
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="CrashBomberVerticalSpeed"></label>
+                                <select class="form-control" asp-for="CrashBomberVerticalSpeed" asp-items="Model.WeaponLetterCodes"></select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="CrashBomberAmmoUsed"></label>
+                                <select class="form-control" asp-for="CrashBomberAmmoUsed" asp-items="Model.Colors"></select>
+                            </div>
+                            <div class="col-lg-3 form-group">
+                                <label asp-for="CrashBomberDetonationDelay"></label>
+                                <select class="form-control" asp-for="CrashBomberDetonationDelay" asp-items="Model.Colors"></select>
                             </div>
                         </div>
                     </div>

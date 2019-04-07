@@ -71,36 +71,62 @@ namespace MegaMan2Customizer.WebApp.Controllers
             model.LeafShieldLetterCode = leafShield.LetterCode;
             model.LeafShieldPrimaryColor = leafShield.PrimaryColor.Name;
             model.LeafShieldSecondaryColor = leafShield.SecondaryColor.Name;
+            model.LeafShieldAmmoUsed = leafShield.AmmoUsed;
+            model.LeafShieldDeployDelay = leafShield.DeployDelay;
+            model.LeafShieldProjectileSpeed = leafShield.VerticalSpeed;
 
             var bubbleLead = rom.Weapons.BubbleLead;
             model.BubbleLeadName = bubbleLead.Name;
             model.BubbleLeadLetterCode = bubbleLead.LetterCode;
             model.BubbleLeadPrimaryColor = bubbleLead.PrimaryColor.Name;
             model.BubbleLeadSecondaryColor = bubbleLead.SecondaryColor.Name;
+            model.BubbleLeadHorizontalSpeed = bubbleLead.HorizontalSpeed;
+            model.BubbleLeadVerticalSpeed = bubbleLead.VerticalSpeed;
+            model.BubbleLeadHorizontalFallingSpeed = bubbleLead.HorizontalFallSpeed;
+            model.BubbleLeadVerticalFallingSpeed = bubbleLead.VerticalFallSpeed;
+            model.BubbleLeadMaxProjectiles = bubbleLead.MaxProjectiles;
+            model.BubbleLeadShotsPerAmmo = bubbleLead.ShotsPerAmmo;
+            model.BubbleLeadSurfaceSpeed = bubbleLead.SurfaceSpeed;
+
 
             var quickBoomerang = rom.Weapons.QuickBoomerang;
             model.QuickBoomerangName = quickBoomerang.Name;
             model.QuickBoomerangLetterCode = quickBoomerang.LetterCode;
             model.QuickBoomerangPrimaryColor = quickBoomerang.PrimaryColor.Name;
             model.QuickBoomerangSecondaryColor = quickBoomerang.SecondaryColor.Name;
+            model.QuickBoomerangFireDelay = quickBoomerang.FireDelay;
+            model.QuickBoomerangMaxShots = quickBoomerang.MaxShots;
+            model.QuickBoomerangShotsPerAmmo = quickBoomerang.ShotsPerAmmo;
+            model.QuickBoomerangTravelDistance = quickBoomerang.TravelDistance;
+            model.QuickBoomerangLaunchAngle = quickBoomerang.LaunchAngle;
+            model.QuickBoomerangReturnAngle = quickBoomerang.ReturnAngle;
 
             var timeStopper = rom.Weapons.TimeStopper;
             model.TimeStopperName = timeStopper.Name;
             model.TimeStopperLetterCode = timeStopper.LetterCode;
             model.TimeStopperPrimaryColor = timeStopper.PrimaryColor.Name;
             model.TimeStopperSecondaryColor = timeStopper.SecondaryColor.Name;
+            model.TimeStopperDelayBeforeDrain = timeStopper.DelayBeforeDrain;
+            model.TimeStopperDrainRateDelay = timeStopper.DrainRateDelay;
 
             var metalBlade = rom.Weapons.MetalBlade;
             model.MetalBladeName = metalBlade.Name;
             model.MetalBladeLetterCode = metalBlade.LetterCode;
             model.MetalBladePrimaryColor = metalBlade.PrimaryColor.Name;
             model.MetalBladeSecondaryColor = metalBlade.SecondaryColor.Name;
+            model.MetalBladeMaxShots = metalBlade.MaxShots;
+            model.MetalBladeProjectileSpeed = metalBlade.Speed; // TODO: split into different directions
+            model.MetalBladeShotsPerAmmo = metalBlade.ShotsPerAmmo;
 
             var crashBomber = rom.Weapons.CrashBomber;
             model.CrashBomberName = crashBomber.Name;
             model.CrashBomberLetterCode = crashBomber.LetterCode;
             model.CrashBomberPrimaryColor = crashBomber.PrimaryColor.Name;
             model.CrashBomberSecondaryColor = crashBomber.SecondaryColor.Name;
+            model.CrashBomberHorizontalSpeed = crashBomber.HorizontalSpeed;
+            model.CrashBomberVerticalSpeed = crashBomber.VerticalSpeed;
+            model.CrashBomberDetonationDelay = crashBomber.DetonationDelay;
+            model.CrashBomberAmmoUsed = crashBomber.AmmoUsed;
 
             return PartialView("_RomData2", model);
         }

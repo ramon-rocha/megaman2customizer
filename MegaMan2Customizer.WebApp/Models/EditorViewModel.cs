@@ -171,6 +171,10 @@ namespace MegaMan2Customizer.WebApp.Models
         [Display(Name = "Ammo Used")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
         public byte LeafShieldAmmoUsed { get; set; }
+
+        [Display(Name = "Deploy Delay")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte LeafShieldDeployDelay { get; set; }
         #endregion LeafShield
 
         #region BubbleLead
@@ -186,6 +190,34 @@ namespace MegaMan2Customizer.WebApp.Models
 
         [Display(Name = "Secondary Color")]
         public string BubbleLeadSecondaryColor { get; set; }
+
+        [Display(Name = "Max Projectiles on Screen")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadMaxProjectiles { get; set; }
+
+        [Display(Name = "Shots per Ammo Tick")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadShotsPerAmmo { get; set; }
+
+        [Display(Name = "Horizontal Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadHorizontalSpeed { get; set; }
+
+        [Display(Name = "Vertical Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadVerticalSpeed { get; set; }
+
+        [Display(Name = "Surface Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadSurfaceSpeed { get; set; }
+
+        [Display(Name = "Horizontal Falling Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadHorizontalFallingSpeed { get; set; }
+
+        [Display(Name = "Vertical Falling Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleLeadVerticalFallingSpeed { get; set; }
         #endregion BubbleLead
 
         #region QuickBoomerang
@@ -201,6 +233,34 @@ namespace MegaMan2Customizer.WebApp.Models
 
         [Display(Name = "Secondary Color")]
         public string QuickBoomerangSecondaryColor { get; set; }
+
+        [Display(Name = "Fire Delay")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangFireDelay { get; set; }
+
+        [Display(Name = "Max Projectiles on Screen")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangMaxShots { get; set; }
+
+        [Display(Name = "Shots per Ammo Tick")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangShotsPerAmmo { get; set; }
+
+        [Display(Name = "Travel Distance")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangTravelDistance { get; set; }
+
+        [Display(Name = "Launch Angle")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangLaunchAngle { get; set; }
+
+        [Display(Name = "Return Angle")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangReturnAngle { get; set; }
+
+        [Display(Name = "Flight Time")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte QuickBoomerangTime { get; set; }
         #endregion QuickBoomerang
 
         #region TimeStopper
@@ -216,6 +276,14 @@ namespace MegaMan2Customizer.WebApp.Models
 
         [Display(Name = "Secondary Color")]
         public string TimeStopperSecondaryColor { get; set; }
+
+        [Display(Name = "Delay Before Drain")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte TimeStopperDelayBeforeDrain { get; set; }
+
+        [Display(Name = "Drain Rate Delay")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte TimeStopperDrainRateDelay { get; set; }
         #endregion TimeStopper
 
         #region MetalBlade
@@ -231,6 +299,18 @@ namespace MegaMan2Customizer.WebApp.Models
 
         [Display(Name = "Secondary Color")]
         public string MetalBladeSecondaryColor { get; set; }
+
+        [Display(Name = "Max Projectiles on Screen")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte MetalBladeMaxShots { get; set; }
+
+        [Display(Name = "Shots per Ammo Tick")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte MetalBladeShotsPerAmmo { get; set; }
+
+        [Display(Name = "Projectile Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte MetalBladeProjectileSpeed { get; set; }
         #endregion MetalBlade
 
         #region CrashBomber
@@ -246,6 +326,22 @@ namespace MegaMan2Customizer.WebApp.Models
 
         [Display(Name = "Secondary Color")]
         public string CrashBomberSecondaryColor { get; set; }
+
+        [Display(Name = "Horizontal Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte CrashBomberHorizontalSpeed { get; set; }
+
+        [Display(Name = "Vertical Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte CrashBomberVerticalSpeed { get; set; }
+
+        [Display(Name = "Ammo Used per Shot")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte CrashBomberAmmoUsed { get; set; }
+
+        [Display(Name = "Detonation Delay")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte CrashBomberDetonationDelay { get; set; }
         #endregion CrashBomber
 
         #endregion WeaponOptions

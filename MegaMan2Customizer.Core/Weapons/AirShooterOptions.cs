@@ -14,28 +14,28 @@
             set => _romBytes[Addresses.AirShooterAmmoUsed] = value;
         }
 
-        public byte Projectile1HorizontalSpeed
+        public decimal Projectile1HorizontalSpeed
         {
-            get => _romBytes[Addresses.AirShooterHorizSpeedWhole1];
-            set => _romBytes[Addresses.AirShooterHorizSpeedWhole1] = value;
+            get => _romBytes.GetDecimal(Addresses.AirShooterHorizSpeedWhole1, Addresses.AirShooterHorizSpeedFraction1);
+            set => _romBytes.SetDecimal(Addresses.AirShooterHorizSpeedWhole1, Addresses.AirShooterHorizSpeedFraction1, value);
         }
 
-        public byte Projectile2HorizontalSpeed
+        public decimal Projectile2HorizontalSpeed
         {
-            get => _romBytes[Addresses.AirShooterHorizSpeedWhole2];
-            set => _romBytes[Addresses.AirShooterHorizSpeedWhole2] = value;
+            get => _romBytes.GetDecimal(Addresses.AirShooterHorizSpeedWhole2, Addresses.AirShooterHorizSpeedFraction2);
+            set => _romBytes.SetDecimal(Addresses.AirShooterHorizSpeedWhole2, Addresses.AirShooterHorizSpeedFraction2, value);
         }
 
-        public byte Projectile3HorizontalSpeed
+        public decimal Projectile3HorizontalSpeed
         {
-            get => _romBytes[Addresses.AirShooterHorizSpeedWhole3];
-            set => _romBytes[Addresses.AirShooterHorizSpeedWhole3] = value;
+            get => _romBytes.GetDecimal(Addresses.AirShooterHorizSpeedWhole3, Addresses.AirShooterHorizSpeedFraction3);
+            set => _romBytes.SetDecimal(Addresses.AirShooterHorizSpeedWhole3, Addresses.AirShooterHorizSpeedFraction3, value);
         }
 
-        public byte ProjectileVerticalAcceleration
+        public decimal ProjectileVerticalAcceleration
         {
-            get => _romBytes[Addresses.AirShooterVertAccelWhole];
-            set => _romBytes[Addresses.AirShooterVertAccelWhole] = value;
+            get => _romBytes.GetDecimal(Addresses.AirShooterVertAccelWhole, Addresses.AirShooterVertAccelFraction);
+            set => _romBytes.SetDecimal(Addresses.AirShooterVertAccelWhole, Addresses.AirShooterVertAccelFraction, value);
         }
 
         public AirShooterOptions(byte[] romBytes) : base(
