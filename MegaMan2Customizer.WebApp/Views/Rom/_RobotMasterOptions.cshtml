@@ -1,0 +1,538 @@
+﻿@model RomEditorViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseRobotMasters">Robot Master Options</a></h2>
+    </div>
+    <div class="card-body collapse" id="collapseRobotMasters">
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseBubbleMan">Bubble Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseBubbleMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManPrimaryColor"></label>
+                        <select class="form-control" asp-for="BubbleManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManSecondaryColor"></label>
+                        <select class="form-control" asp-for="BubbleManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManWeaponOnDefeat"></label>
+                        <select class="form-control" asp-for="BubbleManWeaponOnDefeat" asp-items="Model.Weapons"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManItemOnDefeat"></label>
+                        <select class="form-control" asp-for="BubbleManItemOnDefeat" asp-items="Model.Items"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManRiseSpeed"></label>
+                        <input class="form-control" asp-for="BubbleManRiseSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManMaxHeight"></label>
+                        <input class="form-control" asp-for="BubbleManMaxHeight" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubblemanFallSpeed"></label>
+                        <input class="form-control" asp-for="BubblemanFallSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubblemanShotDelay"></label>
+                        <input class="form-control" asp-for="BubblemanShotDelay" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubblemanProjectileSpeed"></label>
+                        <input class="form-control" asp-for="BubblemanProjectileSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubblemanBubbleLaunchSpeed"></label>
+                        <input class="form-control" asp-for="BubblemanBubbleLaunchSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="BubbleManBubbleBounceSpeed"></label>
+                        <input class="form-control" asp-for="BubbleManBubbleBounceSpeed" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseAirMan">Air Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseAirMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="AirManPrimaryColor"></label>
+                        <select class="form-control" asp-for="AirManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="AirManSecondaryColor"></label>
+                        <select class="form-control" asp-for="AirManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseAirMan">Air Man</a></h3>
+            </div>
+
+            <div class="card-body collapse" id="collapseAirMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "airManPrimaryColor", AirManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "airManSecondaryColor", AirManSecondaryColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="airManShotsBeforeJumping">Shots Before Jumping</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManShotsBeforeJumping" id="airManShotsBeforeJumping" value="AirManShotsBeforeJumping" placeholder="Default: 3" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="airManJump1Distance">First Jump Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Distance" id="airManJump1Distance" value="AirManJump1Distance" placeholder="Default: 1" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="airManJump1Height">First Jump Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump1Height" id="airManJump1Height" value="AirManJump1Height" placeholder="Default: 4" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="airManJump2Distance">Second Jump Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Distance" id="airManJump2Distance" value="AirManJump2Distance" placeholder="Default: 1" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="airManJump2Height">Second Jump Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManJump2Height" id="airManJump2Height" value="AirManJump2Height" placeholder="Default: 7" />
+                    </div>
+                </div>
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Tornado Primary Color", "airManTornadoPrimaryColor", AirManTornadoPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Tornado Secondary Color", "airManTornadoSecondaryColor", AirManTornadoSecondaryColor)" />
+                </div>
+
+                for (int i = 0; i < AirManPatterns.Count; i++)
+                {
+                    TornadoPattern pattern = AirManPatterns[i];
+                    <div class="card">
+                        <div class="card-header">
+                            { string patternCollapseId = $"collapsePattern{i + 1}"; }
+                            <h4><a class="collapsed" data-toggle="collapse" href="#patternCollapseId">Tornado Pattern (i + 1)</a></h4>
+                        </div>
+                        <div class="card-body collapse" id="patternCollapseId">
+                            <div class="row">
+                                for (int j = 0; j < pattern.Tornados.Count; j += 2)
+                                {
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado (j + 1) Vert. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="pattern.Tornados[j].VerticalVelocity" />
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado (j + 1) Horz. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="pattern.Tornados[j].HorizontalVelocity" />
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado (j + 1) Flight Time</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="pattern.Tornados[j].FlightTime" />
+                                    </div>
+
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoVertSpeed"><small>Tornado (j + 2) Vert. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoVertSpeed" id="airManTornadoVertSpeed" value="pattern.Tornados[j + 1].VerticalVelocity" />
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoHorzSpeed"><small>Tornado (j + 2) Horz. Speed</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoHorzSpeed" id="airManTornadoHorzSpeed" value="pattern.Tornados[j + 1].HorizontalVelocity" />
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <label class="small" for="airManTornadoFlightTime"><small>Tornado (j + 2) Flight Time</small></label>
+                                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="airManTornadoFlightTime" id="airManTornadoFlightTime" value="pattern.Tornados[j + 1].FlightTime" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseQuickMan">Quick Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseQuickMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="QuickManPrimaryColor"></label>
+                        <select class="form-control" asp-for="QuickManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="QuickManSecondaryColor"></label>
+                        <select class="form-control" asp-for="QuickManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseQuickMan">Quick Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseQuickMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "quickManPrimaryColor", QuickManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "quickManSecondaryColor", QuickManSecondaryColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManRunSpeed">Running Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="quickManRunSpeed" id="quickManRunSpeed" value="QuickManRunSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManRunDuration">Run Duration</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManRunDuration" id="quickManRunDuration" value="QuickManRunDuration" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManProjectileCount">Number of Projectiles</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileCount" id="quickManProjectileCount" value="QuickManProjectileCount" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManProjectileLaunchSpeed">Projectile Launch Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileLaunchSpeed" id="quickManProjectileLaunchSpeed" value="QuickManProjectileLaunchSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManProjectileReturnDelay">Delay Before Returning</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnDelay" id="quickManProjectileReturnDelay" value="QuickManProjectileReturnDelay" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="quickManProjectileReturnSpeed">Projectile Return Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="quickManProjectileReturnSpeed" id="quickManProjectileReturnSpeed" value="QuickManProjectileReturnSpeed" />
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseHeatMan">Heat Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseHeatMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="HeatManPrimaryColor"></label>
+                        <select class="form-control" asp-for="HeatManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="HeatManSecondaryColor"></label>
+                        <select class="form-control" asp-for="HeatManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseHeatMan">Heat Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseHeatMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "heatManPrimaryColor", HeatManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "heatManSecondaryColor", HeatManSecondaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Projectile Color 1", "heatManProjectileColor1", HeatManProjectileColor1)" />
+                    <partial name="_ColorFormGroup" model="("Projectile Color 2", "heatManProjectileColor2", HeatManProjectileColor2)" />
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile1Distance">Projectile 1 Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile1Distance" id="heatManProjectile1Distance" value="HeatManProjectile1Distance" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile1Height">Projectile 1 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile1Height" id="heatManProjectile1Height" value="HeatManProjectile1Height" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile2Distance">Projectile 2 Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile2Distance" id="heatManProjectile2Distance" value="HeatManProjectile2Distance" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile2Height">Projectile 2 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile2Height" id="heatManProjectile2Height" value="HeatManProjectile2Height" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile3Distance">Projectile 3 Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile3Distance" id="heatManProjectile3Distance" value="HeatManProjectile3Distance" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManProjectile3Height">Projectile 3 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManProjectile3Height" id="heatManProjectile3Height" value="HeatManProjectile3Height" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManRushDelay1">Rush Delay 1</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManRushDelay1" id="heatManRushDelay1" value="HeatManRushDelay1" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManRushDelay2">Rush Delay 2</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManRushDelay2" id="heatManRushDelay2" value="HeatManRushDelay2" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManRushDelay3">Rush Delay 3</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManRushDelay3" id="heatManRushDelay3" value="HeatManRushDelay3" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="heatManRushSpeed">Rush Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="heatManRushSpeed" id="heatManRushSpeed" value="HeatManRushSpeed" />
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseWoodMan">Wood Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseWoodMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="WoodManPrimaryColor"></label>
+                        <select class="form-control" asp-for="WoodManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="WoodManSecondaryColor"></label>
+                        <select class="form-control" asp-for="WoodManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseWoodMan">Wood Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseWoodMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "woodManPrimaryColor", WoodManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "woodManSecondaryColor", WoodManSecondaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Leaf Color", "woodManLeafColor", WoodManLeafColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManLeafDelay">Leaf Delay</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManLeafDelay" id="woodManLeafDelay" value="WoodManLeafDelay" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManFallingLeafCount">Falling Leaf Count</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManFallingLeafCount" id="woodManFallingLeafCount" value="WoodManFallingLeafCount" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManFallingLeafHorzSpeed">Falling Leaf Horizontal Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManFallingLeafHorzSpeed" id="woodManFallingLeafHorzSpeed" value="WoodManFallingLeafHorizontalSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManFallingLeafVertSpeed">Falling Leaf Vertical Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManFallingLeafVertSpeed" id="woodManFallingLeafVertSpeed" value="WoodManFallingLeafVerticalSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManProjectileSpeed">Projectile Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManProjectileSpeed" id="woodManProjectileSpeed" value="WoodManProjectileSpeed" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManJumpHeight">Jump Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManJumpHeight" id="woodManJumpHeight" value="WoodManJumpHeight" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="woodManJumpDistance">Jump Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="woodManJumpDistance" id="woodManJumpDistance" value="WoodManJumpDistance" />
+                    </div>
+                </div>
+            </div>
+        </div>
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseMetalMan">Metal Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseMetalMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="MetalManPrimaryColor"></label>
+                        <select class="form-control" asp-for="MetalManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="MetalManSecondaryColor"></label>
+                        <select class="form-control" asp-for="MetalManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseMetalMan">Metal Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseMetalMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "metalManPrimaryColor", MetalManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "metalManSecondaryColor", MetalManSecondaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Blade Color", "metalManBladeColor", MetalManBladeColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="metalManProjectileSpeed">Projectile Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="metalManProjectileSpeed" id="metalManProjectileSpeed" value="MetalManProjectileSpeed" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="metalManJump1Height">Jump 1 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="metalManJump1Height" id="metalManJump1Height" value="MetalManJump1Height" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="metalManJump2Height">Jump 2 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="metalManJump2Height" id="metalManJump2Height" value="MetalManJump2Height" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="metalManJump3Height">Jump 3 Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="metalManJump3Height" id="metalManJump3Height" value="MetalManJump3Height" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseFlashMan">Flash Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseFlashMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="FlashManPrimaryColor"></label>
+                        <select class="form-control" asp-for="FlashManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="FlashManSecondaryColor"></label>
+                        <select class="form-control" asp-for="FlashManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseFlashMan">Flash Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseFlashMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "flashManPrimaryColor", FlashManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "flashManSecondaryColor", FlashManSecondaryColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManSpeed">Running Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.999" name="flashManSpeed" id="flashManSpeed" value="FlashManRunSpeed" placeholder="Default: 1.0234375" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManTimeStopperDelay">Time Stopper Delay</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManTimeStopperDelay" id="flashManTimeStopperDelay" value="FlashManTimeStopperDelay" placeholder="Default: 187" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManJumpDistance">Jump Distance</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpDistance" id="flashManJumpDistance" value="FlashManJumpDistance" placeholder="Default: 0" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManJumpHeight">Jump Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManJumpHeight" id="flashManJumpHeight" value="FlashManJumpHeight" placeholder="Default: 4" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManProjectileCount">Number of Projectiles</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileCount" id="flashManProjectileCount" value="FlashManProjectileCount" placeholder="Default: 6" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="flashManProjectileSpeed">Projectile Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="flashManProjectileSpeed" id="flashManProjectileSpeed" value="FlashManProjectileSpeed" placeholder="Default: 8" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            -->
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseCrashMan">Crash Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseCrashMan">
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="CrashManPrimaryColor"></label>
+                        <select class="form-control" asp-for="CrashManPrimaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label asp-for="CrashManSecondaryColor"></label>
+                        <select class="form-control" asp-for="CrashManSecondaryColor" asp-items="Model.Colors"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!--
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseCrashMan">Crash Man</a></h3>
+            </div>
+            <div class="card-body collapse" id="collapseCrashMan">
+                <div class="row">
+                    <partial name="_ColorFormGroup" model="("Primary Color", "crashManPrimaryColor", CrashManPrimaryColor)" />
+                    <partial name="_ColorFormGroup" model="("Secondary Color", "crashManSecondaryColor", CrashManSecondaryColor)" />
+                    <div class="col-lg-3 form-group">
+                        <label for="crashManWalkSpeed">Walk Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255.99609375" name="crashManWalkSpeed" id="crashManWalkSpeed" value="CrashManWalkSpeed" />
+                    </div>
+                    <div class="col-lg-3 form-group">
+                        <label for="crashManJumpHeight">Jump Height</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="crashManJumpHeight" id="crashManJumpHeight" value="CrashManJumpHeight" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 form-group">
+                        <label for="crashManProjectileSpeed">Projectile Speed</label>
+                        <input class="form-control" type="number" step="any" min="0" max="255" name="crashManProjectileSpeed" id="crashManProjectileSpeed" value="CrashManProjectileSpeed" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        -->
+    </div>
+</div>

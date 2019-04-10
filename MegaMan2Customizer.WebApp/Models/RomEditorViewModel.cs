@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace MegaMan2Customizer.WebApp.Models
 {
-    public class EditorViewModel
+    public class RomEditorViewModel
     {
         [HiddenInput]
         [Required]
@@ -20,6 +20,19 @@ namespace MegaMan2Customizer.WebApp.Models
 
         public IEnumerable<SelectListItem> Colors { get; } =
             Color.GetAllColors().Select(color => new SelectListItem(text: color.Name, value: color.Name));
+
+        public IEnumerable<SelectListItem> Weapons { get; } = new SelectListItem[]
+        {
+            new SelectListItem("None", "0")
+        };
+
+        public IEnumerable<SelectListItem> Items { get; } = new SelectListItem[]
+        {
+            new SelectListItem("None", "0"),
+            new SelectListItem("Item-1", "1"),
+            new SelectListItem("Item-2", "2"),
+            new SelectListItem("Item-3", "3")
+        };
 
         #region StartMenuOptions
         [Display(Name = "Background Color")]
@@ -129,19 +142,19 @@ namespace MegaMan2Customizer.WebApp.Models
         [Range(1, 3, ErrorMessage = "Enter a value from 1 to 3")]
         public byte AirShooterProjectileCount { get; set; }
 
-        [Display(Name = "Tornado 1 Horizontal Speed")]
+        [Display(Name = "Tornado 1 Horiz. Speed")]
         [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
         public decimal AirShooterProjectile1HorizontalSpeed { get; set; }
 
-        [Display(Name = "Tornado 2 Horizontal Speed")]
+        [Display(Name = "Tornado 2 Horiz. Speed")]
         [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
         public decimal AirShooterProjectile2HorizontalSpeed { get; set; }
 
-        [Display(Name = "Tornado 3 Horizontal Speed")]
+        [Display(Name = "Tornado 3 Horiz. Speed")]
         [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
         public decimal AirShooterProjectile3HorizontalSpeed { get; set; }
 
-        [Display(Name = "Tornado Vertical Acceleration")]
+        [Display(Name = "Tornado Vert. Acceleration")]
         [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
         public decimal AirShooterVerticalAcceleration { get; set; }
 
@@ -347,5 +360,107 @@ namespace MegaMan2Customizer.WebApp.Models
         #endregion WeaponOptions
 
         #endregion MegaManOptions
+
+        #region RobotMasters
+
+        #region BubbleMan
+        [Display(Name = "Primary Color")]
+        public string BubbleManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string BubbleManSecondaryColor { get; set; }
+
+        [Display(Name = "Weapon on Defeat")]
+        public string BubbleManWeaponOnDefeat { get; set; }
+
+        [Display(Name = "Item on Defeat")]
+        public string BubbleManItemOnDefeat { get; set; }
+
+        [Display(Name = "Rise Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleManRiseSpeed { get; set; }
+
+        [Display(Name = "Max Height")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubbleManMaxHeight { get; set; }
+
+        [Display(Name = "Fall Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubblemanFallSpeed { get; set; }
+
+        [Display(Name = "Shot Delay")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BubblemanShotDelay { get; set; }
+
+        [Display(Name = "Projectile Speed")]
+        [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        public decimal BubblemanProjectileSpeed { get; set; }
+
+        [Display(Name = "Bubble Launch Speed")]
+        [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        public decimal BubblemanBubbleLaunchSpeed { get; set; }
+
+        [Display(Name = "Bubble Bounce Speed")]
+        [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        public decimal BubbleManBubbleBounceSpeed { get; set; }
+        #endregion BubbleMan
+
+        #region AirMan
+        [Display(Name = "Primary Color")]
+        public string AirManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string AirManSecondaryColor { get; set; }
+        #endregion AirMan
+
+        #region QuickMan
+        [Display(Name = "Primary Color")]
+        public string QuickManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string QuickManSecondaryColor { get; set; }
+        #endregion QuickMan
+
+        #region HeatMan
+        [Display(Name = "Primary Color")]
+        public string HeatManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string HeatManSecondaryColor { get; set; }
+        #endregion HeatMan
+
+        #region WoodMan
+        [Display(Name = "Primary Color")]
+        public string WoodManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string WoodManSecondaryColor { get; set; }
+        #endregion WoodMan
+
+        #region MetalMan
+        [Display(Name = "Primary Color")]
+        public string MetalManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string MetalManSecondaryColor { get; set; }
+        #endregion MetalMan
+
+        #region FlashMan
+        [Display(Name = "Primary Color")]
+        public string FlashManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string FlashManSecondaryColor { get; set; }
+        #endregion FlashMan
+
+        #region CrashMan
+        [Display(Name = "Primary Color")]
+        public string CrashManPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string CrashManSecondaryColor { get; set; }
+        #endregion CrashMan
+
+        #endregion RobotMasters
     }
 }

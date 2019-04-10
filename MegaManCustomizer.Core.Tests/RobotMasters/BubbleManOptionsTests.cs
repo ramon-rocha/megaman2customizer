@@ -55,14 +55,14 @@ namespace MegaMan2Customizer.Core.Tests
         public void ProjectileVerticalLaunchSpeed_Is3Point46()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(3.4609375m, rom.RobotMasters.BubbleMan.ProjectileVerticalLaunchSpeed);
+            Assert.Equal(3.4609375m, rom.RobotMasters.BubbleMan.BubbleLaunchSpeed);
         }
 
         [Fact]
         public void ProjectileBounceSpeed_Is3Point46()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(3.4609375m, rom.RobotMasters.BubbleMan.ProjectileBounceSpeed);
+            Assert.Equal(3.4609375m, rom.RobotMasters.BubbleMan.BubbleBounceSpeed);
         }
 
         [Fact]

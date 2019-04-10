@@ -1,21 +1,23 @@
 ﻿@using MegaMan2Customizer.Core
 
-@model RomFormModel
+@model RomEditorViewModel
 
-<form method="post" action="rom" enctype="multipart/form-data">
+@{ ViewData["Title"] = "ROM Editor"; }
+
+<form id="editorForm" method="post" action="rom2" enctype="multipart/form-data">
     <h2>ROM Info</h2>
     <div class="form-group">
         <label class="btn btn-primary btn-browse">
-            Select ROM File... <input type="file" hidden name="romFile" onchange="romFileOnChange()">
+            Select ROM File... <input type="file" hidden id="romFile" name="romFile">
         </label>
-        <input hidden type="text" name="romFileName" value="@this.Model?.RomFileName" />
-        <span id="displayed-name">@this.Model?.RomFileName</span>
+        <input hidden type="text" id="romFileName" name="romFileName" value="@this.Model.RomFileName" />
+        <span id="displayed-name">@this.Model.RomFileName</span>
     </div>
 
     <hr>
 
     <div id="rom-data-container">
-        @if (this.Model?.Rom != null)
+        @if (this.Model.RomFile != null)
         {
             <partial name="_RomData" />
         }
@@ -24,5 +26,30 @@
 </form>
 
 @section scripts {
-    <script src="~/js/megaman2customizer.js"></script>
+    <script>
+        let romFileInput = document.getElementById("romFile")
+        romFileInput.onchange = async function () {
+            let romFileNameInput = document.getElementById("romFileName");
+            let displayedNameSpan = document.getElementById("displayed-name");
+            if (romFileInput.files.length == 0) {
+                romFileNameInput.value = "";
+                displayedNameSpan.innerText == "";
+                return;
+            }
+            let fileName = romFileInput.files[0].name;
+            romFileNameInput.value = fileName;
+            displayedNameSpan.innerText = fileName;
+
+            let formData = new FormData(document.getElementById("editorForm"));
+            let response = await fetch("romdata", {
+                method: "POST",
+                body: formData
+            });
+            let romDataContainer = document.getElementById("rom-data-container");
+            romDataContainer.innerHTML = await response.text();
+            $("#editorForm").removeData("validator");
+            $("#editorForm").removeData("unobtrusiveValidation");
+            $.validator.unobtrusive.parse("#editorForm");
+        }
+    </script>
 }

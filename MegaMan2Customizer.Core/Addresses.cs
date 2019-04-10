@@ -207,10 +207,10 @@
         public const int BubbleManShotDelay = 0x02C745; // 0x12
         public const int BubbleManProjectileHorzSpeedWhole = 0x03DA25; // 1
         public const int BubbleManProjectileHorzSpeedFraction = 0x03DA25; // 0
-        public const int BubbleManProjectileVertLaunchSpeedWhole = 0x03DA4D; // 3
-        public const int BubbleManProjectileVertLaunchSpeedFraction = 0x03DA4E; // 0x76
-        public const int BubbleManProjectileVertBounceSpeedWhole = 0x03B747; // 3
-        public const int BubbleManProjectileVertBounceSpeedFraction = 0x03B74C; // 0x76
+        public const int BubbleManBubbleLaunchSpeedWhole = 0x03DA4D; // 3
+        public const int BubbleManBubbleLaunchSpeedFraction = 0x03DA4E; // 0x76
+        public const int BubbleManBubbleBounceSpeedWhole = 0x03B747; // 3
+        public const int BubbleManBubbleBounceSpeedFraction = 0x03B74C; // 0x76
         public const int BubbleManWeaponOnDefeat = 0x03C28C;
         public const int BubbleManItemOnDefeat = 0x03C294;
 

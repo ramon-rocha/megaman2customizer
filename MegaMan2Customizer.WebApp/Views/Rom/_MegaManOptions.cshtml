@@ -1,0 +1,30 @@
+﻿@model RomEditorViewModel
+
+<div class="card">
+    <div class="card-header">
+        <h2 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseMegaMan">Mega Man Options</a></h2>
+    </div>
+    <div class="card-body collapse" id="collapseMegaMan">
+        <div class="row">
+            <div class="col-lg-3 form-group">
+                <label asp-for="MegaManStartingHealth"></label>
+                <input class="form-control" asp-for="MegaManStartingHealth" />
+                <span asp-validation-for="MegaManStartingHealth" class="text-danger"></span>
+            </div>
+            <div class="col-lg-3 form-group">
+                <label asp-for="MegaManMaxHealth"></label>
+                <input class="form-control" asp-for="MegaManMaxHealth" />
+            </div>
+            <div class="col-lg-3 form-group">
+                <label asp-for="MegaManRunningSpeed"></label>
+                <input class="form-control" asp-for="MegaManRunningSpeed" />
+            </div>
+            <div class="col-lg-3 form-group">
+                <label asp-for="MegaManJumpHeight"></label>
+                <input class="form-control" asp-for="MegaManJumpHeight" />
+            </div>
+        </div>
+
+        <partial name="_WeaponOptions" />
+    </div>
+</div>

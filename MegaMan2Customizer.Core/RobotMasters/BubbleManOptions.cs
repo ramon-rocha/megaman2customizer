@@ -33,16 +33,16 @@
             set => _romBytes.SetDecimal(Addresses.BubbleManProjectileHorzSpeedWhole, Addresses.BubbleManProjectileHorzSpeedFraction, value);
         }
 
-        public decimal ProjectileVerticalLaunchSpeed
+        public decimal BubbleLaunchSpeed
         {
-            get => _romBytes.GetDecimal(Addresses.BubbleManProjectileVertLaunchSpeedWhole, Addresses.BubbleManProjectileVertLaunchSpeedFraction);
-            set => _romBytes.SetDecimal(Addresses.BubbleManProjectileVertLaunchSpeedWhole, Addresses.BubbleManProjectileVertLaunchSpeedFraction, value);
+            get => _romBytes.GetDecimal(Addresses.BubbleManBubbleLaunchSpeedWhole, Addresses.BubbleManBubbleLaunchSpeedFraction);
+            set => _romBytes.SetDecimal(Addresses.BubbleManBubbleLaunchSpeedWhole, Addresses.BubbleManBubbleLaunchSpeedFraction, value);
         }
 
-        public decimal ProjectileBounceSpeed
+        public decimal BubbleBounceSpeed
         {
-            get => _romBytes.GetDecimal(Addresses.BubbleManProjectileVertBounceSpeedWhole, Addresses.BubbleManProjectileVertBounceSpeedFraction);
-            set => _romBytes.SetDecimal(Addresses.BubbleManProjectileVertBounceSpeedWhole, Addresses.BubbleManProjectileVertBounceSpeedFraction, value);
+            get => _romBytes.GetDecimal(Addresses.BubbleManBubbleBounceSpeedWhole, Addresses.BubbleManBubbleBounceSpeedFraction);
+            set => _romBytes.SetDecimal(Addresses.BubbleManBubbleBounceSpeedWhole, Addresses.BubbleManBubbleBounceSpeedFraction, value);
         }
 
         public BubbleManOptions(byte[] romBytes) : base(romBytes, Addresses.BubbleManColor1, Addresses.BubbleManColor2, Addresses.BubbleManWeaponOnDefeat, Addresses.BubbleManItemOnDefeat)
