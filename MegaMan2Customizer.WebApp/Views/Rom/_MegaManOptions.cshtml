@@ -1,4 +1,4 @@
-﻿@model RomEditorViewModel
+﻿@model MegaManOptionsViewModel
 
 <div class="card">
     <div class="card-header">
@@ -7,24 +7,22 @@
     <div class="card-body collapse" id="collapseMegaMan">
         <div class="row">
             <div class="col-lg-3 form-group">
-                <label asp-for="MegaManStartingHealth"></label>
-                <input class="form-control" asp-for="MegaManStartingHealth" />
-                <span asp-validation-for="MegaManStartingHealth" class="text-danger"></span>
+                <label asp-for="StartingHealth"></label>
+                <input class="form-control" asp-for="StartingHealth" />
+                <span asp-validation-for="StartingHealth" class="text-danger"></span>
             </div>
             <div class="col-lg-3 form-group">
-                <label asp-for="MegaManMaxHealth"></label>
-                <input class="form-control" asp-for="MegaManMaxHealth" />
+                <label asp-for="MaxHealth"></label>
+                <input class="form-control" asp-for="MaxHealth" />
             </div>
             <div class="col-lg-3 form-group">
-                <label asp-for="MegaManRunningSpeed"></label>
-                <input class="form-control" asp-for="MegaManRunningSpeed" />
+                <label asp-for="RunningSpeed"></label>
+                <input class="form-control" asp-for="RunningSpeed" />
             </div>
             <div class="col-lg-3 form-group">
-                <label asp-for="MegaManJumpHeight"></label>
-                <input class="form-control" asp-for="MegaManJumpHeight" />
+                <label asp-for="JumpHeight"></label>
+                <input class="form-control" asp-for="JumpHeight" />
             </div>
         </div>
-
-        <partial name="_WeaponOptions" />
     </div>
 </div>

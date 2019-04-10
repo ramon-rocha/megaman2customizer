@@ -4,7 +4,7 @@
 
 @{ ViewData["Title"] = "ROM Editor"; }
 
-<form id="editorForm" method="post" action="rom2" enctype="multipart/form-data">
+<form id="editorForm" method="post" action="rom" enctype="multipart/form-data">
     <h2>ROM Info</h2>
     <div class="form-group">
         <label class="btn btn-primary btn-browse">
@@ -22,6 +22,8 @@
             <partial name="_RomData" />
         }
     </div>
+
+    <button type="submit" class="btn btn-primary download d-none">Download Custom ROM</button>
 
 </form>
 
@@ -50,6 +52,7 @@
             $("#editorForm").removeData("validator");
             $("#editorForm").removeData("unobtrusiveValidation");
             $.validator.unobtrusive.parse("#editorForm");
+            document.querySelector("button.download").classList.remove("d-none");
         }
     </script>
 }
