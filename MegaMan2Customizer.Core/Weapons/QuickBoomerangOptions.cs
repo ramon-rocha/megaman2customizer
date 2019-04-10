@@ -43,35 +43,42 @@ namespace MegaMan2Customizer.Core
                 string line1 = value;
                 string line2 = "";
 
-                bool line1TooLong = line1.Length > Defaults.MaxCutSceneTextLength;
-                bool line1CanBeSplit = (line1.Contains("-") || line1.Contains(" ")) && line1.Length > Defaults.MaxCutSceneTextLength - 2;
+                bool nameFitsOneLine = value.Length <= Defaults.MaxCutSceneTextLength;
 
-                if (line1TooLong || line1CanBeSplit)
+                int spaceIndex = value.IndexOf(' ');
+                bool hasSpace = spaceIndex > 0;
+
+                int hyphenIndex = value.IndexOf('-');
+                bool hasHypehn = hyphenIndex > 0;
+
+                bool nameIsLong = value.Length > Defaults.MaxCutSceneTextLength - 2;
+                bool nameCanBeSplit = nameIsLong && (hasSpace || hasHypehn);
+
+                if (!nameFitsOneLine || nameCanBeSplit)
                 {
-                    int spaceIndex = value.IndexOf(' ');
-                    int hyphenIndex = value.IndexOf('-');
-                    int splitIndex = value.Contains(" ") ? spaceIndex
-                        : value.Contains("-") ? hyphenIndex
+                    int splitIndex = hasSpace ? spaceIndex
+                        : hasHypehn ? hyphenIndex
                         : value.Length % 2 == 0 ? value.Length / 2
                         : value.Length / 2 + 1;
 
                     line1 = value.Substring(0, splitIndex);
                     line2 = value.Substring(splitIndex, value.Length - splitIndex);
 
-                    bool hypenCausesMisalignment = hyphenIndex > 0 
-                        && line2.Length > Defaults.MaxCutSceneTextLength - 2
-                        && line1.Length < Defaults.MaxCutSceneTextLength;
+                    bool line2IsLong = line2.Length > Defaults.MaxCutSceneTextLength - 2;
+                    bool line1HasRoom = line1.Length < Defaults.MaxCutSceneTextLength;
+                    bool putHypenOnLine1 = hasHypehn && line2IsLong && line1HasRoom;
 
-                    if (hypenCausesMisalignment)
+                    if (putHypenOnLine1)
                     {
-                        // spaces out better to put the hyphen on line 1 in this case
                         splitIndex++;
                         line1 = value.Substring(0, splitIndex);
                         line2 = value.Substring(splitIndex, value.Length - splitIndex);
                     }
 
-                    if ((spaceIndex > 0 || hyphenIndex > 0)
-                        && (line1.Length > Defaults.MaxCutSceneTextLength || line2.Length > Defaults.MaxCutSceneTextLength))
+                    bool line1TooLong = line1.Length > Defaults.MaxCutSceneTextLength;
+                    bool line2TooLong = line2.Length > Defaults.MaxCutSceneTextLength;
+
+                    if ((hasSpace || hasHypehn) && (line1TooLong || line2TooLong))
                     {
                         // line 1 or line 2 is too long so we can't split on a space or hyphen after all
                         splitIndex = value.Length % 2 == 0 
