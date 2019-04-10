@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MegaMan2Customizer.Core
+﻿namespace MegaMan2Customizer.Core
 {
     public abstract class BaseRobotMasterOptions
     {
