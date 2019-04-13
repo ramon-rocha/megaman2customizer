@@ -19,5 +19,22 @@ namespace MegaMan2Customizer.WebApp.Models
         [Display(Name = "Jump Height")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
         public byte JumpHeight { get; set; }
+
+        [Display(Name = "Buster Letter Code")]
+        public char BusterLetterCode { get; set; }
+
+        [Display(Name = "Primary Color")]
+        public string BusterPrimaryColor { get; set; }
+
+        [Display(Name = "Secondary Color")]
+        public string BusterSecondaryColor { get; set; }
+
+        [Display(Name = "Projectile Speed")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BusterProjectileSpeed { get; set; }
+
+        [Display(Name = "Max Projectiles on Screen")]
+        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
+        public byte BusterMaxProjectiles { get; set; }
     }
 }

@@ -34,15 +34,13 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 StartingHealth = megaMan.StartingHealth,
                 MaxHealth = megaMan.MaxHealth,
                 RunningSpeed = megaMan.Speed,
-                JumpHeight = megaMan.JumpHeight
+                JumpHeight = megaMan.JumpHeight,
+                BusterLetterCode = megaMan.BusterLetterCode,
+                BusterPrimaryColor = megaMan.BusterPrimaryColor.Name,
+                BusterSecondaryColor = megaMan.BusterSecondaryColor.Name,
+                BusterProjectileSpeed = megaMan.BusterSpeed,
+                BusterMaxProjectiles = megaMan.MaxBusterShots
             };
-
-            // TODO: Decide where to put Buster options: in MegaMan or Weapons
-            editor.Weapons.BusterLetterCode = megaMan.BusterLetterCode;
-            editor.Weapons.BusterPrimaryColor = megaMan.BusterPrimaryColor.Name;
-            editor.Weapons.BusterSecondaryColor = megaMan.BusterSecondaryColor.Name;
-            editor.Weapons.BusterProjectileSpeed = megaMan.BusterSpeed;
-            editor.Weapons.BusterMaxProjectiles = megaMan.MaxBusterShots;
 
             var atomicFire = rom.Weapons.AtomicFire;
             editor.Weapons.AtomicFire = new AtomicFireOptionsViewModel

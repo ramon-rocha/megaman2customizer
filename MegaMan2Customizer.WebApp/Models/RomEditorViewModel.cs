@@ -1,12 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-
-using MegaMan2Customizer.Core;
+﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MegaMan2Customizer.WebApp.Models
 {
@@ -19,22 +14,6 @@ namespace MegaMan2Customizer.WebApp.Models
         [HiddenInput]
         [Required]
         public string RomFileName { get; set; } = "";
-
-        public static IEnumerable<SelectListItem> Colors { get; } =
-            Color.GetAllColors().Select(color => new SelectListItem(text: color.Name, value: color.Name));
-
-        public static IEnumerable<SelectListItem> WeaponListItems { get; } = new SelectListItem[]
-        {
-            new SelectListItem("None", "0")
-        };
-
-        public static IEnumerable<SelectListItem> Items { get; } = new SelectListItem[]
-        {
-            new SelectListItem("None", "0"),
-            new SelectListItem("Item-1", "1"),
-            new SelectListItem("Item-2", "2"),
-            new SelectListItem("Item-3", "3")
-        };
 
         #region StartMenuOptions
         [Display(Name = "Background Color")]
@@ -49,7 +28,7 @@ namespace MegaMan2Customizer.WebApp.Models
 
         public MegaManOptionsViewModel MegaMan { get; set; }
 
-        public AllWeaponOptionsViewModel Weapons { get; set; } = new AllWeaponOptionsViewModel();
+        public WeaponUpgradeOptionsViewModel Weapons { get; set; } = new WeaponUpgradeOptionsViewModel();
 
         #region RobotMasters
 
