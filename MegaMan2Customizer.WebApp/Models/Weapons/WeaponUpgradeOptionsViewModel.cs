@@ -1,27 +1,25 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace MegaMan2Customizer.WebApp.Models
+﻿namespace MegaMan2Customizer.WebApp.Models
 {
     /// <summary>
     /// Contains options for all weapon upgrades
     /// </summary>
     public class WeaponUpgradeOptionsViewModel
     {
-        public AtomicFireOptionsViewModel AtomicFire { get; set; } = new AtomicFireOptionsViewModel();
+        public AtomicFireOptionsViewModel AtomicFire { get; set; }
 
-        public AirShooterOptionsViewModel AirShooter { get; set; } = new AirShooterOptionsViewModel();
+        public AirShooterOptionsViewModel AirShooter { get; set; }
 
-        public LeafShieldOptionsViewModel LeafShield { get; set; } = new LeafShieldOptionsViewModel();
+        public LeafShieldOptionsViewModel LeafShield { get; set; }
 
-        public BubbleLeadOptionsViewModel BubbleLead { get; set; } = new BubbleLeadOptionsViewModel();
+        public BubbleLeadOptionsViewModel BubbleLead { get; set; }
 
-        public QuickBoomerangOptionsViewModel QuickBoomerang { get; set; } = new QuickBoomerangOptionsViewModel();
+        public QuickBoomerangOptionsViewModel QuickBoomerang { get; set; }
 
-        public TimeStopperOptionsViewModel TimeStopper { get; set; } = new TimeStopperOptionsViewModel();
+        public TimeStopperOptionsViewModel TimeStopper { get; set; }
 
-        public MetalBladeOptionsViewModel MetalBlade { get; set; } = new MetalBladeOptionsViewModel();
+        public MetalBladeOptionsViewModel MetalBlade { get; set; }
 
-        public CrashBomberOptionsViewModel CrashBomber { get; set; } = new CrashBomberOptionsViewModel();
+        public CrashBomberOptionsViewModel CrashBomber { get; set; }
 
     }
 }

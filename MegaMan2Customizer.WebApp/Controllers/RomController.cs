@@ -152,42 +152,83 @@ namespace MegaMan2Customizer.WebApp.Controllers
             };
 
             var bubbleMan = rom.RobotMasters.BubbleMan;
-            editor.BubbleManPrimaryColor = bubbleMan.PrimaryColor.Name;
-            editor.BubbleManSecondaryColor = bubbleMan.SecondaryColor.Name;
-            editor.BubbleManRiseSpeed = bubbleMan.RiseSpeed;
-            editor.BubbleManMaxHeight = bubbleMan.MaxHeight;
-            editor.BubblemanFallSpeed = bubbleMan.FallSpeed;
-            editor.BubblemanShotDelay = bubbleMan.ShotDelay;
-            editor.BubblemanProjectileSpeed = bubbleMan.ProjectileSpeed;
-            editor.BubblemanBubbleLaunchSpeed = bubbleMan.BubbleLaunchSpeed;
+            editor.RobotMasters.BubbleMan = new BubbleManOptionsViewModel
+            {
+                PrimaryColor = bubbleMan.PrimaryColor.Name,
+                SecondaryColor = bubbleMan.SecondaryColor.Name,
+                WeaponOnDefeat = bubbleMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = bubbleMan.ItemOnDefeat.ToString(),
+                RiseSpeed = bubbleMan.RiseSpeed,
+                MaxHeight = bubbleMan.MaxHeight,
+                FallSpeed = bubbleMan.FallSpeed,
+                ShotDelay = bubbleMan.ShotDelay,
+                ProjectileSpeed = bubbleMan.ProjectileSpeed,
+                BubbleLaunchSpeed = bubbleMan.BubbleLaunchSpeed,
+                BubbleBounceSpeed = bubbleMan.BubbleBounceSpeed
+            };
 
             var airMan = rom.RobotMasters.AirMan;
-            editor.AirManPrimaryColor = airMan.PrimaryColor.Name;
-            editor.AirManSecondaryColor = airMan.SecondaryColor.Name;
+            editor.RobotMasters.AirMan = new AirManOptionsViewModel
+            {
+                PrimaryColor = airMan.PrimaryColor.Name,
+                SecondaryColor = airMan.SecondaryColor.Name,
+                WeaponOnDefeat = airMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = airMan.ItemOnDefeat.ToString(),
+            };
 
             var quickMan = rom.RobotMasters.QuickMan;
-            editor.QuickManPrimaryColor = quickMan.PrimaryColor.Name;
-            editor.QuickManSecondaryColor = quickMan.SecondaryColor.Name;
+            editor.RobotMasters.QuickMan = new QuickManOptionsViewModel
+            {
+                PrimaryColor = quickMan.PrimaryColor.Name,
+                SecondaryColor = quickMan.SecondaryColor.Name,
+                WeaponOnDefeat = quickMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = quickMan.ItemOnDefeat.ToString(),
+            };
 
             var heatMan = rom.RobotMasters.HeatMan;
-            editor.HeatManPrimaryColor = heatMan.PrimaryColor.Name;
-            editor.HeatManSecondaryColor = heatMan.SecondaryColor.Name;
+            editor.RobotMasters.HeatMan = new HeatManOptionsViewModel
+            {
+                PrimaryColor = heatMan.PrimaryColor.Name,
+                SecondaryColor = heatMan.SecondaryColor.Name,
+                WeaponOnDefeat = heatMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = heatMan.ItemOnDefeat.ToString(),
+            };
 
             var woodMan = rom.RobotMasters.WoodMan;
-            editor.WoodManPrimaryColor = woodMan.PrimaryColor.Name;
-            editor.WoodManSecondaryColor = woodMan.SecondaryColor.Name;
+            editor.RobotMasters.WoodMan = new WoodManOptionsViewModel
+            {
+                PrimaryColor = woodMan.PrimaryColor.Name,
+                SecondaryColor = woodMan.SecondaryColor.Name,
+                WeaponOnDefeat = woodMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = woodMan.ItemOnDefeat.ToString(),
+            };
 
             var metalMan = rom.RobotMasters.MetalMan;
-            editor.MetalManPrimaryColor = metalMan.PrimaryColor.Name;
-            editor.MetalManSecondaryColor = metalMan.SecondaryColor.Name;
+            editor.RobotMasters.MetalMan = new MetalManOptionsViewModel
+            {
+                PrimaryColor = metalMan.PrimaryColor.Name,
+                SecondaryColor = metalMan.SecondaryColor.Name,
+                WeaponOnDefeat = metalMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = metalMan.ItemOnDefeat.ToString(),
+            };
 
             var flashMan = rom.RobotMasters.FlashMan;
-            editor.FlashManPrimaryColor = flashMan.PrimaryColor.Name;
-            editor.FlashManSecondaryColor = flashMan.SecondaryColor.Name;
+            editor.RobotMasters.FlashMan = new FlashManOptionsViewModel
+            {
+                PrimaryColor = flashMan.PrimaryColor.Name,
+                SecondaryColor = flashMan.SecondaryColor.Name,
+                WeaponOnDefeat = flashMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = flashMan.ItemOnDefeat.ToString(),
+            };
 
             var crashMan = rom.RobotMasters.CrashMan;
-            editor.CrashManPrimaryColor = crashMan.PrimaryColor.Name;
-            editor.CrashManSecondaryColor = crashMan.SecondaryColor.Name;
+            editor.RobotMasters.CrashMan = new CrashManOptionsViewModel
+            {
+                PrimaryColor = crashMan.PrimaryColor.Name,
+                SecondaryColor = crashMan.SecondaryColor.Name,
+                WeaponOnDefeat = crashMan.WeaponOnDefeat.ToString(),
+                ItemOnDefeat = crashMan.ItemOnDefeat.ToString(),
+            };
 
             return PartialView("_RomData", editor);
         }

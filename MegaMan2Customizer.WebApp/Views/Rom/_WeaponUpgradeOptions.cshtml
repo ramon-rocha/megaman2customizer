@@ -11,24 +11,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseAtomicFire">Atomic Fire</a></h3>
             </div>
             <div id="collapseAtomicFire" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AtomicFire.Name"></label>
-                        <input class="form-control" asp-for="AtomicFire.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AtomicFire.LetterCode"></label>
-                        <select class="form-control" asp-for="AtomicFire.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AtomicFire.PrimaryColor"></label>
-                        <select class="form-control" asp-for="AtomicFire.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AtomicFire.SecondaryColor"></label>
-                        <select class="form-control" asp-for="AtomicFire.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="AtomicFire" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="AtomicFire.ProjectileSpeed"></label>
@@ -65,24 +48,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseAirShooter">Air Shooter</a></h3>
             </div>
             <div id="collapseAirShooter" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirShooter.Name"></label>
-                        <input class="form-control" asp-for="AirShooter.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirShooter.LetterCode"></label>
-                        <select class="form-control" asp-for="AirShooter.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirShooter.PrimaryColor"></label>
-                        <select class="form-control" asp-for="AirShooter.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirShooter.SecondaryColor"></label>
-                        <select class="form-control" asp-for="AirShooter.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="AirShooter" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="AirShooter.ProjectileCount"></label>
@@ -119,24 +85,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseLeafShield">Leaf Shield</a></h3>
             </div>
             <div id="collapseLeafShield" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="LeafShield.Name"></label>
-                        <input class="form-control" asp-for="LeafShield.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="LeafShield.LetterCode"></label>
-                        <select class="form-control" asp-for="LeafShield.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="LeafShield.PrimaryColor"></label>
-                        <select class="form-control" asp-for="LeafShield.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="LeafShield.SecondaryColor"></label>
-                        <select class="form-control" asp-for="LeafShield.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="LeafShield" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="LeafShield.AmmoUsed"></label>
@@ -159,24 +108,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseBubbleLead">Bubble Lead</a></h3>
             </div>
             <div id="collapseBubbleLead" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleLead.Name"></label>
-                        <input class="form-control" asp-for="BubbleLead.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleLead.LetterCode"></label>
-                        <select class="form-control" asp-for="BubbleLead.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleLead.PrimaryColor"></label>
-                        <select class="form-control" asp-for="BubbleLead.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleLead.SecondaryColor"></label>
-                        <select class="form-control" asp-for="BubbleLead.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="BubbleLead" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="BubbleLead.HorizontalSpeed"></label>
@@ -217,24 +149,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseQuickBoomerang">Quick Boomerang</a></h3>
             </div>
             <div id="collapseQuickBoomerang" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickBoomerang.Name"></label>
-                        <input class="form-control" asp-for="QuickBoomerang.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickBoomerang.LetterCode"></label>
-                        <select class="form-control" asp-for="QuickBoomerang.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickBoomerang.PrimaryColor"></label>
-                        <select class="form-control" asp-for="QuickBoomerang.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickBoomerang.SecondaryColor"></label>
-                        <select class="form-control" asp-for="QuickBoomerang.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="QuickBoomerang" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="QuickBoomerang.FireDelay"></label>
@@ -271,24 +186,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseTimeStopper">Time Stopper</a></h3>
             </div>
             <div id="collapseTimeStopper" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="TimeStopper.Name"></label>
-                        <input class="form-control" asp-for="TimeStopper.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="TimeStopper.LetterCode"></label>
-                        <select class="form-control" asp-for="TimeStopper.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="TimeStopper.PrimaryColor"></label>
-                        <select class="form-control" asp-for="TimeStopper.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="TimeStopper.SecondaryColor"></label>
-                        <select class="form-control" asp-for="TimeStopper.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="TimeStopper" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="TimeStopper.DelayBeforeDrain"></label>
@@ -296,7 +194,7 @@
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="TimeStopper.DrainRateDelay"></label>
-                        <select class="form-control" asp-for="TimeStopper.DrainRateDelay" asp-items="ListItems.WeaponLetterCodes"></select>
+                        <input class="form-control" asp-for="TimeStopper.DrainRateDelay" />
                     </div>
                 </div>
             </div>
@@ -307,24 +205,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseMetalBlade">Metal Blade</a></h3>
             </div>
             <div id="collapseMetalBlade" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalBlade.Name"></label>
-                        <input class="form-control" asp-for="MetalBlade.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalBlade.LetterCode"></label>
-                        <select class="form-control" asp-for="MetalBlade.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalBlade.PrimaryColor"></label>
-                        <select class="form-control" asp-for="MetalBlade.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalBlade.SecondaryColor"></label>
-                        <select class="form-control" asp-for="MetalBlade.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="MetalBlade" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="MetalBlade.MaxShots"></label>
@@ -332,11 +213,11 @@
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="MetalBlade.ShotsPerAmmo"></label>
-                        <select class="form-control" asp-for="MetalBlade.ShotsPerAmmo" asp-items="ListItems.WeaponLetterCodes"></select>
+                        <input class="form-control" asp-for="MetalBlade.ShotsPerAmmo" />
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="MetalBlade.ProjectileSpeed"></label>
-                        <select class="form-control" asp-for="MetalBlade.ProjectileSpeed" asp-items="ListItems.Colors"></select>
+                        <input class="form-control" asp-for="MetalBlade.ProjectileSpeed" />
                     </div>
                 </div>
             </div>
@@ -347,24 +228,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseCrashBomber">Crash Bomber</a></h3>
             </div>
             <div id="collapseCrashBomber" class="collapse card-body">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashBomber.Name"></label>
-                        <input class="form-control" asp-for="CrashBomber.Name" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashBomber.LetterCode"></label>
-                        <select class="form-control" asp-for="CrashBomber.LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashBomber.PrimaryColor"></label>
-                        <select class="form-control" asp-for="CrashBomber.PrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashBomber.SecondaryColor"></label>
-                        <select class="form-control" asp-for="CrashBomber.SecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonWeaponOptions" for="CrashBomber" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
                         <label asp-for="CrashBomber.HorizontalSpeed"></label>
@@ -372,15 +236,15 @@
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="CrashBomber.VerticalSpeed"></label>
-                        <select class="form-control" asp-for="CrashBomber.VerticalSpeed" asp-items="ListItems.WeaponLetterCodes"></select>
+                        <input class="form-control" asp-for="CrashBomber.VerticalSpeed" />
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="CrashBomber.AmmoUsed"></label>
-                        <select class="form-control" asp-for="CrashBomber.AmmoUsed" asp-items="ListItems.Colors"></select>
+                        <input class="form-control" asp-for="CrashBomber.AmmoUsed" />
                     </div>
                     <div class="col-lg-3 form-group">
                         <label asp-for="CrashBomber.DetonationDelay"></label>
-                        <select class="form-control" asp-for="CrashBomber.DetonationDelay" asp-items="ListItems.Colors"></select>
+                        <input class="form-control" asp-for="CrashBomber.DetonationDelay" />
                     </div>
                 </div>
             </div>

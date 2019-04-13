@@ -1,0 +1,20 @@
+﻿@model BaseWeaponOptionsViewModel
+
+<div class="row">
+    <div class="col-lg-3 form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="LetterCode"></label>
+        <select class="form-control" asp-for="LetterCode" asp-items="ListItems.WeaponLetterCodes"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="PrimaryColor"></label>
+        <select class="form-control" asp-for="PrimaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="SecondaryColor"></label>
+        <select class="form-control" asp-for="SecondaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+</div>

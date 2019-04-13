@@ -1,4 +1,4 @@
-﻿@model RomEditorViewModel
+﻿@model AllRobotMasterOptionsViewModel
 
 <div class="card">
     <div class="card-header">
@@ -11,54 +11,37 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseBubbleMan">Bubble Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseBubbleMan">
+                <partial name="_CommonRobotMasterOptions" for="BubbleMan" />
                 <div class="row">
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManPrimaryColor"></label>
-                        <select class="form-control" asp-for="BubbleManPrimaryColor" asp-items="ListItems.Colors"></select>
+                        <label asp-for="BubbleMan.RiseSpeed"></label>
+                        <input class="form-control" asp-for="BubbleMan.RiseSpeed" />
                     </div>
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManSecondaryColor"></label>
-                        <select class="form-control" asp-for="BubbleManSecondaryColor" asp-items="ListItems.Colors"></select>
+                        <label asp-for="BubbleMan.MaxHeight"></label>
+                        <input class="form-control" asp-for="BubbleMan.MaxHeight" />
                     </div>
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManWeaponOnDefeat"></label>
-                        <select class="form-control" asp-for="BubbleManWeaponOnDefeat" asp-items="ListItems.WeaponListItems"></select>
+                        <label asp-for="BubbleMan.FallSpeed"></label>
+                        <input class="form-control" asp-for="BubbleMan.FallSpeed" />
                     </div>
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManItemOnDefeat"></label>
-                        <select class="form-control" asp-for="BubbleManItemOnDefeat" asp-items="ListItems.Items"></select>
+                        <label asp-for="BubbleMan.ShotDelay"></label>
+                        <input class="form-control" asp-for="BubbleMan.ShotDelay" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManRiseSpeed"></label>
-                        <input class="form-control" asp-for="BubbleManRiseSpeed" />
+                        <label asp-for="BubbleMan.ProjectileSpeed"></label>
+                        <input class="form-control" asp-for="BubbleMan.ProjectileSpeed" />
                     </div>
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManMaxHeight"></label>
-                        <input class="form-control" asp-for="BubbleManMaxHeight" />
+                        <label asp-for="BubbleMan.BubbleLaunchSpeed"></label>
+                        <input class="form-control" asp-for="BubbleMan.BubbleLaunchSpeed" />
                     </div>
                     <div class="col-lg-3 form-group">
-                        <label asp-for="BubblemanFallSpeed"></label>
-                        <input class="form-control" asp-for="BubblemanFallSpeed" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubblemanShotDelay"></label>
-                        <input class="form-control" asp-for="BubblemanShotDelay" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubblemanProjectileSpeed"></label>
-                        <input class="form-control" asp-for="BubblemanProjectileSpeed" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubblemanBubbleLaunchSpeed"></label>
-                        <input class="form-control" asp-for="BubblemanBubbleLaunchSpeed" />
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="BubbleManBubbleBounceSpeed"></label>
-                        <input class="form-control" asp-for="BubbleManBubbleBounceSpeed" />
+                        <label asp-for="BubbleMan.BubbleBounceSpeed"></label>
+                        <input class="form-control" asp-for="BubbleMan.BubbleBounceSpeed" />
                     </div>
                 </div>
             </div>
@@ -69,16 +52,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseAirMan">Air Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseAirMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirManPrimaryColor"></label>
-                        <select class="form-control" asp-for="AirManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="AirManSecondaryColor"></label>
-                        <select class="form-control" asp-for="AirManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="AirMan" />
             </div>
         </div>
 
@@ -173,16 +147,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseQuickMan">Quick Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseQuickMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickManPrimaryColor"></label>
-                        <select class="form-control" asp-for="QuickManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="QuickManSecondaryColor"></label>
-                        <select class="form-control" asp-for="QuickManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="QuickMan" />
             </div>
         </div>
 
@@ -232,16 +197,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseHeatMan">Heat Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseHeatMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="HeatManPrimaryColor"></label>
-                        <select class="form-control" asp-for="HeatManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="HeatManSecondaryColor"></label>
-                        <select class="form-control" asp-for="HeatManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="HeatMan" />
             </div>
         </div>
 
@@ -312,16 +268,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseWoodMan">Wood Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseWoodMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="WoodManPrimaryColor"></label>
-                        <select class="form-control" asp-for="WoodManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="WoodManSecondaryColor"></label>
-                        <select class="form-control" asp-for="WoodManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="WoodMan" />
             </div>
         </div>
         <!--
@@ -377,16 +324,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseMetalMan">Metal Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseMetalMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalManPrimaryColor"></label>
-                        <select class="form-control" asp-for="MetalManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="MetalManSecondaryColor"></label>
-                        <select class="form-control" asp-for="MetalManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="MetalMan" />
             </div>
         </div>
 
@@ -430,16 +368,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseFlashMan">Flash Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseFlashMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="FlashManPrimaryColor"></label>
-                        <select class="form-control" asp-for="FlashManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="FlashManSecondaryColor"></label>
-                        <select class="form-control" asp-for="FlashManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="FlashMan" />
             </div>
         </div>
 
@@ -490,16 +419,7 @@
                 <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#collapseCrashMan">Crash Man</a></h3>
             </div>
             <div class="card-body collapse" id="collapseCrashMan">
-                <div class="row">
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashManPrimaryColor"></label>
-                        <select class="form-control" asp-for="CrashManPrimaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                    <div class="col-lg-3 form-group">
-                        <label asp-for="CrashManSecondaryColor"></label>
-                        <select class="form-control" asp-for="CrashManSecondaryColor" asp-items="ListItems.Colors"></select>
-                    </div>
-                </div>
+                <partial name="_CommonRobotMasterOptions" for="CrashMan" />
             </div>
         </div>
 

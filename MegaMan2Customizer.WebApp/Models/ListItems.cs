@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using MegaMan2Customizer.Core;
@@ -15,17 +16,18 @@ namespace MegaMan2Customizer.WebApp.Models
         public static IEnumerable<SelectListItem> WeaponLetterCodes { get; } =
             Text.WeaponLetterCodes.Select(code => new SelectListItem(text: code.ToString(), value: code.ToString()));
 
-        public static IEnumerable<SelectListItem> WeaponListItems { get; } = new SelectListItem[]
-        {
-            new SelectListItem("None", "0")
-        };
+        public static IEnumerable<SelectListItem> WeaponListItems { get; } =
+            ((WeaponId[])Enum.GetValues(typeof(WeaponId)))
+                .Select(id => new SelectListItem(
+                    text: id.ToDisplayString(),
+                    value: id.ToString()
+                ));
 
-        public static IEnumerable<SelectListItem> Items { get; } = new SelectListItem[]
-        {
-            new SelectListItem("None", "0"),
-            new SelectListItem("Item-1", "1"),
-            new SelectListItem("Item-2", "2"),
-            new SelectListItem("Item-3", "3")
-        };
+        public static IEnumerable<SelectListItem> Items { get; } =
+            ((ItemId[])Enum.GetValues(typeof(ItemId)))
+                .Select(id => new SelectListItem(
+                    text: id.ToDisplayString(),
+                    value: id.ToString()
+                ));
     }
 }

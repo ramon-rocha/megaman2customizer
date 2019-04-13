@@ -1,0 +1,20 @@
+﻿@model BaseRobotMasterOptionsViewModel
+
+<div class="row">
+    <div class="col-lg-3 form-group">
+        <label asp-for="PrimaryColor"></label>
+        <select class="form-control" asp-for="PrimaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="SecondaryColor"></label>
+        <select class="form-control" asp-for="SecondaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="WeaponOnDefeat"></label>
+        <select class="form-control" asp-for="WeaponOnDefeat" asp-items="ListItems.WeaponListItems"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ItemOnDefeat"></label>
+        <select class="form-control" asp-for="ItemOnDefeat" asp-items="ListItems.Items"></select>
+    </div>
+</div>
