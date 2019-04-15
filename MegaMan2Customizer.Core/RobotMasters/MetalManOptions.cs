@@ -7,7 +7,7 @@
             get => new Color(_romBytes[Addresses.MetalManBladeColor]);
             set => _romBytes[Addresses.MetalManBladeColor] = value.Value;
         }
-        
+
         public byte ProjectileSpeed
         {
             get => _romBytes[Addresses.MetalManProjectileSpeed];
