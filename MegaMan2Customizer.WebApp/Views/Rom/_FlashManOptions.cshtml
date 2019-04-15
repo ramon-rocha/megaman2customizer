@@ -1,0 +1,36 @@
+﻿@model FlashManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+
+    <partial name="_CommonRobotMasterOptions" />
+
+    <div class="col-lg-3 form-group">
+        <label asp-for="RunSpeed"></label>
+        <input class="form-control" asp-for="RunSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="TimeStopperDelay"></label>
+        <input class="form-control" asp-for="TimeStopperDelay" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="JumpDistance"></label>
+        <input class="form-control" asp-for="JumpDistance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="JumpHeight"></label>
+        <input class="form-control" asp-for="JumpHeight" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileCount"></label>
+        <input class="form-control" asp-for="ProjectileCount" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileSpeed"></label>
+        <input class="form-control" asp-for="ProjectileSpeed" />
+    </div>
+
+</div>

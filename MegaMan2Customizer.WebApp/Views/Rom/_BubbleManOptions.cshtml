@@ -1,0 +1,40 @@
+﻿@model BubbleManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+
+    <partial name="_CommonRobotMasterOptions" />
+
+    <div class="col-lg-3 form-group">
+        <label asp-for="RiseSpeed"></label>
+        <input class="form-control" asp-for="RiseSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="MaxHeight"></label>
+        <input class="form-control" asp-for="MaxHeight" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="FallSpeed"></label>
+        <input class="form-control" asp-for="FallSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ShotDelay"></label>
+        <input class="form-control" asp-for="ShotDelay" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileSpeed"></label>
+        <input class="form-control" asp-for="ProjectileSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="BubbleLaunchSpeed"></label>
+        <input class="form-control" asp-for="BubbleLaunchSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="BubbleBounceSpeed"></label>
+        <input class="form-control" asp-for="BubbleBounceSpeed" />
+    </div>
+
+</div>

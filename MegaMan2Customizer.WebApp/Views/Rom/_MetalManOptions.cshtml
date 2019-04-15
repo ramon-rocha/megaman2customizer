@@ -1,0 +1,32 @@
+﻿@model MetalManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+
+    <partial name="_CommonRobotMasterOptions" />
+
+    <div class="col-lg-3 form-group">
+        <label asp-for="BladeColor"></label>
+        <select class="form-control" asp-for="BladeColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileSpeed"></label>
+        <input class="form-control" asp-for="ProjectileSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump1Height"></label>
+        <input class="form-control" asp-for="Jump1Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump2Height"></label>
+        <input class="form-control" asp-for="Jump2Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump3Height"></label>
+        <input class="form-control" asp-for="Jump3Height" />
+    </div>
+
+</div>

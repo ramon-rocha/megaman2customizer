@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -174,7 +175,31 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = airMan.SecondaryColor.Name,
                 WeaponOnDefeat = airMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = airMan.ItemOnDefeat.ToString(),
+                TornadoPrimaryColor = airMan.TornadoPrimaryColor.Name,
+                TornadoSecondaryColor = airMan.TornadoSecondaryColor.Name,
+                ShotsBeforeJumping = airMan.ShotsBeforeJumping,
+                Jump1Distance = airMan.Jump1Distance,
+                Jump1Height = airMan.Jump1Height,
+                Jump2Distance = airMan.Jump2Distance,
+                Jump2Height = airMan.Jump2Height,
+                TornadoPatterns = new List<TornadoPatternViewModel>()
             };
+            foreach (TornadoPattern pattern in airMan.Patterns)
+            {
+                var patternViewModel = new TornadoPatternViewModel();
+                patternViewModel.Tornados = new List<TornadoOptionsViewModel>();
+                editor.RobotMasters.AirMan.TornadoPatterns.Add(patternViewModel);
+                foreach (Tornado tornado in pattern.Tornados)
+                {
+                    var tornadoViewModel = new TornadoOptionsViewModel
+                    {
+                        VerticalVelocity = tornado.VerticalVelocity,
+                        HorizontalVelocity = tornado.HorizontalVelocity,
+                        FlightTime = tornado.FlightTime
+                    };
+                    patternViewModel.Tornados.Add(tornadoViewModel);
+                }
+            }
 
             var quickMan = rom.RobotMasters.QuickMan;
             editor.RobotMasters.QuickMan = new QuickManOptionsViewModel
@@ -183,6 +208,15 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = quickMan.SecondaryColor.Name,
                 WeaponOnDefeat = quickMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = quickMan.ItemOnDefeat.ToString(),
+                RunSpeed = quickMan.RunSpeed,
+                RunDuration = quickMan.RunDuration,
+                Jump1Height = quickMan.Jump1Height,
+                Jump2Height = quickMan.Jump2Height,
+                Jump3Height = quickMan.Jump3Height,
+                ProjectileCount = quickMan.ProjectileCount,
+                ProjectileLaunchSpeed = quickMan.ProjectileLaunchSpeed,
+                ProjectileReturnDelay = quickMan.ProjectileReturnDelay,
+                ProjectileReturnSpeed = quickMan.ProjectileReturnSpeed
             };
 
             var heatMan = rom.RobotMasters.HeatMan;
@@ -192,6 +226,18 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = heatMan.SecondaryColor.Name,
                 WeaponOnDefeat = heatMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = heatMan.ItemOnDefeat.ToString(),
+                ProjectileColor1 = heatMan.ProjectileColor1.Name,
+                ProjectileColor2 = heatMan.ProjectileColor2.Name,
+                Projectile1Height = heatMan.Projectile1Height,
+                Projectile1Distance = heatMan.Projectile1Distance,
+                Projectile2Height = heatMan.Projectile2Height,
+                Projectile2Distance = heatMan.Projectile2Distance,
+                Projectile3Height = heatMan.Projectile3Height,
+                Projectile3Distance = heatMan.Projectile3Distance,
+                RushDelay1 = heatMan.RushDelay1,
+                RushDelay2 = heatMan.RushDelay2,
+                RushDelay3 = heatMan.RushDelay3,
+                RushSpeed = heatMan.RushSpeed
             };
 
             var woodMan = rom.RobotMasters.WoodMan;
@@ -201,6 +247,14 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = woodMan.SecondaryColor.Name,
                 WeaponOnDefeat = woodMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = woodMan.ItemOnDefeat.ToString(),
+                LeafColor = woodMan.LeafColor.Name,
+                ProjectileSpeed = woodMan.ProjectileSpeed,
+                FallingLeafCount = woodMan.FallingLeafCount,
+                FallingLeafHorizontalSpeed = woodMan.FallingLeafHorizontalSpeed,
+                FallingLeafVerticalSpeed = woodMan.FallingLeafVerticalSpeed,
+                LeafDelay = woodMan.LeafDelay,
+                JumpHeight = woodMan.JumpHeight,
+                JumpDistance = woodMan.JumpDistance
             };
 
             var metalMan = rom.RobotMasters.MetalMan;
@@ -210,6 +264,11 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = metalMan.SecondaryColor.Name,
                 WeaponOnDefeat = metalMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = metalMan.ItemOnDefeat.ToString(),
+                BladeColor = metalMan.BladeColor.Name,
+                ProjectileSpeed = metalMan.ProjectileSpeed,
+                Jump1Height = metalMan.Jump1Height,
+                Jump2Height = metalMan.Jump2Height,
+                Jump3Height = metalMan.Jump3Height
             };
 
             var flashMan = rom.RobotMasters.FlashMan;
@@ -219,6 +278,12 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = flashMan.SecondaryColor.Name,
                 WeaponOnDefeat = flashMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = flashMan.ItemOnDefeat.ToString(),
+                RunSpeed = flashMan.RunSpeed,
+                TimeStopperDelay = flashMan.TimeStopperDelay,
+                JumpHeight = flashMan.JumpHeight,
+                JumpDistance = flashMan.JumpDistance,
+                ProjectileSpeed = flashMan.ProjectileSpeed,
+                ProjectileCount = flashMan.ProjectileCount
             };
 
             var crashMan = rom.RobotMasters.CrashMan;
@@ -228,6 +293,9 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 SecondaryColor = crashMan.SecondaryColor.Name,
                 WeaponOnDefeat = crashMan.WeaponOnDefeat.ToString(),
                 ItemOnDefeat = crashMan.ItemOnDefeat.ToString(),
+                WalkSpeed = crashMan.WalkSpeed,
+                JumpHeight = crashMan.JumpHeight,
+                ProjectileSpeed = crashMan.ProjectileSpeed
             };
 
             return PartialView("_RomData", editor);

@@ -1,0 +1,59 @@
+﻿@model HeatManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+
+    <partial name="_CommonRobotMasterOptions" />
+
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileColor1"></label>
+        <select class="form-control" asp-for="ProjectileColor1" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileColor2"></label>
+        <select class="form-control" asp-for="ProjectileColor2" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile1Height"></label>
+        <input class="form-control" asp-for="Projectile1Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile1Distance"></label>
+        <input class="form-control" asp-for="Projectile1Distance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile2Height"></label>
+        <input class="form-control" asp-for="Projectile2Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile2Distance"></label>
+        <input class="form-control" asp-for="Projectile2Distance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile3Height"></label>
+        <input class="form-control" asp-for="Projectile3Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Projectile3Distance"></label>
+        <input class="form-control" asp-for="Projectile3Distance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="RushDelay1"></label>
+        <input class="form-control" asp-for="RushDelay1" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="RushDelay2"></label>
+        <input class="form-control" asp-for="RushDelay2" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="RushDelay3"></label>
+        <input class="form-control" asp-for="RushDelay3" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="RushSpeed"></label>
+        <input class="form-control" asp-for="RushSpeed" />
+    </div>
+</div>

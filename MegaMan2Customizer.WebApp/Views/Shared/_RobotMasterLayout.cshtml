@@ -1,0 +1,15 @@
+﻿@model BaseRobotMasterOptionsViewModel
+
+@{
+    string headerText = this.Model.GetType().Name.Replace("ManOptionsViewModel", " Man");
+    string collapseId = "collapse" + headerText.Replace(" ", "");
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#@collapseId">@headerText</a></h3>
+    </div>
+    <div class="card-body collapse" id="@collapseId">
+        @RenderBody()
+    </div>
+</div>

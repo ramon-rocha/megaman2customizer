@@ -1,0 +1,44 @@
+﻿@model WoodManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+
+    <partial name="_CommonRobotMasterOptions" />
+
+    <div class="col-lg-3 form-group">
+        <label asp-for="LeafColor"></label>
+        <select class="form-control" asp-for="LeafColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="ProjectileSpeed"></label>
+        <input class="form-control" asp-for="ProjectileSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="LeafDelay"></label>
+        <input class="form-control" asp-for="LeafDelay" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="FallingLeafCount"></label>
+        <input class="form-control" asp-for="FallingLeafCount" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="FallingLeafHorizontalSpeed"></label>
+        <input class="form-control" asp-for="FallingLeafHorizontalSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="FallingLeafVerticalSpeed"></label>
+        <input class="form-control" asp-for="FallingLeafVerticalSpeed" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="JumpHeight"></label>
+        <input class="form-control" asp-for="JumpHeight" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="JumpDistance"></label>
+        <input class="form-control" asp-for="JumpDistance" />
+    </div>
+
+</div>

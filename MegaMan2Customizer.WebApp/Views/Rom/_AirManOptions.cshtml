@@ -1,0 +1,67 @@
+﻿@model AirManOptionsViewModel
+
+@{
+    this.Layout = "_RobotMasterLayout";
+}
+
+<div class="row">
+    <partial name="_CommonRobotMasterOptions" />
+    <div class="col-lg-3 form-group">
+        <label asp-for="ShotsBeforeJumping"></label>
+        <input class="form-control" asp-for="ShotsBeforeJumping" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump1Distance"></label>
+        <input class="form-control" asp-for="Jump1Distance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump1Height"></label>
+        <input class="form-control" asp-for="Jump1Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump2Distance"></label>
+        <input class="form-control" asp-for="Jump2Distance" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="Jump2Height"></label>
+        <input class="form-control" asp-for="Jump2Height" />
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="TornadoPrimaryColor"></label>
+        <select class="form-control" asp-for="TornadoPrimaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+    <div class="col-lg-3 form-group">
+        <label asp-for="TornadoSecondaryColor"></label>
+        <select class="form-control" asp-for="TornadoSecondaryColor" asp-items="ListItems.Colors"></select>
+    </div>
+</div>
+
+@for (int i = 0; i < this.Model.TornadoPatterns.Count; i++)
+{
+    TornadoPatternViewModel pattern = this.Model.TornadoPatterns[i];
+    <div class="card col-xs-12">
+        <div class="card-header">
+            @{ string patternCollapseId = $"collapsePattern{i + 1}"; }
+            <h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#@patternCollapseId">Tornado Pattern @(i + 1)</a></h4>
+        </div>
+        <div class="card-body collapse" id="@patternCollapseId">
+            <div class="row">
+                @for (int j = 0; j < pattern.Tornados.Count; j++)
+                {
+                    <div class="col-lg-4 form-group">
+                        <label>Vertical Velocity @(j + 1)</label>
+                        <input class="form-control" asp-for="TornadoPatterns[i].Tornados[j].VerticalVelocity" />
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Horizontal Velocity @(j + 1)</label>
+                        <input class="form-control" asp-for="TornadoPatterns[i].Tornados[j].HorizontalVelocity" />
+                    </div>
+                    <div class="col-lg-4 form-group">
+                        <label>Flight Time @(j + 1)</label>
+                        <input class="form-control" asp-for="TornadoPatterns[i].Tornados[j].FlightTime" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
