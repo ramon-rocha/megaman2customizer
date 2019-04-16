@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 BusterMaxProjectiles = megaMan.MaxBusterShots
             };
 
+            #region WeaponUpgrades
             var atomicFire = rom.Weapons.AtomicFire;
             editor.Weapons.AtomicFire = new AtomicFireOptionsViewModel
             {
@@ -151,7 +153,9 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 DetonationDelay = crashBomber.DetonationDelay,
                 AmmoUsed = crashBomber.AmmoUsed
             };
+            #endregion WeaponUpgrades
 
+            #region RobotMasters
             var bubbleMan = rom.RobotMasters.BubbleMan;
             editor.RobotMasters.BubbleMan = new BubbleManOptionsViewModel
             {
@@ -297,6 +301,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 JumpHeight = crashMan.JumpHeight,
                 ProjectileSpeed = crashMan.ProjectileSpeed
             };
+            #endregion RobotMasters
 
             return PartialView("_RomData", editor);
         }
@@ -315,9 +320,254 @@ namespace MegaMan2Customizer.WebApp.Controllers
             await model.RomFile.CopyToAsync(stream);
             var rom = new MegaMan2Rom(stream.ToArray());
 
-            //TODO: set rom values from model
+            var megaMan = rom.MegaMan;
+            megaMan.StartingHealth = model.MegaMan.StartingHealth;
+            megaMan.MaxHealth = model.MegaMan.MaxHealth;
+            megaMan.Speed = model.MegaMan.RunningSpeed;
+            megaMan.JumpHeight = model.MegaMan.JumpHeight;
+            megaMan.BusterPrimaryColor = Color.Parse(model.MegaMan.BusterPrimaryColor);
+            megaMan.BusterSecondaryColor = Color.Parse(model.MegaMan.BusterSecondaryColor);
+            megaMan.BusterSpeed = model.MegaMan.BusterProjectileSpeed;
+            megaMan.MaxBusterShots = model.MegaMan.BusterMaxProjectiles;
+            megaMan.BusterLetterCode = model.MegaMan.BusterLetterCode;
+
+            SetWeaponOptions(rom, model.Weapons.AtomicFire);
+            SetWeaponOptions(rom, model.Weapons.AirShooter);
+            SetWeaponOptions(rom, model.Weapons.LeafShield);
+            SetWeaponOptions(rom, model.Weapons.BubbleLead);
+            SetWeaponOptions(rom, model.Weapons.QuickBoomerang);
+            SetWeaponOptions(rom, model.Weapons.TimeStopper);
+            SetWeaponOptions(rom, model.Weapons.MetalBlade);
+            SetWeaponOptions(rom, model.Weapons.CrashBomber);
+
+            SetRobotMasterOptions(rom, model.RobotMasters.BubbleMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.AirMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.QuickMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.HeatMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.WoodMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.MetalMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.FlashMan);
+            SetRobotMasterOptions(rom, model.RobotMasters.CrashMan);
 
             return File(rom.Bytes.ToArray(), "application/octet-stream", $"Custom {model.RomFileName}");
         }
+
+        #region WeaponViewModelsToRom
+        public void SetBaseWeaponOptions(BaseWeaponOptions weapon, BaseWeaponOptionsViewModel model)
+        {
+            weapon.Name = model.Name;
+            weapon.LetterCode = model.LetterCode;
+            weapon.PrimaryColor = Color.Parse(model.PrimaryColor);
+            weapon.SecondaryColor = Color.Parse(model.SecondaryColor);
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, AtomicFireOptionsViewModel model)
+        {
+            var atomicFire = rom.Weapons.AtomicFire;
+            SetBaseWeaponOptions(atomicFire, model);
+            atomicFire.Level1AmmoUsed = model.Level1AmmoUsed;
+            atomicFire.Level2ChargeTime = model.Level2ChargeTime;
+            atomicFire.Level2AmmoUsed = model.Level2AmmoUsed;
+            atomicFire.Level3ChargeTime = model.Level3ChargeTime;
+            atomicFire.Level3AmmoUsed = model.Level3AmmoUsed;
+            atomicFire.ProjectileSpeed = model.ProjectileSpeed;
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, AirShooterOptionsViewModel model)
+        {
+            var airShooter = rom.Weapons.AirShooter;
+            SetBaseWeaponOptions(airShooter, model);
+            airShooter.ProjectileCount = model.ProjectileCount;
+            airShooter.ProjectileVerticalAcceleration = model.VerticalAcceleration;
+            airShooter.Projectile1HorizontalSpeed = model.Projectile1HorizontalSpeed;
+            airShooter.Projectile2HorizontalSpeed = model.Projectile2HorizontalSpeed;
+            airShooter.Projectile3HorizontalSpeed = model.Projectile3HorizontalSpeed;
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, LeafShieldOptionsViewModel model)
+        {
+            var leafShield = rom.Weapons.LeafShield;
+            SetBaseWeaponOptions(leafShield, model);
+            leafShield.AmmoUsed = model.AmmoUsed;
+            leafShield.DeployDelay = model.DeployDelay;
+            leafShield.HorizontalSpeed = model.ProjectileSpeed;
+            leafShield.VerticalSpeed = model.ProjectileSpeed;
+
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, BubbleLeadOptionsViewModel model)
+        {
+            var bubbleLead = rom.Weapons.BubbleLead;
+            SetBaseWeaponOptions(bubbleLead, model);
+            bubbleLead.HorizontalSpeed = model.HorizontalSpeed;
+            bubbleLead.VerticalSpeed = model.VerticalSpeed;
+            bubbleLead.HorizontalFallSpeed = model.HorizontalFallingSpeed;
+            bubbleLead.VerticalFallSpeed = model.VerticalFallingSpeed;
+            bubbleLead.MaxProjectiles = model.MaxProjectiles;
+            bubbleLead.ShotsPerAmmo = model.ShotsPerAmmo;
+            bubbleLead.SurfaceSpeed = model.SurfaceSpeed;
+        }
+        public void SetWeaponOptions(MegaMan2Rom rom, QuickBoomerangOptionsViewModel model)
+        {
+            var quickBoomerang = rom.Weapons.QuickBoomerang;
+            SetBaseWeaponOptions(quickBoomerang, model);
+            quickBoomerang.FireDelay = model.FireDelay;
+            quickBoomerang.FlightTime = model.Time;
+            quickBoomerang.LaunchAngle = model.LaunchAngle;
+            quickBoomerang.MaxShots = model.MaxShots;
+            quickBoomerang.ReturnAngle = model.ReturnAngle;
+            quickBoomerang.ShotsPerAmmo = model.ShotsPerAmmo;
+            quickBoomerang.TravelDistance = model.TravelDistance;
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, TimeStopperOptionsViewModel model)
+        {
+            var timeStopper = rom.Weapons.TimeStopper;
+            SetBaseWeaponOptions(timeStopper, model);
+            timeStopper.DelayBeforeDrain = model.DelayBeforeDrain;
+            timeStopper.DrainRateDelay = model.DrainRateDelay;
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, MetalBladeOptionsViewModel model)
+        {
+            var metalBlade = rom.Weapons.MetalBlade;
+            SetBaseWeaponOptions(metalBlade, model);
+            metalBlade.MaxShots = model.MaxShots;
+            metalBlade.ShotsPerAmmo = model.ShotsPerAmmo;
+            metalBlade.Speed = model.ProjectileSpeed;
+        }
+
+        public void SetWeaponOptions(MegaMan2Rom rom, CrashBomberOptionsViewModel model)
+        {
+            var crashBomber = rom.Weapons.CrashBomber;
+            SetBaseWeaponOptions(crashBomber, model);
+            crashBomber.AmmoUsed = model.AmmoUsed;
+            crashBomber.DetonationDelay = model.DetonationDelay;
+            crashBomber.HorizontalSpeed = model.HorizontalSpeed;
+            crashBomber.VerticalSpeed = model.VerticalSpeed;
+        }
+        #endregion WeaponViewModelsToRom
+
+        #region RobotMasterViewModelsToRom
+        public void SetBaseRobotMasterOptions(BaseRobotMasterOptions robotMaster, BaseRobotMasterOptionsViewModel model)
+        {
+            robotMaster.PrimaryColor = Color.Parse(model.PrimaryColor);
+            robotMaster.SecondaryColor = Color.Parse(model.SecondaryColor);
+            robotMaster.ItemOnDefeat = Enum.Parse<ItemId>(model.ItemOnDefeat);
+            robotMaster.WeaponOnDefeat = Enum.Parse<WeaponId>(model.WeaponOnDefeat);
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, BubbleManOptionsViewModel model)
+        {
+            var bubbleMan = rom.RobotMasters.BubbleMan;
+            SetBaseRobotMasterOptions(bubbleMan, model);
+            bubbleMan.FallSpeed = model.FallSpeed;
+            bubbleMan.RiseSpeed = model.RiseSpeed;
+            bubbleMan.MaxHeight = model.MaxHeight;
+            bubbleMan.BubbleBounceSpeed = model.BubbleBounceSpeed;
+            bubbleMan.BubbleLaunchSpeed = model.BubbleLaunchSpeed;
+            bubbleMan.ProjectileSpeed = model.ProjectileSpeed;
+            bubbleMan.ShotDelay = model.ShotDelay;
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, AirManOptionsViewModel model)
+        {
+            var airMan = rom.RobotMasters.AirMan;
+            SetBaseRobotMasterOptions(airMan, model);
+            airMan.Jump1Distance = model.Jump1Distance;
+            airMan.Jump1Height = model.Jump1Height;
+            airMan.Jump2Distance = model.Jump2Distance;
+            airMan.Jump2Height = model.Jump2Height;
+            airMan.ShotsBeforeJumping = model.ShotsBeforeJumping;
+            airMan.TornadoPrimaryColor = Color.Parse(model.TornadoPrimaryColor);
+            airMan.TornadoSecondaryColor = Color.Parse(model.TornadoSecondaryColor);
+            for (int i = 0; i < airMan.Patterns.Count; i++)
+            {
+                for (int j = 0; j < airMan.Patterns[i].Tornados.Count; j++)
+                {
+                    airMan.Patterns[i].Tornados[j].VerticalVelocity = model.TornadoPatterns[i].Tornados[j].VerticalVelocity;
+                    airMan.Patterns[i].Tornados[j].HorizontalVelocity = model.TornadoPatterns[i].Tornados[j].HorizontalVelocity;
+                    airMan.Patterns[i].Tornados[j].FlightTime = model.TornadoPatterns[i].Tornados[j].FlightTime;
+                }
+            }
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, QuickManOptionsViewModel model)
+        {
+            var quickMan = rom.RobotMasters.QuickMan;
+            SetBaseRobotMasterOptions(quickMan, model);
+            quickMan.Jump1Height = model.Jump1Height;
+            quickMan.Jump2Height = model.Jump2Height;
+            quickMan.Jump3Height = model.Jump3Height;
+            quickMan.RunSpeed = model.RunSpeed;
+            quickMan.RunDuration = model.RunDuration;
+            quickMan.ProjectileCount = model.ProjectileCount;
+            quickMan.ProjectileLaunchSpeed = model.ProjectileLaunchSpeed;
+            quickMan.ProjectileReturnDelay = model.ProjectileReturnDelay;
+            quickMan.ProjectileReturnSpeed = model.ProjectileReturnSpeed;
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, HeatManOptionsViewModel model)
+        {
+            var heatMan = rom.RobotMasters.HeatMan;
+            SetBaseRobotMasterOptions(heatMan, model);
+            heatMan.Projectile1Distance = model.Projectile1Distance;
+            heatMan.Projectile1Height = model.Projectile1Height;
+            heatMan.Projectile2Distance = model.Projectile2Distance;
+            heatMan.Projectile2Height = model.Projectile2Height;
+            heatMan.Projectile3Distance = model.Projectile3Distance;
+            heatMan.Projectile3Height = model.Projectile3Height;
+            heatMan.RushDelay1 = model.RushDelay1;
+            heatMan.RushDelay2 = model.RushDelay2;
+            heatMan.RushDelay3 = model.RushDelay3;
+            heatMan.RushSpeed = model.RushSpeed;
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, WoodManOptionsViewModel model)
+        {
+            var woodMan = rom.RobotMasters.WoodMan;
+            SetBaseRobotMasterOptions(woodMan, model);
+            woodMan.FallingLeafCount = model.FallingLeafCount;
+            woodMan.FallingLeafHorizontalSpeed = model.FallingLeafHorizontalSpeed;
+            woodMan.FallingLeafVerticalSpeed = model.FallingLeafVerticalSpeed;
+            woodMan.ProjectileSpeed = model.ProjectileSpeed;
+            woodMan.JumpHeight = model.JumpHeight;
+            woodMan.JumpDistance = model.JumpDistance;
+            woodMan.LeafDelay = model.LeafDelay;
+            woodMan.LeafColor = Color.Parse(model.LeafColor);
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, MetalManOptionsViewModel model)
+        {
+            var metalMan = rom.RobotMasters.MetalMan;
+            SetBaseRobotMasterOptions(metalMan, model);
+            metalMan.BladeColor = Color.Parse(model.BladeColor);
+            metalMan.Jump1Height = model.Jump1Height;
+            metalMan.Jump2Height = model.Jump2Height;
+            metalMan.Jump3Height = model.Jump3Height;
+            metalMan.ProjectileSpeed = model.ProjectileSpeed;
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, FlashManOptionsViewModel model)
+        {
+            var flashMan = rom.RobotMasters.FlashMan;
+            SetBaseRobotMasterOptions(flashMan, model);
+            flashMan.RunSpeed = model.RunSpeed;
+            flashMan.JumpDistance = model.JumpDistance;
+            flashMan.JumpHeight = model.JumpHeight;
+            flashMan.ProjectileCount = model.ProjectileCount;
+            flashMan.ProjectileSpeed = model.ProjectileSpeed;
+            flashMan.TimeStopperDelay = model.TimeStopperDelay;
+        }
+
+        public void SetRobotMasterOptions(MegaMan2Rom rom, CrashManOptionsViewModel model)
+        {
+            var crashMan = rom.RobotMasters.CrashMan;
+            SetBaseRobotMasterOptions(crashMan, model);
+            crashMan.JumpHeight = model.JumpHeight;
+            crashMan.ProjectileSpeed = model.ProjectileSpeed;
+            crashMan.WalkSpeed = model.WalkSpeed;
+        }
+        #endregion RobotMasterViewModelsToRom
     }
 }
