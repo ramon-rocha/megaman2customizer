@@ -15,7 +15,7 @@
         // http://acmlm.kafuka.org/board/thread.php?id=7941
         public const int RobotMasterHealthFillDelay = 0x02C142; // smaller is faster, 3 default
         public const int MegaManHealthFillDelay = 0x03831B; // smaller is faster, 7 default
-        public const int MegaManHealthFillDelayMenu = 0x0352B2; // smaller is faster, 7 default 
+        public const int MegaManHealthFillDelayMenu = 0x0352B2; // smaller is faster, 7 default
         public const int MegaManWeaponFillDelay = 0x03835A;
         //http://acmlm.kafuka.org/board/thread.php?id=6020&page=34
         public const int MegaManLadderClimbSpeedWhole = 0x0386EF; // higher is faster, 0 default
@@ -32,7 +32,7 @@
         public const int MegaManLastStepSpeed = 0x038923; // higher is faster, default 0
         public const int MegaManSpeedOnLanding = 0x038924; // higher is faster, default 0
 
-        public const int StartMenuBorderColor = 0x036F0A; // 0x0357 in RAM 
+        public const int StartMenuBorderColor = 0x036F0A; // 0x0357 in RAM
         public const int StartMenuBackgroundColor = 0x036F0B; // 0x0358 in RAM
         public const int StartMenuShadowColor = 0x036F0C; // 0x0359 in RAM
 
@@ -84,7 +84,7 @@
         public const int AtomicFireFullyChargedSound = 0x03DE48;
 
         public const int AirShooterCutSceneLetterCode = 0x037E23;
-        public const int AirShooterMenuLetterCode = 0x03562;
+        public const int AirShooterMenuLetterCode = 0x035652;
         public const int AirShooterName = 0x037E3C;
         public const int AirShooterColor1 = 0x03D31C;
         public const int AirShooterColor2 = 0x03D31D;
