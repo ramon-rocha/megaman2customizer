@@ -13,12 +13,18 @@ namespace MegaMan2Customizer.WebApp.Models
         public byte MaxHealth { get; set; }
 
         [Display(Name = "Running Speed")]
-        [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
-        public byte RunningSpeed { get; set; }
+        [DisplayFormat(DataFormatString = "{0:G}", ApplyFormatInEditMode = true)]
+        [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        public decimal RunningSpeed { get; set; }
 
         [Display(Name = "Jump Height")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
         public byte JumpHeight { get; set; }
+
+        [Display(Name = "Jump Horizontal Speed")]
+        [DisplayFormat(DataFormatString = "{0:G}", ApplyFormatInEditMode = true)]
+        [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        public decimal JumpHorizontalSpeed { get; set; }
 
         [Display(Name = "Buster Letter Code")]
         public char BusterLetterCode { get; set; }

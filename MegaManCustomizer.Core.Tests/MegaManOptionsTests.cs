@@ -61,10 +61,17 @@ namespace MegaMan2Customizer.Core.Tests
         }
 
         [Fact]
-        public void Speed_Is1()
+        public void WalkSpeed_Is1Point375()
         {
             var rom = new MegaMan2Rom(_romBytes);
-            Assert.Equal(1, rom.MegaMan.Speed);
+            Assert.Equal(1.375m, rom.MegaMan.WalkSpeed);
+        }
+
+        [Fact]
+        public void JumpSpeed_Is1Point3125()
+        {
+            var rom = new MegaMan2Rom(_romBytes);
+            Assert.Equal(1.3125m, rom.MegaMan.JumpHorizontalSpeed);
         }
 
         [Fact]

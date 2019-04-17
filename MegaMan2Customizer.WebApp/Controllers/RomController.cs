@@ -35,8 +35,9 @@ namespace MegaMan2Customizer.WebApp.Controllers
             {
                 StartingHealth = megaMan.StartingHealth,
                 MaxHealth = megaMan.MaxHealth,
-                RunningSpeed = megaMan.Speed,
+                RunningSpeed = megaMan.WalkSpeed,
                 JumpHeight = megaMan.JumpHeight,
+                JumpHorizontalSpeed = megaMan.JumpHorizontalSpeed,
                 BusterLetterCode = megaMan.BusterLetterCode,
                 BusterPrimaryColor = megaMan.BusterPrimaryColor.Name,
                 BusterSecondaryColor = megaMan.BusterSecondaryColor.Name,
@@ -323,8 +324,9 @@ namespace MegaMan2Customizer.WebApp.Controllers
             var megaMan = rom.MegaMan;
             megaMan.StartingHealth = model.MegaMan.StartingHealth;
             megaMan.MaxHealth = model.MegaMan.MaxHealth;
-            megaMan.Speed = model.MegaMan.RunningSpeed;
+            megaMan.WalkSpeed = model.MegaMan.RunningSpeed;
             megaMan.JumpHeight = model.MegaMan.JumpHeight;
+            megaMan.JumpHorizontalSpeed = model.MegaMan.JumpHorizontalSpeed;
             megaMan.BusterPrimaryColor = Color.Parse(model.MegaMan.BusterPrimaryColor);
             megaMan.BusterSecondaryColor = Color.Parse(model.MegaMan.BusterSecondaryColor);
             megaMan.BusterSpeed = model.MegaMan.BusterProjectileSpeed;

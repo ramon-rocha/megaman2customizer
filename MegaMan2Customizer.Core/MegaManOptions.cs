@@ -28,10 +28,16 @@
             set => _romBytes[Addresses.MegaManBusterSpeed] = value;
         }
 
-        public byte Speed // TODO: include fractional component
+        public decimal WalkSpeed
         {
-            get => _romBytes[Addresses.MegaManWalkSpeed];
-            set => _romBytes[Addresses.MegaManWalkSpeed] = _romBytes[Addresses.MegaManJumpHorizontalSpeed] = value;
+            get => _romBytes.GetDecimal(Addresses.MegaManWalkSpeedWhole, Addresses.MegaManWalkSpeedFraction);
+            set => _romBytes.SetDecimal(Addresses.MegaManWalkSpeedWhole, Addresses.MegaManWalkSpeedFraction, value);
+        }
+
+        public decimal JumpHorizontalSpeed
+        {
+            get => _romBytes.GetDecimal(Addresses.MegaManJumpHorizontalSpeedWhole, Addresses.MegaManJumpHorizontalSpeedFraction);
+            set => _romBytes.SetDecimal(Addresses.MegaManJumpHorizontalSpeedWhole, Addresses.MegaManJumpHorizontalSpeedFraction, value);
         }
 
         public decimal LadderClimbSpeed

@@ -23,8 +23,10 @@
         public const int MegaManLadderDescentSpeedWhole = 0x03872E; // lower is faster, ff default
         public const int MegaManLadderDescentSpeedFraction = 0x038730; // lower is faster, 40 default
         public const int MegaManFirstStepSpeed = 0x038920; // higher is faster, default 0
-        public const int MegaManWalkSpeed = 0x038921; // higher is faster, default 1
-        public const int MegaManJumpHorizontalSpeed = 0x038922; // higher is faster, default 1
+        public const int MegaManWalkSpeedWhole = 0x038921; // higher is faster, default 1
+        public const int MegaManWalkSpeedFraction = 0x03892C; // default 60
+        public const int MegaManJumpHorizontalSpeedWhole = 0x038922; // higher is faster, default 1
+        public const int MegaManJumpHorizontalSpeedFraction = 0x03892D; // default 50
         public const int MegaManJumpHeight = 0x038A81; // higher is...higher.
 
         public const int MegaManStandingHorizontalSpeed = 0x03891F; // default is 0, non zero value means Mega Man slides on the ground all the time, higher is faster
@@ -312,5 +314,38 @@
         public const int CrashManProjectileSpeed = 0x02CDEE; // 6
         public const int CrashManWeaponOnDefeat = 0x03C290;
         public const int CrashManItemOnDefeat = 0x03C298;
+
+        public const int AirStageSkyColor = 0x007E22; // color should match Air Tikki/Goblin background color otherwise their shape is visible before they spawn
+        public const int AirStageCloudColorFrame0 = 0x007E15; // frame 0 only visible during level load
+        public const int AirStageCloudColorFrame1 = 0x007E35;
+        public const int AirStageCloudColorFrame2 = 0x007E45;
+        public const int AirStageCloudColorFrame3 = 0x007E55;
+        public const int AirStageCloudColorFrame4 = 0x007E65;
+        public const int AirStageCloudInnerBorderColorFrame0 = 0x007E14;
+        public const int AirStageCloudInnerBorderColorFrame1 = 0x007E34;
+        public const int AirStageCloudInnerBorderColorFrame2 = 0x007E44;
+        public const int AirStageCloudInnerBorderColorFrame3 = 0x007E54;
+        public const int AirStageCloudInnerBorderColorFrame4 = 0x007E64;
+        public const int AirStageCloudOuterBorderColorFrame0 = 0x007E13;
+        public const int AirStageCloudOuterBorderColorFrame1 = 0x007E33;
+        public const int AirStageCloudOuterBorderColorFrame2 = 0x007E43;
+        public const int AirStageCloudOuterBorderColorFrame3 = 0x007E53;
+        public const int AirStageCloudOuterBorderColorFrame4 = 0x007E63;
+        public const int AirStagePlatformTotemColor1Frame0 = 0x007E18;
+        public const int AirStagePlatformTotemColor1Frame1 = 0x007E38;
+        public const int AirStagePlatformTotemColor1Frame2 = 0x007E48;
+        public const int AirStagePlatformTotemColor1Frame3 = 0x007E58;
+        public const int AirStagePlatformTotemColor1Frame4 = 0x007E68;
+        public const int AirStagePlatformTotemColor2Frame0 = 0x007E19;
+        public const int AirStagePlatformTotemColor2Frame1 = 0x007E39;
+        public const int AirStagePlatformTotemColor2Frame2 = 0x007E49;
+        public const int AirStagePlatformTotemColor2Frame3 = 0x007E59;
+        public const int AirStagePlatformTotemColor2Frame4 = 0x007E69;
+        public const int AirStagePlatformShineColorFrame0 = 0x007E17;
+        public const int AirStagePlatformShineColorFrame1 = 0x007E37;
+        public const int AirStagePlatformShineColorFrame2 = 0x007E47;
+        public const int AirStagePlatformShineColorFrame3 = 0x007E57;
+        public const int AirStagePlatformShineColorFrame4 = 0x007E67;
+
     }
 }
