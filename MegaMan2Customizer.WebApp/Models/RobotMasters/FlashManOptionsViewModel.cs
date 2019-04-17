@@ -5,6 +5,7 @@ namespace MegaMan2Customizer.WebApp.Models
     public class FlashManOptionsViewModel : BaseRobotMasterOptionsViewModel
     {
         [Range(0, 255.99609375, ErrorMessage = "Enter a value from 0 to 255.99609375")]
+        [DisplayFormat(DataFormatString = "{0:G}", ApplyFormatInEditMode = true)]
         public decimal RunSpeed { get; set; }
 
         [Display(Name = "Time Stopper Delay")]
