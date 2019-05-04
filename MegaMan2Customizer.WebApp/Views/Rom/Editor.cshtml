@@ -29,13 +29,16 @@
     <script>
         let romFileInput = document.getElementById("romFile")
         romFileInput.onchange = async function () {
+
             let romFileNameInput = document.getElementById("romFileName");
             let displayedNameSpan = document.getElementById("displayed-name");
+
             if (romFileInput.files.length == 0) {
                 romFileNameInput.value = "";
                 displayedNameSpan.innerText == "";
                 return;
             }
+
             let fileName = romFileInput.files[0].name;
             romFileNameInput.value = fileName;
             displayedNameSpan.innerText = fileName;
@@ -45,12 +48,17 @@
                 method: "POST",
                 body: formData
             });
+
             let romDataContainer = document.getElementById("rom-data-container");
             romDataContainer.innerHTML = await response.text();
+            enableDataValidation();
+            document.querySelector("button.download").classList.remove("d-none");
+        }
+
+        function enableDataValidation() {
             $("#editorForm").removeData("validator");
             $("#editorForm").removeData("unobtrusiveValidation");
             $.validator.unobtrusive.parse("#editorForm");
-            document.querySelector("button.download").classList.remove("d-none");
         }
     </script>
 }

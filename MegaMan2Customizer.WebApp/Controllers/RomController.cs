@@ -19,12 +19,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
         [HttpPost("romdata")]
         public async Task<IActionResult> RomData([FromForm] RomEditorViewModel editor)
         {
-            /*
-            if (!this.ModelState.IsValid)
-            {
-                return BadRequest(this.ModelState);
-            }
-            */
+            this.ModelState.Clear();
 
             var stream = new MemoryStream();
             await editor.RomFile.CopyToAsync(stream);
