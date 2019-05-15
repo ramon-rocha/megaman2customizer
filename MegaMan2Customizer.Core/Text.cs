@@ -20,6 +20,12 @@ namespace MegaMan2Customizer.Core
             return sb.ToString();
         }
 
+        private static byte[] Encode(string text, IReadOnlyDictionary<char, byte> map) =>
+            text.Select(c => map[c]).ToArray();
+
+        private static IReadOnlyDictionary<char, byte> InvertMap(IReadOnlyDictionary<byte, char> map) =>
+            map.ToImmutableDictionary(e => e.Value, e => e.Key);
+
         private static readonly IReadOnlyDictionary<byte, char> _cutSceneMap = new Dictionary<byte, char>
         {
             { 0x40, ' ' },
@@ -78,7 +84,7 @@ namespace MegaMan2Customizer.Core
             {
                 if (_invertedCutSceneMap == null)
                 {
-                    _invertedCutSceneMap = _cutSceneMap.ToImmutableDictionary(e => e.Value, e => e.Key);
+                    _invertedCutSceneMap = InvertMap(_cutSceneMap);
                 }
                 return _invertedCutSceneMap;
             }
@@ -132,7 +138,7 @@ namespace MegaMan2Customizer.Core
             {
                 if (_invertedWeaponMenuMap == null)
                 {
-                    _invertedWeaponMenuMap = _weaponMenuMap.ToImmutableDictionary(e => e.Value, e => e.Key);
+                    _invertedWeaponMenuMap = InvertMap(_weaponMenuMap);
                 }
                 return _invertedWeaponMenuMap;
             }
@@ -165,13 +171,7 @@ namespace MegaMan2Customizer.Core
                     text += " ";
                 }
             }
-            var bytes = new List<byte>();
-            foreach (char c in text)
-            {
-                byte b = EncodeCutScene(c);
-                bytes.Add(b);
-            }
-            return bytes.ToArray();
+            return Encode(text, InvertedCutSceneMap);
         }
 
         public static byte EncodeWeaponMenu(char value) => InvertedWeaponMenuMap[value];
@@ -214,7 +214,27 @@ namespace MegaMan2Customizer.Core
             { 0x20, ' ' }
         }.ToImmutableDictionary();
 
+        public static string DecodeStageName(byte[] bytes, int address) =>
+            Decode(_stageSelectMap, bytes, address, Defaults.MaxStageNameLength / 2);
+
         public static string DecodeRobotMasterName(byte[] bytes, int address, int length) =>
             Decode(_stageSelectMap, bytes, address, length);
+
+        private static IReadOnlyDictionary<char, byte> _invertedStageSelectMap = null;
+
+        private static IReadOnlyDictionary<char, byte> InvertedStageSelectMap
+        {
+            get
+            {
+                if (_invertedStageSelectMap == null)
+                {
+                    _invertedStageSelectMap = InvertMap(_stageSelectMap);
+                }
+                return _invertedStageSelectMap;
+            }
+        }
+
+        public static byte[] EncodeStageName(string text) =>
+            Encode(text, InvertedStageSelectMap);
     }
 }

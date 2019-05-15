@@ -201,6 +201,8 @@
         public const int Item3Color1 = 0x03D340;
         public const int Item3Color2 = 0x03D341;
 
+        public const int BubbleManNameStageSelect1 = 0x02EF35; // "BUBBLE"
+        public const int BubbleManNameStageSelect2 = 0x02EF55; // "   MAN"
         public const int BubbleManColor1 = 0x00F4B6;
         public const int BubbleManColor2 = 0x00F4B7;
         public const int BubbleManMaxHeight = 0x02C707; // 0x50
@@ -217,7 +219,8 @@
         public const int BubbleManItemOnDefeat = 0x03C294;
 
         public const int AirManNameIntro = 0x0346F5; // 0x024B1E (what is this? credits?)
-        public const int AirManNameStageSelect1 = 0x02EF3E; // which one is line 2?
+        public const int AirManNameStageSelect1 = 0x02EF3D; // " AIR  "
+        public const int AirManNameStageSelect2 = 0x02EF5D; // "   MAN"
         public const int AirManColor1 = 0x0074B7; // blue
         public const int AirManColor2 = 0x0074B6; // yellow
         public const int AirManProjectileColor1 = 0x0074B4; // blue
@@ -315,7 +318,19 @@
         public const int CrashManWeaponOnDefeat = 0x03C290;
         public const int CrashManItemOnDefeat = 0x03C298;
 
-        public const int AirStageSkyColor = 0x007E22; // color should match Air Tikki/Goblin background color otherwise their shape is visible before they spawn
+        public const int AirStageSkyColor = 0x007E22; // color should match Air Tikki/Goblin background colors otherwise their shape is visible before they spawn
+        public const int AirStageGoblinBackgroundColor1Frame1 = 0x007E3B;
+        public const int AirStageGoblinBackgroundColor1Frame2 = 0x007E4B;
+        public const int AirStageGoblinBackgroundColor1Frame3 = 0x007E5B;
+        public const int AirStageGoblinBackgroundColor1Frame4 = 0x007E6B;
+        public const int AirStageGoblinBackgroundColor2Frame1 = 0x007E3C;
+        public const int AirStageGoblinBackgroundColor2Frame2 = 0x007E4C;
+        public const int AirStageGoblinBackgroundColor2Frame3 = 0x007E5C;
+        public const int AirStageGoblinBackgroundColor2Frame4 = 0x007E6C;
+        public const int AirStageGoblinBackgroundColor3Frame1 = 0x007E3D;
+        public const int AirStageGoblinBackgroundColor3Frame2 = 0x007E4D;
+        public const int AirStageGoblinBackgroundColor3Frame3 = 0x007E5D;
+        public const int AirStageGoblinBackgroundColor3Frame4 = 0x007E6D;
         public const int AirStageCloudColorFrame0 = 0x007E15; // frame 0 only visible during level load
         public const int AirStageCloudColorFrame1 = 0x007E35;
         public const int AirStageCloudColorFrame2 = 0x007E45;
