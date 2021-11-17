@@ -4,7 +4,7 @@
     {
         public Color LeafColor
         {
-            get => new Color(_romBytes[Addresses.WoodManLeafColor]);
+            get => new(_romBytes[Addresses.WoodManLeafColor]);
             set => _romBytes[Addresses.WoodManLeafColor] = value.Value;
         }
 

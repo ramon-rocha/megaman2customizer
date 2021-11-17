@@ -61,8 +61,8 @@ namespace MegaMan2Customizer.Core
                         : value.Length % 2 == 0 ? value.Length / 2
                         : value.Length / 2 + 1;
 
-                    line1 = value.Substring(0, splitIndex);
-                    line2 = value.Substring(splitIndex, value.Length - splitIndex);
+                    line1 = value[..splitIndex];
+                    line2 = value[splitIndex..];
 
                     bool line2IsLong = line2.Length > Defaults.MaxCutSceneTextLength - 2;
                     bool line1HasRoom = line1.Length < Defaults.MaxCutSceneTextLength;
@@ -71,8 +71,8 @@ namespace MegaMan2Customizer.Core
                     if (putHypenOnLine1)
                     {
                         splitIndex++;
-                        line1 = value.Substring(0, splitIndex);
-                        line2 = value.Substring(splitIndex, value.Length - splitIndex);
+                        line1 = value[..splitIndex];
+                        line2 = value[splitIndex..];
                     }
 
                     bool line1TooLong = line1.Length > Defaults.MaxCutSceneTextLength;
@@ -84,8 +84,8 @@ namespace MegaMan2Customizer.Core
                         splitIndex = value.Length % 2 == 0 
                             ? value.Length / 2
                             : value.Length / 2 + 1;
-                        line1 = value.Substring(0, splitIndex);
-                        line2 = value.Substring(splitIndex, value.Length - splitIndex);
+                        line1 = value[..splitIndex];
+                        line2 = value[splitIndex..];
                     }
                 }
 

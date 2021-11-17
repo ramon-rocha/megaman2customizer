@@ -6,19 +6,19 @@
 
         public Color BorderColor
         {
-            get => new Color(_romBytes[Addresses.StartMenuBorderColor]);
+            get => new(_romBytes[Addresses.StartMenuBorderColor]);
             set => _romBytes[Addresses.StartMenuBorderColor] = value.Value;
         }
 
         public Color BackgroundColor
         {
-            get => new Color(_romBytes[Addresses.StartMenuBackgroundColor]);
+            get => new(_romBytes[Addresses.StartMenuBackgroundColor]);
             set => _romBytes[Addresses.StartMenuBackgroundColor] = value.Value;
         }
 
         public Color ShadowColor
         {
-            get => new Color(_romBytes[Addresses.StartMenuShadowColor]);
+            get => new(_romBytes[Addresses.StartMenuShadowColor]);
             set => _romBytes[Addresses.StartMenuShadowColor] = value.Value;
         }
 

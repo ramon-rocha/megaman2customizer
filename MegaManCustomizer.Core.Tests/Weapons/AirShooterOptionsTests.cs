@@ -37,7 +37,6 @@ namespace MegaMan2Customizer.Core.Tests
             var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("AIR SHOOTER", rom.Weapons.AirShooter.Name);
             Assert.Equal('A', rom.Weapons.AirShooter.LetterCode);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = null);
             Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = "");
             Assert.Throws<ArgumentException>(() => rom.Weapons.AirShooter.Name = "THIS NAME IS WAY TOO LONG!");
             rom.Weapons.AirShooter.Name = "TORNADO BLAST";

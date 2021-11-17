@@ -25,13 +25,13 @@ namespace MegaMan2Customizer.Core
 
         public virtual Color PrimaryColor
         {
-            get => new Color(_romBytes[_primaryColorAddress]);
+            get => new(_romBytes[_primaryColorAddress]);
             set => _romBytes[_primaryColorAddress] = value.Value;
         }
 
         public virtual Color SecondaryColor
         {
-            get => new Color(_romBytes[_secondaryColorAddress]);
+            get => new(_romBytes[_secondaryColorAddress]);
             set => _romBytes[_secondaryColorAddress] = value.Value;
         }
 

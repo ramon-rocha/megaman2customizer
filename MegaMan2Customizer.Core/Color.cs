@@ -49,11 +49,11 @@ namespace MegaMan2Customizer.Core
     /// <remarks>https://en.wikipedia.org/wiki/List_of_video_game_console_palettes#NES</remarks>
     public class Color
     {
-        public static readonly Color White = new Color(Chrominance.Gray, Luma.Light);
+        public static readonly Color White = new(Chrominance.Gray, Luma.Light);
 
-        public static readonly Color Black = new Color(Chrominance.Black, Luma.Dark);
+        public static readonly Color Black = new(Chrominance.Black, Luma.Dark);
 
-        private static ImmutableList<Color> _allColors = null;
+        private static ImmutableList<Color>? _allColors = null;
         public static IEnumerable<Color> GetAllColors()
         {
             if (_allColors == null)
@@ -120,7 +120,7 @@ namespace MegaMan2Customizer.Core
                     return "Black";
                 }
 
-                if (_specialNamedColors.TryGetValue(this.Value, out string name))
+                if (_specialNamedColors.TryGetValue(this.Value, out string? name))
                 {
                     return name;
                 }
@@ -143,8 +143,8 @@ namespace MegaMan2Customizer.Core
 
         public override int GetHashCode() => this.Name.GetHashCode();
 
-        public override bool Equals(object obj) =>
-            obj is Color other ? Equals(other) : false;
+        public override bool Equals(object? obj) =>
+            obj is Color other && Equals(other);
 
         public bool Equals(Color other) =>
             other != null && this.Name == other.Name;

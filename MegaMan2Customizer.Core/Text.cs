@@ -73,7 +73,7 @@ namespace MegaMan2Customizer.Core
             { 0xA9, '9' },
         }.ToImmutableDictionary();
 
-        private static IReadOnlyDictionary<char, byte> _invertedCutSceneMap = null;
+        private static IReadOnlyDictionary<char, byte>? _invertedCutSceneMap = null;
 
         public static string DecodeWeaponMenu(byte[] bytes, int address, int length) =>
             Decode(_weaponMenuMap, bytes, address, length);
@@ -131,7 +131,7 @@ namespace MegaMan2Customizer.Core
             { 0x1F, 'P' },
         }.ToImmutableDictionary();
 
-        private static IReadOnlyDictionary<char, byte> _invertedWeaponMenuMap = null;
+        private static IReadOnlyDictionary<char, byte>? _invertedWeaponMenuMap = null;
         private static IReadOnlyDictionary<char, byte> InvertedWeaponMenuMap
         {
             get
@@ -144,7 +144,7 @@ namespace MegaMan2Customizer.Core
             }
         }
 
-        private static IReadOnlyList<char> _weaponLetterCodes = null;
+        private static IReadOnlyList<char>? _weaponLetterCodes = null;
 
         public static IReadOnlyList<char> WeaponLetterCodes
         {
@@ -220,7 +220,7 @@ namespace MegaMan2Customizer.Core
         public static string DecodeRobotMasterName(byte[] bytes, int address, int length) =>
             Decode(_stageSelectMap, bytes, address, length);
 
-        private static IReadOnlyDictionary<char, byte> _invertedStageSelectMap = null;
+        private static IReadOnlyDictionary<char, byte>? _invertedStageSelectMap = null;
 
         private static IReadOnlyDictionary<char, byte> InvertedStageSelectMap
         {

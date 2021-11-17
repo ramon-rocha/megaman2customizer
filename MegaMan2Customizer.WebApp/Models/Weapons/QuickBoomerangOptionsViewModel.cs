@@ -5,7 +5,7 @@ namespace MegaMan2Customizer.WebApp.Models
     public class QuickBoomerangOptionsViewModel : BaseWeaponOptionsViewModel
     {
         [StringLength(28, ErrorMessage = "Weapon name cannot be longer than 28 characters")]
-        public override string Name { get; set; }
+        public override string Name { get; set; } = "";
 
         [Display(Name = "Fire Delay")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]

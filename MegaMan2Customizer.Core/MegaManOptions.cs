@@ -66,7 +66,7 @@
 
         public Color BusterPrimaryColor
         {
-            get => new Color(_romBytes[Addresses.BusterColor1]);
+            get => new(_romBytes[Addresses.BusterColor1]);
             set
             {
                 byte v = value.Value;
@@ -79,7 +79,7 @@
 
         public Color BusterSecondaryColor
         {
-            get => new Color(_romBytes[Addresses.BusterColor2]);
+            get => new(_romBytes[Addresses.BusterColor2]);
             set
             {
                 byte v = value.Value;

@@ -39,7 +39,6 @@ namespace MegaMan2Customizer.Core.Tests
             Assert.Equal('Q', rom.Weapons.QuickBoomerang.LetterCode);
             Assert.Equal("  QUICK       ", Text.DecodeCutScene(rom.Bytes, Addresses.QuickBoomerangNameLine1));
             Assert.Equal("  -BOOMERANG  ", Text.DecodeCutScene(rom.Bytes, Addresses.QuickBoomerangNameLine2));
-            Assert.Throws<ArgumentException>(() => rom.Weapons.QuickBoomerang.Name = null);
             Assert.Throws<ArgumentException>(() => rom.Weapons.QuickBoomerang.Name = "");
             Assert.Throws<ArgumentException>(() => rom.Weapons.QuickBoomerang.Name = "THE NAME OF QUICK-BOOMERANG NAME CAN BE EXTRA LONG BUT THIS NAME IS WAY TOO LONG!");
 

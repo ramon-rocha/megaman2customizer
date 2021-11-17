@@ -71,7 +71,7 @@ namespace MegaMan2Customizer.Core
 
         public Color SkyColor
         {
-            get => new Color(_romBytes[Addresses.AirStageSkyColor]);
+            get => new(_romBytes[Addresses.AirStageSkyColor]);
             set
             {
                 _romBytes[Addresses.AirStageSkyColor] = value.Value;
@@ -82,7 +82,7 @@ namespace MegaMan2Customizer.Core
 
         public Color CloudColor
         {
-            get => new Color(_romBytes[Addresses.AirStageCloudColorFrame0]);
+            get => new(_romBytes[Addresses.AirStageCloudColorFrame0]);
             set
             {
                 byte v = value.Value;
@@ -102,7 +102,7 @@ namespace MegaMan2Customizer.Core
 
         public Color CloudInnerBorderColor
         {
-            get => new Color(_romBytes[Addresses.AirStageCloudInnerBorderColorFrame0]);
+            get => new(_romBytes[Addresses.AirStageCloudInnerBorderColorFrame0]);
             set
             {
                 byte v = value.Value;
@@ -116,7 +116,7 @@ namespace MegaMan2Customizer.Core
 
         public Color CloudOuterBorderColor
         {
-            get => new Color(_romBytes[Addresses.AirStageCloudOuterBorderColorFrame0]);
+            get => new(_romBytes[Addresses.AirStageCloudOuterBorderColorFrame0]);
             set
             {
                 byte v = value.Value;
@@ -127,7 +127,7 @@ namespace MegaMan2Customizer.Core
 
         public Color PlatformTotemColor1
         {
-            get => new Color(_romBytes[Addresses.AirStagePlatformTotemColor1Frame0]);
+            get => new(_romBytes[Addresses.AirStagePlatformTotemColor1Frame0]);
             set
             {
                 byte v = value.Value;
@@ -141,7 +141,7 @@ namespace MegaMan2Customizer.Core
 
         public Color PlatformTotemColor2
         {
-            get => new Color(_romBytes[Addresses.AirStagePlatformTotemColor2Frame0]);
+            get => new(_romBytes[Addresses.AirStagePlatformTotemColor2Frame0]);
             set
             {
                 byte v = value.Value;
@@ -155,7 +155,7 @@ namespace MegaMan2Customizer.Core
 
         public Color PlatformShineColor
         {
-            get => new Color(_romBytes[Addresses.AirStagePlatformShineColorFrame0]);
+            get => new(_romBytes[Addresses.AirStagePlatformShineColorFrame0]);
             set
             {
                 byte v = value.Value;

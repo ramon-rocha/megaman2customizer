@@ -4,13 +4,13 @@
     {
         public Color ProjectileColor1
         {
-            get => new Color(_romBytes[Addresses.HeatManProjectileColor1]);
+            get => new(_romBytes[Addresses.HeatManProjectileColor1]);
             set => _romBytes[Addresses.HeatManProjectileColor1] = value.Value;
         }
 
         public Color ProjectileColor2
         {
-            get => new Color(_romBytes[Addresses.HeatManProjectileColor2]);
+            get => new(_romBytes[Addresses.HeatManProjectileColor2]);
             set => _romBytes[Addresses.HeatManProjectileColor2] = value.Value;
         }
 

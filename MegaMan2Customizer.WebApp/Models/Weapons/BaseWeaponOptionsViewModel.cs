@@ -9,15 +9,15 @@ namespace MegaMan2Customizer.WebApp.Models
     {
         [Display(Name = "Name")]
         [StringLength(14, ErrorMessage = "Weapon name cannot be longer than 14 characters")]
-        public virtual string Name { get; set; }
+        public virtual string Name { get; set; } = "";
 
         [Display(Name = "Letter Code")]
         public char LetterCode { get; set; }
 
         [Display(Name = "Primary Color")]
-        public string PrimaryColor { get; set; }
+        public string PrimaryColor { get; set; } = "";
 
         [Display(Name = "Secondary Color")]
-        public string SecondaryColor { get; set; }
+        public string SecondaryColor { get; set; } = "";
     }
 }

@@ -58,7 +58,6 @@ namespace MegaMan2Customizer.Core.Tests
             var rom = new MegaMan2Rom(_romBytes);
             Assert.Equal("ATOMIC FIRE", rom.Weapons.AtomicFire.Name);
             Assert.Equal('H', rom.Weapons.AtomicFire.LetterCode);
-            Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = null);
             Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = "");
             Assert.Throws<ArgumentException>(() => rom.Weapons.AtomicFire.Name = "THIS NAME IS WAY TOO LONG!");
             rom.Weapons.AtomicFire.Name = "HEAT WAVE";

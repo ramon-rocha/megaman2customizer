@@ -2,20 +2,20 @@
 {
     public class AllRobotMasterOptionsViewModel
     {
-        public BubbleManOptionsViewModel BubbleMan { get; set; }
+        public BubbleManOptionsViewModel BubbleMan { get; set; } = new();
 
-        public AirManOptionsViewModel AirMan { get; set; }
+        public AirManOptionsViewModel AirMan { get; set; } = new();
 
-        public QuickManOptionsViewModel QuickMan { get; set; }
+        public QuickManOptionsViewModel QuickMan { get; set; } = new();
 
-        public HeatManOptionsViewModel HeatMan { get; set; }
+        public HeatManOptionsViewModel HeatMan { get; set; } = new();
 
-        public WoodManOptionsViewModel WoodMan { get; set; }
+        public WoodManOptionsViewModel WoodMan { get; set; } = new();
 
-        public MetalManOptionsViewModel MetalMan { get; set; }
+        public MetalManOptionsViewModel MetalMan { get; set; } = new();
 
-        public FlashManOptionsViewModel FlashMan { get; set; }
+        public FlashManOptionsViewModel FlashMan { get; set; } = new();
 
-        public CrashManOptionsViewModel CrashMan { get; set; }
+        public CrashManOptionsViewModel CrashMan { get; set; } = new();
     }
 }

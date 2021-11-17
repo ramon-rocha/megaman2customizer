@@ -8,14 +8,14 @@
         <label class="btn btn-primary btn-browse">
             Select ROM File... <input type="file" hidden id="romFile" name="romFile">
         </label>
-        <input hidden type="text" id="romFileName" name="romFileName" value="@this.Model.RomFileName" />
-        <span id="displayed-name">@this.Model.RomFileName</span>
+        <input hidden type="text" id="romFileName" name="romFileName" value="@(this.Model?.RomFileName ?? "")" />
+        <span id="displayed-name">@(this.Model?.RomFileName ?? "")</span>
     </div>
 
     <hr>
 
     <div id="rom-data-container">
-        @if (this.Model.RomFile != null)
+        @if (this.Model?.RomFile != null)
         {
             <partial name="_RomData" />
         }

@@ -5,21 +5,21 @@
     /// </summary>
     public class WeaponUpgradeOptionsViewModel
     {
-        public AtomicFireOptionsViewModel AtomicFire { get; set; }
+        public AtomicFireOptionsViewModel AtomicFire { get; set; } = new();
 
-        public AirShooterOptionsViewModel AirShooter { get; set; }
+        public AirShooterOptionsViewModel AirShooter { get; set; } = new();
 
-        public LeafShieldOptionsViewModel LeafShield { get; set; }
+        public LeafShieldOptionsViewModel LeafShield { get; set; } = new();
 
-        public BubbleLeadOptionsViewModel BubbleLead { get; set; }
+        public BubbleLeadOptionsViewModel BubbleLead { get; set; } = new();
 
-        public QuickBoomerangOptionsViewModel QuickBoomerang { get; set; }
+        public QuickBoomerangOptionsViewModel QuickBoomerang { get; set; } = new();
 
-        public TimeStopperOptionsViewModel TimeStopper { get; set; }
+        public TimeStopperOptionsViewModel TimeStopper { get; set; } = new();
 
-        public MetalBladeOptionsViewModel MetalBlade { get; set; }
+        public MetalBladeOptionsViewModel MetalBlade { get; set; } = new();
 
-        public CrashBomberOptionsViewModel CrashBomber { get; set; }
+        public CrashBomberOptionsViewModel CrashBomber { get; set; } = new();
 
     }
 }

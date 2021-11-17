@@ -5,6 +5,7 @@
     <LangVersion>latest</LangVersion>
     <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

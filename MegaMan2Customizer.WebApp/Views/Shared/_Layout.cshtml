@@ -3,7 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @{ string title = ViewData.ContainsKey("Title") ? ViewData["Title"].ToString() : ""; }
+    @{ 
+        string title = ViewData.ContainsKey("Title")
+            ? ViewData["Title"]?.ToString() ?? ""
+            : "";
+    }
     @if (string.IsNullOrWhiteSpace(title))
     {
         <title>Mega Man 2 Customizer</title>

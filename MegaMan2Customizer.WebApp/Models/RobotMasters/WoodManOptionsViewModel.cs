@@ -5,7 +5,7 @@ namespace MegaMan2Customizer.WebApp.Models
     public class WoodManOptionsViewModel : BaseRobotMasterOptionsViewModel
     {
         [Display(Name = "Leaf Color")]
-        public string LeafColor { get; set; }
+        public string LeafColor { get; set; } = "";
 
         [Display(Name = "Leaf Delay")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]

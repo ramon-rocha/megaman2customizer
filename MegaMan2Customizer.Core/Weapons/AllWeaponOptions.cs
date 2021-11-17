@@ -32,29 +32,17 @@ namespace MegaMan2Customizer.Core
             this.TimeStopper = new TimeStopperOptions(romBytes);
         }
 
-        public IWeaponOptions GetWeaponOptions(WeaponId weaponId)
+        public IWeaponOptions GetWeaponOptions(WeaponId weaponId) => weaponId switch
         {
-            switch (weaponId)
-            {
-                case WeaponId.AtomicFire:
-                    return this.AtomicFire;
-                case WeaponId.AirShooter:
-                    return this.AirShooter;
-                case WeaponId.LeafShield:
-                    return this.LeafShield;
-                case WeaponId.BubbleLead:
-                    return this.BubbleLead;
-                case WeaponId.QuickBoomerang:
-                    return this.QuickBoomerang;
-                case WeaponId.TimeStopper:
-                    return this.TimeStopper;
-                case WeaponId.MetalBlade:
-                    return this.MetalBlade;
-                case WeaponId.CrashBomber:
-                    return this.CrashBomber;
-                default:
-                    throw new Exception($"Unhandled value '{weaponId}' for {nameof(weaponId)}");
-            }
-        }
+            WeaponId.AtomicFire => this.AtomicFire,
+            WeaponId.AirShooter => this.AirShooter,
+            WeaponId.LeafShield => this.LeafShield,
+            WeaponId.BubbleLead => this.BubbleLead,
+            WeaponId.QuickBoomerang => this.QuickBoomerang,
+            WeaponId.TimeStopper => this.TimeStopper,
+            WeaponId.MetalBlade => this.MetalBlade,
+            WeaponId.CrashBomber => this.CrashBomber,
+            _ => throw new Exception($"Unhandled value '{weaponId}' for {nameof(weaponId)}"),
+        };
     }
 }

@@ -71,13 +71,13 @@ namespace MegaMan2Customizer.Core
 
         public Color TornadoPrimaryColor
         {
-            get => new Color(_romBytes[Addresses.AirManProjectileColor1]);
+            get => new(_romBytes[Addresses.AirManProjectileColor1]);
             set => _romBytes[Addresses.AirManProjectileColor1] = value.Value;
         }
 
         public Color TornadoSecondaryColor
         {
-            get => new Color(_romBytes[Addresses.AirManProjectileColor2]);
+            get => new(_romBytes[Addresses.AirManProjectileColor2]);
             set => _romBytes[Addresses.AirManProjectileColor2] = value.Value;
         }
 

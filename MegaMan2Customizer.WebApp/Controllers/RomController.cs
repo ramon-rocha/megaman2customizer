@@ -19,6 +19,11 @@ namespace MegaMan2Customizer.WebApp.Controllers
         [HttpPost("romdata")]
         public async Task<IActionResult> RomData([FromForm] RomEditorViewModel editor)
         {
+            if (editor.RomFile == null)
+            {
+                return BadRequest();
+            }
+
             this.ModelState.Clear();
 
             var stream = new MemoryStream();
@@ -186,7 +191,7 @@ namespace MegaMan2Customizer.WebApp.Controllers
             };
             foreach (TornadoPattern pattern in airMan.Patterns)
             {
-                var patternViewModel = new TornadoPatternViewModel();
+                TornadoPatternViewModel patternViewModel = new();
                 patternViewModel.Tornados = new List<TornadoOptionsViewModel>();
                 editor.RobotMasters.AirMan.TornadoPatterns.Add(patternViewModel);
                 foreach (Tornado tornado in pattern.Tornados)
@@ -311,6 +316,11 @@ namespace MegaMan2Customizer.WebApp.Controllers
                 return BadRequest(this.ModelState);
             }
             */
+
+            if (model.RomFile == null)
+            {
+                return BadRequest();
+            }
 
             var stream = new MemoryStream();
             await model.RomFile.CopyToAsync(stream);

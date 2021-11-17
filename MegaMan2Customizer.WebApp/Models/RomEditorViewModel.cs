@@ -9,7 +9,7 @@ namespace MegaMan2Customizer.WebApp.Models
     {
         [HiddenInput]
         [Required]
-        public IFormFile RomFile { get; set; }
+        public IFormFile? RomFile { get; set; } = null;
 
         [HiddenInput]
         [Required]
@@ -17,19 +17,19 @@ namespace MegaMan2Customizer.WebApp.Models
 
         #region StartMenuOptions
         [Display(Name = "Background Color")]
-        public string StartMenuBackgroundColor { get; set; }
+        public string StartMenuBackgroundColor { get; set; } = "";
 
         [Display(Name = "Shadow Color")]
-        public string StartMenuShadowColor { get; set; }
+        public string StartMenuShadowColor { get; set; } = "";
 
         [Display(Name = "Border Color")]
-        public string StartMenuBorderColor { get; set; }
+        public string StartMenuBorderColor { get; set; } = "";
         #endregion StartMenuOptions
 
-        public MegaManOptionsViewModel MegaMan { get; set; }
+        public MegaManOptionsViewModel MegaMan { get; set; } = new();
 
-        public WeaponUpgradeOptionsViewModel Weapons { get; set; } = new WeaponUpgradeOptionsViewModel();
+        public WeaponUpgradeOptionsViewModel Weapons { get; set; } = new();
 
-        public AllRobotMasterOptionsViewModel RobotMasters { get; set; } = new AllRobotMasterOptionsViewModel();
+        public AllRobotMasterOptionsViewModel RobotMasters { get; set; } = new();
     }
 }

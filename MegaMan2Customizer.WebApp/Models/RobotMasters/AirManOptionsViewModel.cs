@@ -19,15 +19,15 @@ namespace MegaMan2Customizer.WebApp.Models
 
     public class TornadoPatternViewModel
     {
-        public List<TornadoOptionsViewModel> Tornados { get; set; }
+        public List<TornadoOptionsViewModel> Tornados { get; set; } = new();
     }
     public class AirManOptionsViewModel : BaseRobotMasterOptionsViewModel
     {
         [Display(Name = "Tornado Primary Color")]
-        public string TornadoPrimaryColor { get; set; }
+        public string TornadoPrimaryColor { get; set; } = "";
 
         [Display(Name = "Tornado Secondary Color")]
-        public string TornadoSecondaryColor { get; set; }
+        public string TornadoSecondaryColor { get; set; } = "";
 
         [Display(Name = "Shots Before Jumping")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
@@ -53,6 +53,6 @@ namespace MegaMan2Customizer.WebApp.Models
         [DisplayFormat(DataFormatString = "{0:G}", ApplyFormatInEditMode = true)]
         public decimal Jump2Height { get; set; }
 
-        public List<TornadoPatternViewModel> TornadoPatterns { get; set; }
+        public List<TornadoPatternViewModel> TornadoPatterns { get; set; } = new();
     }
 }

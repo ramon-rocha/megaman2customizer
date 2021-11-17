@@ -4,7 +4,7 @@
     {
         public Color BladeColor
         {
-            get => new Color(_romBytes[Addresses.MetalManBladeColor]);
+            get => new(_romBytes[Addresses.MetalManBladeColor]);
             set => _romBytes[Addresses.MetalManBladeColor] = value.Value;
         }
 

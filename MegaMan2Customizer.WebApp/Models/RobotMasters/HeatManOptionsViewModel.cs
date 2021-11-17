@@ -5,10 +5,10 @@ namespace MegaMan2Customizer.WebApp.Models
     public class HeatManOptionsViewModel : BaseRobotMasterOptionsViewModel
     {
         [Display(Name = "Projectile Color 1")]
-        public string ProjectileColor1 { get; set; }
+        public string ProjectileColor1 { get; set; } = "";
 
         [Display(Name = "Projectile Color 2")]
-        public string ProjectileColor2 { get; set; }
+        public string ProjectileColor2 { get; set; } = "";
 
         [Display(Name = "Projectile 1 Height")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]

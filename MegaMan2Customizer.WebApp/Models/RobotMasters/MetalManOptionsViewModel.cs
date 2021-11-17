@@ -5,7 +5,7 @@ namespace MegaMan2Customizer.WebApp.Models
     public class MetalManOptionsViewModel : BaseRobotMasterOptionsViewModel
     {
         [Display(Name = "Blade Color")]
-        public string BladeColor { get; set; }
+        public string BladeColor { get; set; } = "";
 
         [Display(Name = "Projectile Speed")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]

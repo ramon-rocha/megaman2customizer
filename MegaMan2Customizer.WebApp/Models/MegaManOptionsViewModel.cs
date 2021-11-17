@@ -30,10 +30,10 @@ namespace MegaMan2Customizer.WebApp.Models
         public char BusterLetterCode { get; set; }
 
         [Display(Name = "Primary Color")]
-        public string BusterPrimaryColor { get; set; }
+        public string BusterPrimaryColor { get; set; } = "";
 
         [Display(Name = "Secondary Color")]
-        public string BusterSecondaryColor { get; set; }
+        public string BusterSecondaryColor { get; set; } = "";
 
         [Display(Name = "Projectile Speed")]
         [Range(0, 255, ErrorMessage = "Enter a value from 0 to 255")]
