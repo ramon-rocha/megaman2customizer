@@ -1,9 +1,8 @@
-﻿namespace MegaMan2Customizer.Core
-{
-    public class BubbleManStageOptions
-    {
-        protected readonly byte[] _romBytes;
+﻿namespace MegaMan2Customizer.Core;
 
-        public BubbleManStageOptions(byte[] romBytes) => _romBytes = romBytes;
-    }
+public class BubbleManStageOptions
+{
+    protected readonly byte[] _romBytes;
+
+    public BubbleManStageOptions(byte[] romBytes) => _romBytes = romBytes;
 }

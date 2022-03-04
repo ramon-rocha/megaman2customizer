@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace MegaMan2Customizer.WebApp
-{
-    public class Program
-    {
-        public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
+namespace MegaMan2Customizer.WebApp;
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
+public class Program
+{
+    public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>();
 }
